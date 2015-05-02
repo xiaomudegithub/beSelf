@@ -1,0 +1,39 @@
+//
+//  beself.pch
+//  beSelf
+//
+//  Created by 木 on 15/4/18.
+//  Copyright (c) 2015年 木. All rights reserved.
+//
+
+#ifndef beSelf_beself_pch
+#define beSelf_beself_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#pragma mark===========================框架类
+#import "FMDB.h"
+#import "MBProgressHUD.h"
+#import "MJExtension.h"
+#pragma mark===========================数据类
+#pragma mark--target
+#import "targetModal.h"
+#import "targetResult.h"
+#import "targetParam.h"
+#pragma mark--money
+#import "moneyRecord.h"
+#import "moneyResult.h"
+#pragma mark--time
+#pragma mark--common
+#import "SectionObject.h"
+#import "TableObject.h"
+#import "mockData.h"
+#pragma mark===========================ui类
+#import "YCommonUI.h"
+#import "GroupTableView.h"
+#import "YDatePickerView.h"
+#pragma mark===========================工具类
+#import "cacheTool.h"
+#import "timeTool.h"
+#import "rootHeader.h"
+#endif

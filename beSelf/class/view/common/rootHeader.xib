@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="rootHeader">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yav-ah-OfY" userLabel="subTitleLabel">
+                    <rect key="frame" x="0.0" y="20" width="320" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="4bS-xa-ehj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.99215686274509807" green="0.70588235294117652" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJQ-QG-boZ" userLabel="timeLabel">
+                    <rect key="frame" x="0.0" y="96" width="320" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="IlO-Q9-j1y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.99215686270000003" green="0.70588235290000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FZ-Le-3ig" userLabel="titleLabel">
+                    <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="m4g-7v-bIr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                    <color key="textColor" red="0.41960784313725491" green="0.30588235294117649" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yav-ah-OfY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="7dh-y8-Bij"/>
+                <constraint firstAttribute="trailing" secondItem="lJQ-QG-boZ" secondAttribute="trailing" id="IdO-ZK-Id5"/>
+                <constraint firstItem="1FZ-Le-3ig" firstAttribute="trailing" secondItem="yav-ah-OfY" secondAttribute="trailing" id="JB0-Fu-hJi"/>
+                <constraint firstItem="yav-ah-OfY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PaD-ty-inJ"/>
+                <constraint firstItem="1FZ-Le-3ig" firstAttribute="top" secondItem="yav-ah-OfY" secondAttribute="bottom" constant="8" id="XYw-IN-0Da"/>
+                <constraint firstItem="1FZ-Le-3ig" firstAttribute="trailing" secondItem="lJQ-QG-boZ" secondAttribute="trailing" id="bH5-8s-zWh"/>
+                <constraint firstItem="1FZ-Le-3ig" firstAttribute="leading" secondItem="lJQ-QG-boZ" secondAttribute="leading" id="dPc-WR-2Uu"/>
+                <constraint firstAttribute="trailing" secondItem="1FZ-Le-3ig" secondAttribute="trailing" id="dTa-TD-OQl"/>
+                <constraint firstItem="1FZ-Le-3ig" firstAttribute="leading" secondItem="yav-ah-OfY" secondAttribute="leading" id="lhM-sT-evh"/>
+                <constraint firstItem="lJQ-QG-boZ" firstAttribute="top" secondItem="1FZ-Le-3ig" secondAttribute="bottom" constant="8" id="naM-bJ-aLu"/>
+                <constraint firstItem="1FZ-Le-3ig" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ods-Zx-caG"/>
+                <constraint firstItem="lJQ-QG-boZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="opG-ix-qAs"/>
+                <constraint firstAttribute="trailing" secondItem="yav-ah-OfY" secondAttribute="trailing" id="u85-aV-jUu"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="subTitleLab" destination="yav-ah-OfY" id="yes-ej-0kB"/>
+                <outlet property="timeLab" destination="lJQ-QG-boZ" id="wnd-JP-SNj"/>
+                <outlet property="titleLab" destination="1FZ-Le-3ig" id="Lcy-Gm-AHW"/>
+            </connections>
+        </view>
+    </objects>
+</document>
