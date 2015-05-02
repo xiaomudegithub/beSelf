@@ -37,25 +37,25 @@
         cellView.layer.borderColor = growColor.CGColor;
         cellView.layer.borderWidth = 0.3;
         cellView.backgroundColor = [UIColor clearColor];
-        [self.contentView addSubview:cellView];
+        //[self.contentView addSubview:cellView];
         self.cellView = cellView;
         
         UILabel *title = [[UILabel alloc]init];
         title.font = [UIFont systemFontOfSize:yCellTitleFontSize];
         title.textColor = growColor;
-        [cellView addSubview:title];
+        [self.contentView addSubview:title];
         self.titleLabel = title;
         
         UIView *view = [[UIView alloc]init];
         view.backgroundColor = growColor;
-        [cellView addSubview:view];
+        [self.contentView addSubview:view];
         self.lineView = view;
         
         UILabel *subTitle = [[UILabel alloc]init];
         subTitle.font = [UIFont systemFontOfSize:yCellSubTitleFontSize];
         subTitle.textColor = growColor;
         subTitle.numberOfLines = 0 ;
-        [cellView addSubview:subTitle];
+        [self.contentView addSubview:subTitle];
         self.subTitleLabel = subTitle;
     }
     return self;
