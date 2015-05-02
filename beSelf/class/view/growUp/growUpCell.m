@@ -37,7 +37,6 @@
         cellView.layer.borderColor = growColor.CGColor;
         cellView.layer.borderWidth = 0.3;
         cellView.backgroundColor = [UIColor clearColor];
-        //[self.contentView addSubview:cellView];
         self.cellView = cellView;
         
         UILabel *title = [[UILabel alloc]init];
