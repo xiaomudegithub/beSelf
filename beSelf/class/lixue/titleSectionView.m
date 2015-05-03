@@ -11,7 +11,7 @@
 
 @interface titleSectionView()
 
-@property (nonatomic, strong) UILabel *textLabel;
+@property (nonatomic, strong) yLabel *textLabel;
 
 @end
 
@@ -28,10 +28,10 @@
     if (self)
     {
         self.backgroundColor = bgColor;
-        _textLabel = [[UILabel alloc] init];
+        _textLabel = [[yLabel alloc] init];
         _textLabel.font = [UIFont systemFontOfSize:ySectionTitleFontSize];
         _textLabel.textColor = ySectionTitleColor;
-        _textLabel.backgroundColor = [UIColor redColor];
+        _textLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_textLabel];
     }
     return self;

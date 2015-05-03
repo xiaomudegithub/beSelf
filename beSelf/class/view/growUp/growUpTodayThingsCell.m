@@ -9,7 +9,7 @@
 #import "growUpTodayThingsCell.h"
 
 @interface growUpTodayThingsCell()
-@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet yLabel *title;
 
 @end
 

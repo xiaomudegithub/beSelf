@@ -10,8 +10,8 @@
 
 @interface YTotalTimeViewController ()<UITextFieldDelegate,YDatePickerViewDelegate>
 //属性
-@property (weak, nonatomic) IBOutlet UILabel *timeTotalLab;
-@property (weak, nonatomic) IBOutlet UILabel *currentTime;
+@property (weak, nonatomic) IBOutlet yLabel *timeTotalLab;
+@property (weak, nonatomic) IBOutlet yLabel *currentTime;
 @property (weak, nonatomic) IBOutlet UITextField *startTimeText;
 @property (weak, nonatomic) IBOutlet UITextField *endTimeText;
 @property (weak, nonatomic) IBOutlet UIButton *cofirmBtn;

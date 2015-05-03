@@ -14,9 +14,9 @@
 @property (nonatomic,strong)UIView *cellView;
 
 //主标题
-@property (nonatomic,strong)UILabel *titleLabel;
+@property (nonatomic,strong)yLabel *titleLabel;
 //副标题
-@property (nonatomic,strong)UILabel *subTitleLabel;
+@property (nonatomic,strong)yLabel *subTitleLabel;
 //分割线
 @property (nonatomic,strong)UIView *lineView;
 
@@ -30,29 +30,20 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 
+        self.backgroundColor = growColor;
         
-        self.selectionStyle =  UITableViewCellSelectionStyleNone;
-        self.backgroundColor = [UIColor clearColor];
-        UIView *cellView= [[UIView alloc]init];
-        cellView.layer.borderColor = growColor.CGColor;
-        cellView.layer.borderWidth = 0.3;
-        cellView.backgroundColor = [UIColor clearColor];
-        self.cellView = cellView;
-        
-        UILabel *title = [[UILabel alloc]init];
+        yLabel *title = [[yLabel alloc]init];
         title.font = [UIFont systemFontOfSize:yCellTitleFontSize];
-        title.textColor = growColor;
         [self.contentView addSubview:title];
         self.titleLabel = title;
         
         UIView *view = [[UIView alloc]init];
-        view.backgroundColor = growColor;
+        view.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:view];
         self.lineView = view;
         
-        UILabel *subTitle = [[UILabel alloc]init];
+        yLabel *subTitle = [[yLabel alloc]init];
         subTitle.font = [UIFont systemFontOfSize:yCellSubTitleFontSize];
-        subTitle.textColor = growColor;
         subTitle.numberOfLines = 0 ;
         [self.contentView addSubview:subTitle];
         self.subTitleLabel = subTitle;
@@ -89,13 +80,12 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGFloat height = self.frame.size.height;
-    self.cellView.frame = CGRectMake(ySideInset, 0, yUIScreenWidth-2*ySideInset,height );
-    
-    self.titleLabel.frame = CGRectMake(ySideInset, 0,yUIScreenWidth - 4*ySideInset, yCellHeight);
-    
-    self.lineView.frame = CGRectMake(0, CGRectGetMaxY(self.titleLabel.frame), yUIScreenWidth - 2*ySideInset, yLineFont);
 
-    self.subTitleLabel.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.lineView.frame), yUIScreenWidth - 4*ySideInset,height-CGRectGetMaxY(self.lineView.frame));
+    self.titleLabel.frame = CGRectMake(ySideInset, 0,yUIScreenWidth - ySideInset, yCellHeight);
+    
+    self.lineView.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.titleLabel.frame), yUIScreenWidth-2*ySideInset, yLineFont);
+
+    self.subTitleLabel.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.lineView.frame), yUIScreenWidth - ySideInset,height-CGRectGetMaxY(self.lineView.frame));
     
 }
 

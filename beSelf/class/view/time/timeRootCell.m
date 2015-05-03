@@ -9,9 +9,9 @@
 #import "timeRootCell.h"
 @interface timeRootCell()
 
-@property (weak, nonatomic) IBOutlet UILabel *targetTitleLab;
-@property (weak, nonatomic) IBOutlet UILabel *timeStartLab;
-@property (weak, nonatomic) IBOutlet UILabel *timeEndLab;
+@property (weak, nonatomic) IBOutlet yLabel *targetTitleLab;
+@property (weak, nonatomic) IBOutlet yLabel *timeStartLab;
+@property (weak, nonatomic) IBOutlet yLabel *timeEndLab;
 @property (weak, nonatomic) IBOutlet UIButton *timeValueBtn;
 
 @end

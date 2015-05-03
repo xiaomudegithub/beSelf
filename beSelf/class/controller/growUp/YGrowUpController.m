@@ -77,8 +77,10 @@
     if (!_myTable) {
         _myTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.seg.frame)+yViewTopInset, yUIScreenWidth, yUIScreenHeight-CGRectGetMaxY(self.seg.frame)-yViewTopInset) style:UITableViewStylePlain];
         _myTable.group_delegate = self;
-        _myTable.tableSectionHeaderData = self.sectionArray;
+  
     }
+    _myTable.tableSectionHeaderData = self.sectionArray;
+    _myTable.tableData = self.dataArray;
     return _myTable;
 }
 //点击
@@ -100,7 +102,6 @@
     growUpRootCellData *tmpObj = tmpArr[indexPath.row];
     growUpRecordController *controller = [[growUpRecordController alloc]init];
     controller.object = tmpObj.object;
-    controller.view.backgroundColor =  self.view.backgroundColor;
     [self.navigationController pushViewController:controller animated:YES];
 }
 //行高
@@ -118,10 +119,16 @@
 
 #pragma mark--3，模拟数据
 - (void)getData{
+    if (IsMock) {
+        
+    }else{
+        
+    }
+    [self setData];
+}
+- (void)setData{
     self.dataArray = [NSMutableArray array];
     self.sectionArray = [NSMutableArray array];
-
-   
     
     for (int i = 0; i<3; i++) {
         SectionObject *sectionObj = [[SectionObject alloc]init];
@@ -130,7 +137,6 @@
         sectionObj.sectionHight = ySectionSpace;
         [self.sectionArray addObject:sectionObj];
     }
-    
     
     for (int i = 0; i<3; i++) {
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -144,12 +150,11 @@
         growUpRootObject.cellString = @"growUpCell";
         
         [tempArray addObject:growUpRootObject];
-  
+        
         [dic setObject:tempArray forKey:@"titleSectionView"];
         [self.dataArray addObject:dic];
     }
     
-    self.myTable.tableData = self.dataArray;
     [self.myTable reloadData];
 }
 #pragma mark--4,点击左边按钮，输入内容

@@ -38,7 +38,7 @@
 /**
  *  通用分割线宽度
  */
-#define yLineFont 0.33
+#define yLineFont 1
 
 /**
  *  通用单行列表高度
@@ -136,7 +136,8 @@
 #define labelHeigh_30 30
 //========================SegmentedControl==========
 #define segHeight 30
-
+//=======================margin=====================
+#define margin_20 20
 
 
 #endif

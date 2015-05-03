@@ -8,11 +8,11 @@
 
 #import "targetRootCell.h"
 @interface targetRootCell()
-@property (weak, nonatomic) IBOutlet UILabel *timeValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *moneyValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *subTimeValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *subMoneyValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet yLabel *timeValueLabel;
+@property (weak, nonatomic) IBOutlet yLabel *moneyValueLabel;
+@property (weak, nonatomic) IBOutlet yLabel *subTimeValueLabel;
+@property (weak, nonatomic) IBOutlet yLabel *subMoneyValueLabel;
+@property (weak, nonatomic) IBOutlet yLabel *title;
 
 @end
 @implementation targetRootCell

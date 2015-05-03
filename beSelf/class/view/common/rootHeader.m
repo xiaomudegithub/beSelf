@@ -8,9 +8,9 @@
 
 #import "rootHeader.h"
 @interface rootHeader()
-@property (weak, nonatomic) IBOutlet UILabel *subTitleLab;
-@property (weak, nonatomic) IBOutlet UILabel *titleLab;
-@property (weak, nonatomic) IBOutlet UILabel *timeLab;
+@property (weak, nonatomic) IBOutlet yLabel *subTitleLab;
+@property (weak, nonatomic) IBOutlet yLabel *titleLab;
+@property (weak, nonatomic) IBOutlet yLabel *timeLab;
 @end
 
 @implementation rootHeader

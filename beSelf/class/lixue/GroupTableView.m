@@ -36,6 +36,7 @@
         
         //去掉多余的线条
         self.tableFooterView = [[UIView alloc] init];
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }
@@ -203,6 +204,7 @@
         [cell performSelector:@selector(setCellDelegate:) withObject:_cellDelegateObject];
     }
     
+    //添加分隔线
     return cell;
 }
 
@@ -270,6 +272,15 @@
 
 - (void)reloadTableData{
     [self reloadData];
+}
+
+#pragma mark--------mu
+- (UIView *)separatorLineview{
+    if (!_separatorLineview) {
+        _separatorLineview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, 0.33)];
+        _separatorLineview.backgroundColor = bgColor;
+    }
+    return _separatorLineview;
 }
 
 

@@ -9,8 +9,8 @@
 #import "moneyRootCell.h"
 @interface moneyRootCell()
 
-@property (weak, nonatomic) IBOutlet UILabel *targetValueLab;
-@property (weak, nonatomic) IBOutlet UILabel *moneyValueLab;
+@property (weak, nonatomic) IBOutlet yLabel *targetValueLab;
+@property (weak, nonatomic) IBOutlet yLabel *moneyValueLab;
 @property (weak, nonatomic) IBOutlet UIButton *moneyBtn;
 
 @end

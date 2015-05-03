@@ -83,6 +83,10 @@
 		0BF7EFA21AE76B25000D124A /* YTotalTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF7EFA01AE76B25000D124A /* YTotalTimeViewController.xib */; };
 		BF563B981AF3DC4700DB6A02 /* ySegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BF563B971AF3DC4700DB6A02 /* ySegmentedControl.m */; };
 		BF563B9B1AF3DE8800DB6A02 /* lineView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF563B9A1AF3DE8800DB6A02 /* lineView.m */; };
+		BF5B16411AF50CE90071ECE8 /* yLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16401AF50CE90071ECE8 /* yLabel.m */; };
+		BF5B16441AF5A72A0071ECE8 /* nsstringTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */; };
+		BF5B16471AF5AF7B0071ECE8 /* YTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16461AF5AF7B0071ECE8 /* YTextField.m */; };
+		BFF8EF621AF5B3EE0053980A /* YBarButtonitem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +238,14 @@
 		BF563B971AF3DC4700DB6A02 /* ySegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ySegmentedControl.m; sourceTree = "<group>"; };
 		BF563B991AF3DE8800DB6A02 /* lineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lineView.h; sourceTree = "<group>"; };
 		BF563B9A1AF3DE8800DB6A02 /* lineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lineView.m; sourceTree = "<group>"; };
+		BF5B163F1AF50CE90071ECE8 /* yLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yLabel.h; sourceTree = "<group>"; };
+		BF5B16401AF50CE90071ECE8 /* yLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yLabel.m; sourceTree = "<group>"; };
+		BF5B16421AF5A72A0071ECE8 /* nsstringTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsstringTool.h; sourceTree = "<group>"; };
+		BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsstringTool.m; sourceTree = "<group>"; };
+		BF5B16451AF5AF7B0071ECE8 /* YTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTextField.h; sourceTree = "<group>"; };
+		BF5B16461AF5AF7B0071ECE8 /* YTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTextField.m; sourceTree = "<group>"; };
+		BFF8EF601AF5B3EE0053980A /* YBarButtonitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBarButtonitem.h; sourceTree = "<group>"; };
+		BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBarButtonitem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +312,7 @@
 				0B98E1EC1ADE918A00E4B8DB /* YGrowUpController.h */,
 				0B98E1ED1ADE918A00E4B8DB /* YGrowUpController.m */,
 				0B98E1EE1ADE918A00E4B8DB /* YGrowUpController.xib */,
+				0B98E2081ADE918A00E4B8DB /* growUp */,
 			);
 			path = growUp;
 			sourceTree = "<group>";
@@ -365,7 +378,6 @@
 			children = (
 				0BF7D1621AE209B60051B9AD /* common */,
 				0BF7D15B1AE208F90051B9AD /* money */,
-				0B98E2081ADE918A00E4B8DB /* growUp */,
 				0B98E2121ADE918A00E4B8DB /* target */,
 			);
 			path = modal;
@@ -377,7 +389,8 @@
 				0B98E2091ADE918A00E4B8DB /* growUpRootCellData.h */,
 				0B98E20A1ADE918A00E4B8DB /* growUpRootCellData.m */,
 			);
-			path = growUp;
+			name = growUp;
+			path = ../../modal/growUp;
 			sourceTree = "<group>";
 		};
 		0B98E2121ADE918A00E4B8DB /* target */ = {
@@ -485,6 +498,8 @@
 				0B98E25C1ADE920C00E4B8DB /* cacheTool.m */,
 				0BDD002A1AE0F62900119989 /* timeTool.h */,
 				0BDD002B1AE0F62900119989 /* timeTool.m */,
+				BF5B16421AF5A72A0071ECE8 /* nsstringTool.h */,
+				BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -646,6 +661,12 @@
 				BF563B971AF3DC4700DB6A02 /* ySegmentedControl.m */,
 				BF563B991AF3DE8800DB6A02 /* lineView.h */,
 				BF563B9A1AF3DE8800DB6A02 /* lineView.m */,
+				BF5B163F1AF50CE90071ECE8 /* yLabel.h */,
+				BF5B16401AF50CE90071ECE8 /* yLabel.m */,
+				BF5B16451AF5AF7B0071ECE8 /* YTextField.h */,
+				BF5B16461AF5AF7B0071ECE8 /* YTextField.m */,
+				BFF8EF601AF5B3EE0053980A /* YBarButtonitem.h */,
+				BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */,
 			);
 			path = yUI;
 			sourceTree = "<group>";
@@ -769,10 +790,13 @@
 				0BF032091AD4BA3100DB1142 /* ViewController.m in Sources */,
 				0BF032061AD4BA3100DB1142 /* AppDelegate.m in Sources */,
 				0BF032031AD4BA3100DB1142 /* main.m in Sources */,
+				BF5B16411AF50CE90071ECE8 /* yLabel.m in Sources */,
+				BF5B16471AF5AF7B0071ECE8 /* YTextField.m in Sources */,
 				0B98E2521ADE918A00E4B8DB /* YTabbarButton.m in Sources */,
 				0B98E24C1ADE918A00E4B8DB /* targetResult.m in Sources */,
 				0B98E23C1ADE918A00E4B8DB /* YMoneyController.m in Sources */,
 				0BB25A8C1AE78DE9003F3CA5 /* YTimeController.m in Sources */,
+				BF5B16441AF5A72A0071ECE8 /* nsstringTool.m in Sources */,
 				0B98E24B1ADE918A00E4B8DB /* targetModal.m in Sources */,
 				0B98E2421ADE918A00E4B8DB /* GroupTableView.m in Sources */,
 				0B98E2751ADE939D00E4B8DB /* FMResultSet.m in Sources */,
@@ -795,6 +819,7 @@
 				0B98E2941ADFDCB500E4B8DB /* MJArgument.m in Sources */,
 				0BDD002C1AE0F62900119989 /* timeTool.m in Sources */,
 				0B98E29C1ADFDCB500E4B8DB /* NSObject+MJMember.m in Sources */,
+				BFF8EF621AF5B3EE0053980A /* YBarButtonitem.m in Sources */,
 				0B98E2561ADE918A00E4B8DB /* targetRootCell.m in Sources */,
 				0B98E2781ADE939D00E4B8DB /* MBProgressHUD.m in Sources */,
 				0BF7D2651AE664330051B9AD /* moneyResult.m in Sources */,

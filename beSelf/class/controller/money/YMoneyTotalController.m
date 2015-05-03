@@ -10,9 +10,9 @@
 #import "YMoneyRecordController.h"
 
 @interface YMoneyTotalController ()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *currentTime;
-@property (weak, nonatomic) IBOutlet UILabel *totalMoneyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
+@property (weak, nonatomic) IBOutlet yLabel *currentTime;
+@property (weak, nonatomic) IBOutlet yLabel *totalMoneyLabel;
+@property (weak, nonatomic) IBOutlet yLabel *bottomLabel;
 @property (weak, nonatomic) IBOutlet UIButton *inBtn;
 @property (weak, nonatomic) IBOutlet UIButton *confrimBtn;
 @property (weak, nonatomic) IBOutlet UITextField *moneyValueText;

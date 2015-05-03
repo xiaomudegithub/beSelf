@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>9B36A1BC-DDD2-4EC5-952B-79726D79C843</string>
 	<key>IDESourceControlProjectName</key>
-	<string>beSelf</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>7D59DD0F9197290F5786C3EAE8A63B958B85F896</key>
 		<string>https://github.com/xiaomudegithub/beSelf.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>beSelf.xcodeproj</string>
+	<string>beSelf.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>7D59DD0F9197290F5786C3EAE8A63B958B85F896</key>

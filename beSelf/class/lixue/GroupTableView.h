@@ -37,6 +37,9 @@
 //表的代理
 @property (nonatomic, weak) id<GroupTableViewDelegate> group_delegate;
 
+//separator
+@property (nonatomic, strong) UIView *separatorLineview;
+
 - (void)reloadTableData;
 
 @end

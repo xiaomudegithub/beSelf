@@ -8,9 +8,9 @@
 
 #import "moneyRecordCell.h"
 @interface moneyRecordCell()
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *moneyValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *moneyUseLabel;
+@property (weak, nonatomic) IBOutlet yLabel *typeLabel;
+@property (weak, nonatomic) IBOutlet yLabel *moneyValueLabel;
+@property (weak, nonatomic) IBOutlet yLabel *moneyUseLabel;
 
 @end
 

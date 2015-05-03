@@ -12,8 +12,8 @@
 //rowHeight
 -(CGFloat)rowHeight{
     if (!_rowHeight) {
-        CGSize size = [self.object.subTitle sizeWithFont:[UIFont systemFontOfSize:yCellSubTitleFontSize] constrainedToSize:CGSizeMake(yUIScreenWidth - 2*ySideInset, MAXFLOAT) lineBreakMode:NSLineBreakByCharWrapping];
-        _rowHeight = 60+size.height;
+        CGSize size = [nsstringTool sizeWithString:self.object.subTitle andFont:labelHeigh_14];
+        _rowHeight = margin_20+size.height + yCellHeight +margin_20;
     }
     return _rowHeight;
 }
