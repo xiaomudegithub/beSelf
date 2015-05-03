@@ -128,9 +128,9 @@
 #define growColor UIColorWithRGB(68, 178, 247)
 #define targetColor UIColorWithRGB(105,250, 250)
 #define timeColor UIColorWithRGB(91,179,74)
-#define moneyColor UIColorWithRGB(229, 178, 247)
+#define moneyColor UIColorWithRGB(49, 134, 193)
 #define bgColor UIColorWithRGB(244,244,244)
-#define yWhite UIColorWithRGB(0, 0, 0);
+#define yWhite UIColorWithRGB(255, 255, 255);
 //========================label==================
 #define labelHeigh_14 14
 #define labelHeigh_16 16

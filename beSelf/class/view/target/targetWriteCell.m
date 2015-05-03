@@ -18,7 +18,9 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self  = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
+        self.backgroundColor = targetColor;
     }
     return self;
 }

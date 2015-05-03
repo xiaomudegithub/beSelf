@@ -19,8 +19,10 @@
 @property (nonatomic,strong)NSMutableArray *dataArray;
 //section数组
 @property(nonatomic,strong)NSMutableArray *sectionArray;
-//从数据库中读取的对象
+//从数据库中读取的成长记录对象
 @property (nonatomic, strong)growUpResult *result;
+//从数据库中读取的目标对象
+@property (nonatomic, strong)targetResult *tResult;
 
 @end
 
@@ -30,7 +32,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-
     //设置导航栏
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(rightBarButtonItemDidTap:)];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -60,16 +61,18 @@
 }
 //1.2监听选择控制器的点击
 - (void)mainChose:(UISegmentedControl *)seg{
-    switch (seg.selectedSegmentIndex) {
-        case 0:
-            self.myTable.hidden =  NO;
-            break;
-            
-        default:
-            self.myTable.hidden = YES;
-            break;
-    }
-    
+//    switch (seg.selectedSegmentIndex) {
+//        case 0:
+//      
+//            break;
+//            
+//        default:
+//            [self.dataArray removeAllObjects];
+//            
+//            break;
+//    }
+    [self.dataArray removeAllObjects];
+    [self getData];
 }
 
 #pragma mark--2,添加内容table
@@ -100,32 +103,43 @@
         tmpArr = tmpObject;
     }
     
-    growUpRootObject *tmpObj = tmpArr[indexPath.row];
-    growUpRecordController *controller = [[growUpRecordController alloc]init];
-    controller.object = tmpObj.object;
-    [self.navigationController pushViewController:controller animated:YES];
+    if (self.seg.selectedSegmentIndex==0) {
+        growUpRootObject *tmpObj = tmpArr[indexPath.row];
+        growUpRecordController *controller = [[growUpRecordController alloc]init];
+        controller.object = tmpObj.object;
+        [self.navigationController pushViewController:controller animated:YES];
+    }else{
+        
+    }
+
 }
 //行高
 - (CGFloat)tableRowHeightAtIndex:(NSIndexPath *)indexPath{
     NSDictionary *tempDic =  self.dataArray[indexPath.section];
     NSArray *tempArray = tempDic.allValues[0];
-    growUpRootObject *data =  tempArray[indexPath.row];
-    return data.rowHeight;
+    if (self.seg.selectedSegmentIndex==0) {
+        growUpRootObject *data =  tempArray[indexPath.row];
+        return data.rowHeight;
+    }else{
+        TableObject *data = tempArray[indexPath.row];
+        return data.cellHeight;
+    }
 }
 //section的header高度
 - (CGFloat)tableViewHeightForHeaderInSection:(NSInteger)section{
-    SectionObject *sectionObj = self.sectionArray[section];
-    return sectionObj.sectionHight;
+    return ySectionSpace;
 }
 
 #pragma mark--3，获取数据
 - (void)getData{
-    if (IsMock) {
-        
+
+    if (self.seg.selectedSegmentIndex==0) {
+        [self setData];
     }else{
-        self.result = [yCache readerGrowUpResult];
+        [self setTagetData];
     }
-    [self setData];
+    self.result = [yCache readerGrowUpResult];
+    
 }
 - (void)setData{
     self.dataArray = [NSMutableArray array];
@@ -153,6 +167,37 @@
     
     [self.myTable reloadData];
 }
+
+- (void)setTagetData{
+    self.dataArray = [NSMutableArray array];
+    self.sectionArray = [NSMutableArray array];
+    for (NSInteger i =0; i<self.tResult.targetArray.count; i++) {
+        
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        NSMutableArray *tempArray = [NSMutableArray array];
+        
+        SectionObject *sectionObj = [[SectionObject alloc]init];
+        sectionObj.titleString = @"";
+        sectionObj.valueString = @"";
+        sectionObj.sectionHight = ySectionSpace;
+        [self.sectionArray addObject:sectionObj];
+        
+        targetModal *target = self.tResult.targetArray[i];
+        
+        TableObject *obj = [[TableObject alloc]init];
+        obj.cellHeight = yCellHeight;
+        obj.cellString = @"growUpTodayThingsCell";
+        obj.title =  target.targetTitle;
+        [tempArray addObject:obj];
+        
+        [dic setObject:tempArray forKey:@"titleSectionView"];
+        [self.dataArray addObject:dic];
+        
+}
+    
+    [self.myTable reloadData];
+}
+
 #pragma mark--4,点击左边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
     growUpRecordController *controller = [[growUpRecordController alloc]initWithNibName:@"growUpRecordController" bundle:nil];
@@ -171,8 +216,16 @@
 - (growUpResult *)result{
     if (!_result) {
         _result = [[growUpResult alloc]init];
+        _result = [yCache readerGrowUpResult];
         
     }
     return _result;
+}
+- (targetResult *)tResult{
+    if (!_tResult) {
+        _tResult = [[targetResult alloc]init];
+        _tResult = [yCache readerTargetResult];
+    }
+    return _tResult;
 }
 @end

@@ -26,7 +26,7 @@
 
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
         //timeVlueBtn
-        self.timeValueBtn.backgroundColor = UIColorWithRGB(241, 156, 92);
+        self.timeValueBtn.backgroundColor = timeColor;
     }
     return self;
 }

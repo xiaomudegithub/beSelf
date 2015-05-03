@@ -21,11 +21,11 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor = [UIColor clearColor];
-
+ 
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
         CGRect frame = self.frame;
         frame.size.width = yUIScreenWidth;
+        self.backgroundColor = targetColor;
         self.frame = frame;
     }
     return self;

@@ -205,6 +205,13 @@
     }
     
     //添加分隔线
+    self.separatorLineview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, 0.33)];
+    self.separatorLineview.backgroundColor = yWhite;
+    if(indexPath.row!=0){
+        [cell addSubview:self.separatorLineview];
+    }
+    
+    
     return cell;
 }
 

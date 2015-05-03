@@ -9,5 +9,5 @@
 #import "TableObject.h"
 
 @implementation TableObject
-
+MJCodingImplementation
 @end

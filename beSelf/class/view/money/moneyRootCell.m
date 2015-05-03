@@ -21,8 +21,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
-        self.layer.borderColor = [UIColorWithRGB(136, 254, 237)CGColor];
-        self.layer.borderWidth = 0.5;
+        self.backgroundColor = moneyColor;
         
     }
     return self;
