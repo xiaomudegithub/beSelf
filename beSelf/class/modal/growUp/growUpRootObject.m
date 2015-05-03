@@ -25,6 +25,11 @@
     }
     return _cellString;
 }
-
+- (TableObject *)object{
+    if (!_object) {
+        _object = [[TableObject alloc]init];
+    }
+    return _object;
+}
 MJCodingImplementation;
 @end

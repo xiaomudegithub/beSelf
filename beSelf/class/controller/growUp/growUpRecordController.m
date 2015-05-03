@@ -61,6 +61,7 @@
 //2.2关闭键盘
 #pragma mark--3,存储数据并返回
 - (void)save:(id)sender{
+    growUpRootObject *tempObj = self.growObject.object;
     //3.1存储数据
     [yCache cacheGrowUpRecord:self.growObject];
     //3.2.1通知代理
@@ -95,7 +96,7 @@
 
 }
 - (growUpRootObject *)growObject{
-    if (_growObject) {
+    if (!_growObject) {
         _growObject = [[growUpRootObject alloc]init];
         _growObject.object.time = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
     }

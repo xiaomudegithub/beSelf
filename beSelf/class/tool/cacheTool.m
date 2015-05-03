@@ -33,7 +33,7 @@ static FMDatabaseQueue *_queue;
         NSData *growData = [NSKeyedArchiver archivedDataWithRootObject:growUp];
         
         //存储数据
-        [db executeUpdate:@"insert into y_growUp value (?)",growData];
+        [db executeUpdate:@"insert into y_growUp (growRecord) value (?)",growData];
     }];
 }
 #pragma mark--写入目标

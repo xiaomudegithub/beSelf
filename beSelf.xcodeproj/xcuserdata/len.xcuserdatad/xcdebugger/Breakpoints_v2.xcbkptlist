@@ -84,28 +84,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "beSelf/class/controller/growUp/growUpRecordController.m"
-            timestampString = "452323972.865622"
+            timestampString = "452329323.332914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-textFieldDidEndEditing:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "beSelf/class/controller/growUp/growUpRecordController.m"
-            timestampString = "452328429.529064"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "-growObject"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-save:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
