@@ -39,7 +39,7 @@
                         </mask>
                     </variation>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0A-Pb-Jlz">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0A-Pb-Jlz" customClass="YTextView">
                     <rect key="frame" x="15" y="173" width="290" height="335"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -88,7 +88,7 @@
                     <exclude reference="V0V-oa-rsZ"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="410" y="385"/>
+            <point key="canvasLocation" x="318" y="391"/>
         </view>
     </objects>
 </document>

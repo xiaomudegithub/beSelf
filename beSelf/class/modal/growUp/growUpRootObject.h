@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TableObject.h"
 
-@interface growUpRootCellData : NSObject
+
+@interface growUpRootObject : NSObject
 //object
 @property (nonatomic,strong)TableObject *object;
 //cellName

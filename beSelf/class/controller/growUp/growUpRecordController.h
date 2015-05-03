@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class growUpRecordController;
+@protocol growUpRecordControllerDelegate <NSObject>
+
+- (void)didSaveGrowUpRecord;
+
+@end
 
 @interface growUpRecordController : UIViewController
+//
+@property(nonatomic, weak)id<growUpRecordControllerDelegate> delegate;
 //上个页面传过来的数据
 @property (nonatomic,strong)TableObject *object;
 @end

@@ -20,7 +20,6 @@
 		0B98E2431ADE918A00E4B8DB /* SectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E1FF1ADE918A00E4B8DB /* SectionObject.m */; };
 		0B98E2441ADE918A00E4B8DB /* TableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E2011ADE918A00E4B8DB /* TableObject.m */; };
 		0B98E2451ADE918A00E4B8DB /* titleSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E2031ADE918A00E4B8DB /* titleSectionView.m */; };
-		0B98E2471ADE918A00E4B8DB /* growUpRootCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E20A1ADE918A00E4B8DB /* growUpRootCellData.m */; };
 		0B98E24B1ADE918A00E4B8DB /* targetModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E2141ADE918A00E4B8DB /* targetModal.m */; };
 		0B98E24C1ADE918A00E4B8DB /* targetResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E2161ADE918A00E4B8DB /* targetResult.m */; };
 		0B98E24F1ADE918A00E4B8DB /* rootHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E2221ADE918A00E4B8DB /* rootHeader.m */; };
@@ -81,8 +80,11 @@
 		0BF7D2651AE664330051B9AD /* moneyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7D2641AE664330051B9AD /* moneyResult.m */; };
 		0BF7EFA11AE76B25000D124A /* YTotalTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7EF9F1AE76B25000D124A /* YTotalTimeViewController.m */; };
 		0BF7EFA21AE76B25000D124A /* YTotalTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF7EFA01AE76B25000D124A /* YTotalTimeViewController.xib */; };
+		BF48411F1AF5C8E6003B4F9C /* YTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF48411E1AF5C8E6003B4F9C /* YTextView.m */; };
 		BF563B981AF3DC4700DB6A02 /* ySegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BF563B971AF3DC4700DB6A02 /* ySegmentedControl.m */; };
 		BF563B9B1AF3DE8800DB6A02 /* lineView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF563B9A1AF3DE8800DB6A02 /* lineView.m */; };
+		BF57473A1AF5CCF70016AFF0 /* growUpRootObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5747391AF5CCF70016AFF0 /* growUpRootObject.m */; };
+		BF57473D1AF5E0AF0016AFF0 /* growUpResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BF57473C1AF5E0AF0016AFF0 /* growUpResult.m */; };
 		BF5B16411AF50CE90071ECE8 /* yLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16401AF50CE90071ECE8 /* yLabel.m */; };
 		BF5B16441AF5A72A0071ECE8 /* nsstringTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */; };
 		BF5B16471AF5AF7B0071ECE8 /* YTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16461AF5AF7B0071ECE8 /* YTextField.m */; };
@@ -122,8 +124,6 @@
 		0B98E2011ADE918A00E4B8DB /* TableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableObject.m; sourceTree = "<group>"; };
 		0B98E2021ADE918A00E4B8DB /* titleSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = titleSectionView.h; sourceTree = "<group>"; };
 		0B98E2031ADE918A00E4B8DB /* titleSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = titleSectionView.m; sourceTree = "<group>"; };
-		0B98E2091ADE918A00E4B8DB /* growUpRootCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = growUpRootCellData.h; sourceTree = "<group>"; };
-		0B98E20A1ADE918A00E4B8DB /* growUpRootCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = growUpRootCellData.m; sourceTree = "<group>"; };
 		0B98E2131ADE918A00E4B8DB /* targetModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetModal.h; sourceTree = "<group>"; };
 		0B98E2141ADE918A00E4B8DB /* targetModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = targetModal.m; sourceTree = "<group>"; };
 		0B98E2151ADE918A00E4B8DB /* targetResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetResult.h; sourceTree = "<group>"; };
@@ -234,10 +234,16 @@
 		0BF7EF9E1AE76B25000D124A /* YTotalTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTotalTimeViewController.h; sourceTree = "<group>"; };
 		0BF7EF9F1AE76B25000D124A /* YTotalTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTotalTimeViewController.m; sourceTree = "<group>"; };
 		0BF7EFA01AE76B25000D124A /* YTotalTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTotalTimeViewController.xib; sourceTree = "<group>"; };
+		BF48411D1AF5C8E6003B4F9C /* YTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTextView.h; sourceTree = "<group>"; };
+		BF48411E1AF5C8E6003B4F9C /* YTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTextView.m; sourceTree = "<group>"; };
 		BF563B961AF3DC4700DB6A02 /* ySegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ySegmentedControl.h; sourceTree = "<group>"; };
 		BF563B971AF3DC4700DB6A02 /* ySegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ySegmentedControl.m; sourceTree = "<group>"; };
 		BF563B991AF3DE8800DB6A02 /* lineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lineView.h; sourceTree = "<group>"; };
 		BF563B9A1AF3DE8800DB6A02 /* lineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lineView.m; sourceTree = "<group>"; };
+		BF5747381AF5CCF70016AFF0 /* growUpRootObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = growUpRootObject.h; sourceTree = "<group>"; };
+		BF5747391AF5CCF70016AFF0 /* growUpRootObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = growUpRootObject.m; sourceTree = "<group>"; };
+		BF57473B1AF5E0AF0016AFF0 /* growUpResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = growUpResult.h; sourceTree = "<group>"; };
+		BF57473C1AF5E0AF0016AFF0 /* growUpResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = growUpResult.m; sourceTree = "<group>"; };
 		BF5B163F1AF50CE90071ECE8 /* yLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yLabel.h; sourceTree = "<group>"; };
 		BF5B16401AF50CE90071ECE8 /* yLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yLabel.m; sourceTree = "<group>"; };
 		BF5B16421AF5A72A0071ECE8 /* nsstringTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsstringTool.h; sourceTree = "<group>"; };
@@ -312,7 +318,6 @@
 				0B98E1EC1ADE918A00E4B8DB /* YGrowUpController.h */,
 				0B98E1ED1ADE918A00E4B8DB /* YGrowUpController.m */,
 				0B98E1EE1ADE918A00E4B8DB /* YGrowUpController.xib */,
-				0B98E2081ADE918A00E4B8DB /* growUp */,
 			);
 			path = growUp;
 			sourceTree = "<group>";
@@ -376,21 +381,12 @@
 		0B98E2041ADE918A00E4B8DB /* modal */ = {
 			isa = PBXGroup;
 			children = (
+				BF5747371AF5CCF70016AFF0 /* growUp */,
 				0BF7D1621AE209B60051B9AD /* common */,
 				0BF7D15B1AE208F90051B9AD /* money */,
 				0B98E2121ADE918A00E4B8DB /* target */,
 			);
 			path = modal;
-			sourceTree = "<group>";
-		};
-		0B98E2081ADE918A00E4B8DB /* growUp */ = {
-			isa = PBXGroup;
-			children = (
-				0B98E2091ADE918A00E4B8DB /* growUpRootCellData.h */,
-				0B98E20A1ADE918A00E4B8DB /* growUpRootCellData.m */,
-			);
-			name = growUp;
-			path = ../../modal/growUp;
 			sourceTree = "<group>";
 		};
 		0B98E2121ADE918A00E4B8DB /* target */ = {
@@ -667,8 +663,21 @@
 				BF5B16461AF5AF7B0071ECE8 /* YTextField.m */,
 				BFF8EF601AF5B3EE0053980A /* YBarButtonitem.h */,
 				BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */,
+				BF48411D1AF5C8E6003B4F9C /* YTextView.h */,
+				BF48411E1AF5C8E6003B4F9C /* YTextView.m */,
 			);
 			path = yUI;
+			sourceTree = "<group>";
+		};
+		BF5747371AF5CCF70016AFF0 /* growUp */ = {
+			isa = PBXGroup;
+			children = (
+				BF5747381AF5CCF70016AFF0 /* growUpRootObject.h */,
+				BF5747391AF5CCF70016AFF0 /* growUpRootObject.m */,
+				BF57473B1AF5E0AF0016AFF0 /* growUpResult.h */,
+				BF57473C1AF5E0AF0016AFF0 /* growUpResult.m */,
+			);
+			path = growUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -789,6 +798,7 @@
 				0B98E2761ADE939D00E4B8DB /* MBProgressHUD+MJ.m in Sources */,
 				0BF032091AD4BA3100DB1142 /* ViewController.m in Sources */,
 				0BF032061AD4BA3100DB1142 /* AppDelegate.m in Sources */,
+				BF48411F1AF5C8E6003B4F9C /* YTextView.m in Sources */,
 				0BF032031AD4BA3100DB1142 /* main.m in Sources */,
 				BF5B16411AF50CE90071ECE8 /* yLabel.m in Sources */,
 				BF5B16471AF5AF7B0071ECE8 /* YTextField.m in Sources */,
@@ -802,6 +812,7 @@
 				0B98E2751ADE939D00E4B8DB /* FMResultSet.m in Sources */,
 				0B98E23E1ADE918A00E4B8DB /* YTargetController.m in Sources */,
 				0B98E29A1ADFDCB500E4B8DB /* NSObject+MJCoding.m in Sources */,
+				BF57473D1AF5E0AF0016AFF0 /* growUpResult.m in Sources */,
 				0B98E2441ADE918A00E4B8DB /* TableObject.m in Sources */,
 				0BF7D1E11AE24BAA0051B9AD /* YDatePickerView.m in Sources */,
 				BF563B9B1AF3DE8800DB6A02 /* lineView.m in Sources */,
@@ -813,7 +824,6 @@
 				0B98E2541ADE918A00E4B8DB /* moneyRootCell.m in Sources */,
 				0B98E2731ADE939D00E4B8DB /* FMDatabasePool.m in Sources */,
 				0B98E2951ADFDCB500E4B8DB /* MJIvar.m in Sources */,
-				0B98E2471ADE918A00E4B8DB /* growUpRootCellData.m in Sources */,
 				0B98E29B1ADFDCB500E4B8DB /* NSObject+MJKeyValue.m in Sources */,
 				0B98E2451ADE918A00E4B8DB /* titleSectionView.m in Sources */,
 				0B98E2941ADFDCB500E4B8DB /* MJArgument.m in Sources */,
@@ -835,6 +845,7 @@
 				0BF7D2541AE5DA490051B9AD /* growUpTodayThingsCell.m in Sources */,
 				0BF7D1651AE209B60051B9AD /* mockData.m in Sources */,
 				0B98E2721ADE939D00E4B8DB /* FMDatabaseAdditions.m in Sources */,
+				BF57473A1AF5CCF70016AFF0 /* growUpRootObject.m in Sources */,
 				0B98E2511ADE918A00E4B8DB /* YTabBar.m in Sources */,
 				0B98E2531ADE918A00E4B8DB /* growUpCell.m in Sources */,
 				BF563B981AF3DC4700DB6A02 /* ySegmentedControl.m in Sources */,

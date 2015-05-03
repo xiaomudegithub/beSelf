@@ -7,7 +7,7 @@
 //
 
 #import "growUpCell.h"
-#import "growUpRootCellData.h"
+#import "growUpRootObject.h"
 @interface growUpCell()
 
 //cellView
@@ -64,7 +64,7 @@
         tempArray = (NSArray *)tempObject;
     }
     
-    growUpRootCellData *obj  =  (growUpRootCellData *)tempArray[index.row];
+    growUpRootObject *obj  =  (growUpRootObject *)tempArray[index.row];
     
     self.titleLabel.text = obj.object.title;
     

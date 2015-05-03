@@ -6,9 +6,10 @@
 //  Copyright (c) 2015年 木. All rights reserved.
 //
 
-#import "growUpRootCellData.h"
+#import "growUpRootObject.h"
 
-@implementation growUpRootCellData
+@implementation growUpRootObject
+
 //rowHeight
 -(CGFloat)rowHeight{
     if (!_rowHeight) {
@@ -17,4 +18,13 @@
     }
     return _rowHeight;
 }
+//cellString
+- (NSString *)cellString{
+    if (!_cellString) {
+        _cellString = @"growUpCell";
+    }
+    return _cellString;
+}
+
+MJCodingImplementation;
 @end

@@ -7,10 +7,10 @@
 //
 
 #import "YGrowUpController.h"
-#import "growUpRootCellData.h"
+#import "growUpRootObject.h"
 #import "growUpRecordController.h"
 
-@interface YGrowUpController ()<GroupTableViewDelegate>
+@interface YGrowUpController ()<GroupTableViewDelegate,growUpRecordControllerDelegate>
 //选择控制器
 @property (nonatomic,strong)UISegmentedControl *seg;
 //内容table
@@ -19,6 +19,8 @@
 @property (nonatomic,strong)NSMutableArray *dataArray;
 //section数组
 @property(nonatomic,strong)NSMutableArray *sectionArray;
+//从数据库中读取的对象
+@property (nonatomic, strong)growUpResult *result;
 
 @end
 
@@ -39,7 +41,6 @@
     [self getData];
     
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -99,7 +100,7 @@
         tmpArr = tmpObject;
     }
     
-    growUpRootCellData *tmpObj = tmpArr[indexPath.row];
+    growUpRootObject *tmpObj = tmpArr[indexPath.row];
     growUpRecordController *controller = [[growUpRecordController alloc]init];
     controller.object = tmpObj.object;
     [self.navigationController pushViewController:controller animated:YES];
@@ -108,7 +109,7 @@
 - (CGFloat)tableRowHeightAtIndex:(NSIndexPath *)indexPath{
     NSDictionary *tempDic =  self.dataArray[indexPath.section];
     NSArray *tempArray = tempDic.allValues[0];
-    growUpRootCellData *data =  tempArray[indexPath.row];
+    growUpRootObject *data =  tempArray[indexPath.row];
     return data.rowHeight;
 }
 //section的header高度
@@ -117,42 +118,37 @@
     return sectionObj.sectionHight;
 }
 
-#pragma mark--3，模拟数据
+#pragma mark--3，获取数据
 - (void)getData{
     if (IsMock) {
         
     }else{
-        
+        self.result = [yCache readerGrowUpResult];
     }
     [self setData];
 }
 - (void)setData{
     self.dataArray = [NSMutableArray array];
     self.sectionArray = [NSMutableArray array];
-    
-    for (int i = 0; i<3; i++) {
+    for (NSInteger i =0; i<self.result.grows.count; i++) {
+        
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        NSMutableArray *tempArray = [NSMutableArray array];
+        
+        growUpRootObject *grow = self.result.grows[i];
+        
         SectionObject *sectionObj = [[SectionObject alloc]init];
-        sectionObj.titleString = @"20110405";
+        sectionObj.titleString = grow.object.time;
         sectionObj.valueString = @"";
         sectionObj.sectionHight = ySectionSpace;
         [self.sectionArray addObject:sectionObj];
-    }
-    
-    for (int i = 0; i<3; i++) {
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        NSMutableArray *tempArray = [NSMutableArray array];
-        TableObject *object = [[TableObject alloc]init];
-        object.title = @"个人成长十分重要";
-        object.subTitle = @"个人成长是一个人一辈子的事情，如果你能坚持做好一件事，你一定会成功";
-        
-        growUpRootCellData *growUpRootObject = [[growUpRootCellData alloc]init];
-        growUpRootObject.object= object;
-        growUpRootObject.cellString = @"growUpCell";
-        
-        [tempArray addObject:growUpRootObject];
+
+
+        [tempArray addObject:grow];
         
         [dic setObject:tempArray forKey:@"titleSectionView"];
         [self.dataArray addObject:dic];
+        
     }
     
     [self.myTable reloadData];
@@ -160,10 +156,23 @@
 #pragma mark--4,点击左边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
     growUpRecordController *controller = [[growUpRecordController alloc]initWithNibName:@"growUpRecordController" bundle:nil];
+    controller.delegate = self;
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
     nav.navigationBar.tintColor = self.view.backgroundColor;
     [self presentViewController:nav animated:YES completion:^{
         
     }];
+}
+#pragma mark--5,响应成长记录控制器代理，刷新数据
+- (void)didSaveGrowUpRecord{
+    [self getData];
+}
+#pragma  mark--初始化控件
+- (growUpResult *)result{
+    if (!_result) {
+        _result = [[growUpResult alloc]init];
+        
+    }
+    return _result;
 }
 @end

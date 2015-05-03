@@ -13,11 +13,11 @@
 @property (weak, nonatomic) IBOutlet yLabel *timeLab;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
-
+@property (nonatomic, strong)growUpRootObject   *growObject;
 @end
 
 @implementation growUpRecordController
-#pragma mark--生命周期
+#pragma mark--0,生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -45,7 +45,9 @@
 */
 #pragma mark--1,输入标题
 //1.1更改标题
-
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    self.growObject.object.title = textField.text;
+}
 //1.2关闭键盘
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
@@ -53,15 +55,21 @@
 }
 #pragma mark--2，输入内容
 //2.1编辑内容
-
+- (void)textViewDidChange:(UITextView *)textView{
+    self.growObject.object.subTitle = textView.text;
+}
 //2.2关闭键盘
 #pragma mark--3,存储数据并返回
 - (void)save:(id)sender{
     //3.1存储数据
-    
+    [yCache cacheGrowUpRecord:self.growObject];
+    //3.2.1通知代理
+    if([self.delegate respondsToSelector:@selector(didSaveGrowUpRecord)]){
+        [self.delegate didSaveGrowUpRecord];
+    };
     //3.2返回
     [self dismissViewControllerAnimated:YES completion:^{
-        
+      
     }];
 }
 #pragma mark--初始化控件
@@ -86,5 +94,11 @@
     self.contentTextView.delegate = self;
 
 }
-
+- (growUpRootObject *)growObject{
+    if (_growObject) {
+        _growObject = [[growUpRootObject alloc]init];
+        _growObject.object.time = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
+    }
+    return _growObject;
+}
 @end

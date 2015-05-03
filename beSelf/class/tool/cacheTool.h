@@ -10,11 +10,15 @@
 
 @interface cacheTool : NSObject
 #pragma mark==================写入
+#pragma mark--写入成长记录
+- (void)cacheGrowUpRecord:(growUpRootObject *)growUp;
 #pragma mark--写入目标
 - (void)cacheTarget:(targetModal *)target;
 #pragma mark--写入收支记录
 - (void)cacheMoneyRecord:(moneyRecord *)money;
 #pragma mark===================读取
+#pragma mark--读取所有成长记录
+- (growUpResult *)readerGrowUpResult;
 #pragma mark--读取某一个目标
 - (targetModal *)readerTargetWithParam:(targetParam *)param;
 #pragma mark--读取所有目标

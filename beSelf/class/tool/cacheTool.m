@@ -21,10 +21,21 @@ static FMDatabaseQueue *_queue;
     [_queue inDatabase:^(FMDatabase *db) {
         [db executeUpdate:@"create table y_target (targetId integer primary key autoincrement,target blob,targetStep blob);"];
         [db executeUpdate:@"create table y_moneyRecord (moneyId integer primary key autoincrement,moneyRecord blob);"];
+        [db executeUpdate:@"create table y_growUp (growId integer primary key autoincrement, growRecord blob)"];
     }];
 }
 
 #pragma mark==========================写入
+#pragma mark--写入成长记录
+- (void)cacheGrowUpRecord:(growUpRootObject *)growUp{
+    [_queue inDatabase:^(FMDatabase *db) {
+        //获得需要存储的数据
+        NSData *growData = [NSKeyedArchiver archivedDataWithRootObject:growUp];
+        
+        //存储数据
+        [db executeUpdate:@"insert into y_growUp value (?)",growData];
+    }];
+}
 #pragma mark--写入目标
 - (void)cacheTarget:(targetModal *)target{
     
@@ -101,6 +112,26 @@ static FMDatabaseQueue *_queue;
         }
         
         result.mRecordArray = tempArray;
+    }];
+    return result;
+}
+#pragma mark--读取所有成长记录
+- (growUpResult *)readerGrowUpResult{
+    __block growUpResult *result = [[growUpResult alloc]init];
+    
+    [_queue inDatabase:^(FMDatabase *db) {
+        FMResultSet *rs = nil;
+        NSMutableArray *tempArray = [NSMutableArray array];
+        rs = [db executeQuery:@"select * from y_growUp"];
+        while (rs.next) {
+            
+            NSData *data = [rs dataForColumn:@"growRecord"];
+            growUpRootObject *grow = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            if (grow) {
+                [tempArray addObject:grow];
+            }
+        }
+        result.grows = tempArray;
     }];
     return result;
 }
