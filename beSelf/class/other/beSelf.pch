@@ -38,6 +38,10 @@
 #import "rootHeader.h"
 #pragma mark----yUI
 #import "yLabel.h"
+#import "YBarButtonitem.h"
+#import "YTextField.h"
+#import "YTextView.h"
+
 
 #pragma mark===========================工具类
 #import "cacheTool.h"

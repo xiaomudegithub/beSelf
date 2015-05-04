@@ -61,16 +61,7 @@
 }
 //1.2监听选择控制器的点击
 - (void)mainChose:(UISegmentedControl *)seg{
-//    switch (seg.selectedSegmentIndex) {
-//        case 0:
-//      
-//            break;
-//            
-//        default:
-//            [self.dataArray removeAllObjects];
-//            
-//            break;
-//    }
+
     [self.dataArray removeAllObjects];
     [self getData];
 }
@@ -138,7 +129,6 @@
     }else{
         [self setTagetData];
     }
-    self.result = [yCache readerGrowUpResult];
     
 }
 - (void)setData{
@@ -214,18 +204,17 @@
 }
 #pragma  mark--初始化控件
 - (growUpResult *)result{
-    if (!_result) {
-        _result = [[growUpResult alloc]init];
-        _result = [yCache readerGrowUpResult];
-        
-    }
+
+    _result = [[growUpResult alloc]init];
+    _result = [yCache readerGrowUpResult];
+    
     return _result;
 }
 - (targetResult *)tResult{
-    if (!_tResult) {
-        _tResult = [[targetResult alloc]init];
-        _tResult = [yCache readerTargetResult];
-    }
+
+    _tResult = [[targetResult alloc]init];
+    _tResult = [yCache readerTargetResult];
+
     return _tResult;
 }
 @end

@@ -139,6 +139,11 @@
 #define segHeight 30
 //=======================margin=====================
 #define margin_20 20
+//=======================btn=====================
+//width
+#define btnWidth_44 44
+//height
+#define btnHeight_30 30
 
 
 #endif

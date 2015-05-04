@@ -24,6 +24,7 @@
     self.title = @"温故而知新，可以为师矣";
     self.view.backgroundColor = growColor;
     if (!self.object) {
+       
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save:)];
     }
     
@@ -61,7 +62,6 @@
 //2.2关闭键盘
 #pragma mark--3,存储数据并返回
 - (void)save:(id)sender{
-    growUpRootObject *tempObj = self.growObject.object;
     //3.1存储数据
     [yCache cacheGrowUpRecord:self.growObject];
     //3.2.1通知代理
