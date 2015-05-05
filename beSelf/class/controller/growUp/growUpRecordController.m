@@ -25,9 +25,7 @@
     self.view.backgroundColor = growColor;
     if (!self.object) {
        
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save:)];
     }
-    
     [self setControllItem];
 }
 - (void)didReceiveMemoryWarning {

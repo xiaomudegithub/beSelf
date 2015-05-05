@@ -88,6 +88,10 @@
 		BF5B16411AF50CE90071ECE8 /* yLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16401AF50CE90071ECE8 /* yLabel.m */; };
 		BF5B16441AF5A72A0071ECE8 /* nsstringTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */; };
 		BF5B16471AF5AF7B0071ECE8 /* YTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16461AF5AF7B0071ECE8 /* YTextField.m */; };
+		BF7B9E6A1AF7CA340089906A /* YTargetCheckControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E681AF7CA340089906A /* YTargetCheckControllerViewController.m */; };
+		BF7B9E6B1AF7CA340089906A /* YTargetCheckControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B9E691AF7CA340089906A /* YTargetCheckControllerViewController.xib */; };
+		BF7B9E6E1AF7D0760089906A /* imageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E6D1AF7D0760089906A /* imageTool.m */; };
+		BF7B9E711AF7D4450089906A /* YNavigationControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E701AF7D4450089906A /* YNavigationControllerViewController.m */; };
 		BFF8EF621AF5B3EE0053980A /* YBarButtonitem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */; };
 /* End PBXBuildFile section */
 
@@ -250,6 +254,13 @@
 		BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsstringTool.m; sourceTree = "<group>"; };
 		BF5B16451AF5AF7B0071ECE8 /* YTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTextField.h; sourceTree = "<group>"; };
 		BF5B16461AF5AF7B0071ECE8 /* YTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTextField.m; sourceTree = "<group>"; };
+		BF7B9E671AF7CA340089906A /* YTargetCheckControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTargetCheckControllerViewController.h; sourceTree = "<group>"; };
+		BF7B9E681AF7CA340089906A /* YTargetCheckControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTargetCheckControllerViewController.m; sourceTree = "<group>"; };
+		BF7B9E691AF7CA340089906A /* YTargetCheckControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTargetCheckControllerViewController.xib; sourceTree = "<group>"; };
+		BF7B9E6C1AF7D0760089906A /* imageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageTool.h; sourceTree = "<group>"; };
+		BF7B9E6D1AF7D0760089906A /* imageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imageTool.m; sourceTree = "<group>"; };
+		BF7B9E6F1AF7D4450089906A /* YNavigationControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNavigationControllerViewController.h; sourceTree = "<group>"; };
+		BF7B9E701AF7D4450089906A /* YNavigationControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNavigationControllerViewController.m; sourceTree = "<group>"; };
 		BFF8EF601AF5B3EE0053980A /* YBarButtonitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBarButtonitem.h; sourceTree = "<group>"; };
 		BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBarButtonitem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,6 +316,8 @@
 			children = (
 				0B98E1E61ADE918900E4B8DB /* YTabbarController.h */,
 				0B98E1E71ADE918900E4B8DB /* YTabbarController.m */,
+				BF7B9E6F1AF7D4450089906A /* YNavigationControllerViewController.h */,
+				BF7B9E701AF7D4450089906A /* YNavigationControllerViewController.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -346,6 +359,9 @@
 				0BDD001D1AE0BD2500119989 /* YTargetWriteController.h */,
 				0BDD001E1AE0BD2500119989 /* YTargetWriteController.m */,
 				0BDD001F1AE0BD2500119989 /* YTargetWriteController.xib */,
+				BF7B9E671AF7CA340089906A /* YTargetCheckControllerViewController.h */,
+				BF7B9E681AF7CA340089906A /* YTargetCheckControllerViewController.m */,
+				BF7B9E691AF7CA340089906A /* YTargetCheckControllerViewController.xib */,
 			);
 			path = target;
 			sourceTree = "<group>";
@@ -496,6 +512,8 @@
 				0BDD002B1AE0F62900119989 /* timeTool.m */,
 				BF5B16421AF5A72A0071ECE8 /* nsstringTool.h */,
 				BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */,
+				BF7B9E6C1AF7D0760089906A /* imageTool.h */,
+				BF7B9E6D1AF7D0760089906A /* imageTool.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -765,6 +783,7 @@
 				0B98E23D1ADE918A00E4B8DB /* YMoneyController.xib in Resources */,
 				0B98E2551ADE918A00E4B8DB /* moneyRootCell.xib in Resources */,
 				0BF0320C1AD4BA3100DB1142 /* Main.storyboard in Resources */,
+				BF7B9E6B1AF7CA340089906A /* YTargetCheckControllerViewController.xib in Resources */,
 				0BF7D25A1AE5DC1D0051B9AD /* moneyRecordCell.xib in Resources */,
 				0BDD00211AE0BD2500119989 /* YTargetWriteController.xib in Resources */,
 				0BDD00261AE0BDD600119989 /* targetWriteCell.xib in Resources */,
@@ -805,7 +824,9 @@
 				0B98E2521ADE918A00E4B8DB /* YTabbarButton.m in Sources */,
 				0B98E24C1ADE918A00E4B8DB /* targetResult.m in Sources */,
 				0B98E23C1ADE918A00E4B8DB /* YMoneyController.m in Sources */,
+				BF7B9E6A1AF7CA340089906A /* YTargetCheckControllerViewController.m in Sources */,
 				0BB25A8C1AE78DE9003F3CA5 /* YTimeController.m in Sources */,
+				BF7B9E711AF7D4450089906A /* YNavigationControllerViewController.m in Sources */,
 				BF5B16441AF5A72A0071ECE8 /* nsstringTool.m in Sources */,
 				0B98E24B1ADE918A00E4B8DB /* targetModal.m in Sources */,
 				0B98E2421ADE918A00E4B8DB /* GroupTableView.m in Sources */,
@@ -820,6 +841,7 @@
 				0B98E2381ADE918A00E4B8DB /* growUpRecordController.m in Sources */,
 				0BDD00201AE0BD2500119989 /* YTargetWriteController.m in Sources */,
 				0B98E2971ADFDCB500E4B8DB /* MJMethod.m in Sources */,
+				BF7B9E6E1AF7D0760089906A /* imageTool.m in Sources */,
 				0BF7D2591AE5DC1D0051B9AD /* moneyRecordCell.m in Sources */,
 				0B98E2541ADE918A00E4B8DB /* moneyRootCell.m in Sources */,
 				0B98E2731ADE939D00E4B8DB /* FMDatabasePool.m in Sources */,
