@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YTargetCheckControllerViewController : UIViewController
-
+@interface YTargetCheckController : UIViewController
+//title
+@property (nonatomic, copy)NSString *title;
+//targetId
+@property (nonatomic, assign)NSInteger targetId;
 @end

@@ -66,8 +66,9 @@
     [nav.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:color} forState:UIControlStateNormal];
     
     //设置导航栏的背景
-    nav.navigationBar.backgroundColor = yWhite;
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+  
+    //设置导航栏的返回按钮
+ 
     //添加tabbarline
     UIView *lineView =[[UIView alloc]initWithFrame:CGRectMake(0, 44, yUIScreenWidth, 2)];
     lineView.backgroundColor = color;
@@ -75,7 +76,5 @@
 
 }
 
-- (void)back{
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 @end

@@ -130,7 +130,7 @@
 #define timeColor UIColorWithRGB(91,179,74)
 #define moneyColor UIColorWithRGB(49, 134, 193)
 #define bgColor UIColorWithRGB(244,244,244)
-#define yWhite UIColorWithRGB(255, 255, 255);
+#define yWhite [UIColor whiteColor];
 //========================label==================
 #define labelHeigh_14 14
 #define labelHeigh_16 16

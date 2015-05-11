@@ -16,6 +16,8 @@
 - (void)cacheTarget:(targetModal *)target;
 #pragma mark--写入收支记录
 - (void)cacheMoneyRecord:(moneyRecord *)money;
+#pragma mark--写入目标分解步骤
+- (void)cacheTargetSteps:(targetStep *)tStep;
 #pragma mark===================读取
 #pragma mark--读取所有成长记录
 - (growUpResult *)readerGrowUpResult;

@@ -60,6 +60,16 @@ static FMDatabaseQueue *_queue;
     }];
     
 }
+#pragma mark--写入目标分解步骤
+- (void)cacheTargetSteps:(targetStep *)tStep{
+    [_queue inDatabase:^(FMDatabase *db) {
+        //1,获得需要存储的数据
+        NSData *moneyData = [NSKeyedArchiver archivedDataWithRootObject:tStep];
+        
+        //2,存储数据
+        [db executeUpdate:@"insert into y_target (targetStep) values (?) where targetID = (?)",moneyData,tStep.targetId];
+    }];
+}
 #pragma mark===================读取
 #pragma mark--读取某一个目标
 - (targetModal *)readerTargetWithParam:(targetParam *)param{

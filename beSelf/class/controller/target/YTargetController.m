@@ -8,6 +8,8 @@
 
 #import "YTargetController.h"
 #import "YTargetWriteController.h"
+#import "YTargetCheckController.h"
+
 
 @interface YTargetController ()<GroupTableViewDelegate,YTargetWriteControllerDelegate>
 //表数据
@@ -87,6 +89,18 @@
     
     TableObject *tmpObj = tmpArr[indexPath.row];
     return tmpObj.cellHeight;
+}
+- (void)tabledidSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //获取cell对应的对象
+    NSDictionary *tempDic =  self.tableData[indexPath.section];
+    NSArray *tempArray =  tempDic.allValues[0];
+    TableObject *cellObj = tempArray[0];
+    
+    //跳转到分解目标界面
+    YTargetCheckController *controller= [[YTargetCheckController alloc]init];
+    controller.title = cellObj.title;
+    controller.targetId = indexPath.section;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 #pragma mark--1,获取数据
 - (void)getData{

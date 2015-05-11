@@ -81,6 +81,7 @@
 		0BF7EFA11AE76B25000D124A /* YTotalTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7EF9F1AE76B25000D124A /* YTotalTimeViewController.m */; };
 		0BF7EFA21AE76B25000D124A /* YTotalTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF7EFA01AE76B25000D124A /* YTotalTimeViewController.xib */; };
 		BF48411F1AF5C8E6003B4F9C /* YTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF48411E1AF5C8E6003B4F9C /* YTextView.m */; };
+		BF4BBC1F1AFEFB6600AEF190 /* targetStep.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4BBC1E1AFEFB6600AEF190 /* targetStep.m */; };
 		BF563B981AF3DC4700DB6A02 /* ySegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BF563B971AF3DC4700DB6A02 /* ySegmentedControl.m */; };
 		BF563B9B1AF3DE8800DB6A02 /* lineView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF563B9A1AF3DE8800DB6A02 /* lineView.m */; };
 		BF57473A1AF5CCF70016AFF0 /* growUpRootObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5747391AF5CCF70016AFF0 /* growUpRootObject.m */; };
@@ -88,8 +89,8 @@
 		BF5B16411AF50CE90071ECE8 /* yLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16401AF50CE90071ECE8 /* yLabel.m */; };
 		BF5B16441AF5A72A0071ECE8 /* nsstringTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */; };
 		BF5B16471AF5AF7B0071ECE8 /* YTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5B16461AF5AF7B0071ECE8 /* YTextField.m */; };
-		BF7B9E6A1AF7CA340089906A /* YTargetCheckControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E681AF7CA340089906A /* YTargetCheckControllerViewController.m */; };
-		BF7B9E6B1AF7CA340089906A /* YTargetCheckControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B9E691AF7CA340089906A /* YTargetCheckControllerViewController.xib */; };
+		BF7B9E6A1AF7CA340089906A /* YTargetCheckController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E681AF7CA340089906A /* YTargetCheckController.m */; };
+		BF7B9E6B1AF7CA340089906A /* YTargetCheckController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B9E691AF7CA340089906A /* YTargetCheckController.xib */; };
 		BF7B9E6E1AF7D0760089906A /* imageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E6D1AF7D0760089906A /* imageTool.m */; };
 		BF7B9E711AF7D4450089906A /* YNavigationControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E701AF7D4450089906A /* YNavigationControllerViewController.m */; };
 		BFF8EF621AF5B3EE0053980A /* YBarButtonitem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */; };
@@ -240,6 +241,8 @@
 		0BF7EFA01AE76B25000D124A /* YTotalTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTotalTimeViewController.xib; sourceTree = "<group>"; };
 		BF48411D1AF5C8E6003B4F9C /* YTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTextView.h; sourceTree = "<group>"; };
 		BF48411E1AF5C8E6003B4F9C /* YTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTextView.m; sourceTree = "<group>"; };
+		BF4BBC1D1AFEFB6600AEF190 /* targetStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetStep.h; sourceTree = "<group>"; };
+		BF4BBC1E1AFEFB6600AEF190 /* targetStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = targetStep.m; sourceTree = "<group>"; };
 		BF563B961AF3DC4700DB6A02 /* ySegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ySegmentedControl.h; sourceTree = "<group>"; };
 		BF563B971AF3DC4700DB6A02 /* ySegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ySegmentedControl.m; sourceTree = "<group>"; };
 		BF563B991AF3DE8800DB6A02 /* lineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lineView.h; sourceTree = "<group>"; };
@@ -254,9 +257,9 @@
 		BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsstringTool.m; sourceTree = "<group>"; };
 		BF5B16451AF5AF7B0071ECE8 /* YTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTextField.h; sourceTree = "<group>"; };
 		BF5B16461AF5AF7B0071ECE8 /* YTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTextField.m; sourceTree = "<group>"; };
-		BF7B9E671AF7CA340089906A /* YTargetCheckControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTargetCheckControllerViewController.h; sourceTree = "<group>"; };
-		BF7B9E681AF7CA340089906A /* YTargetCheckControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTargetCheckControllerViewController.m; sourceTree = "<group>"; };
-		BF7B9E691AF7CA340089906A /* YTargetCheckControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTargetCheckControllerViewController.xib; sourceTree = "<group>"; };
+		BF7B9E671AF7CA340089906A /* YTargetCheckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTargetCheckController.h; sourceTree = "<group>"; };
+		BF7B9E681AF7CA340089906A /* YTargetCheckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTargetCheckController.m; sourceTree = "<group>"; };
+		BF7B9E691AF7CA340089906A /* YTargetCheckController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTargetCheckController.xib; sourceTree = "<group>"; };
 		BF7B9E6C1AF7D0760089906A /* imageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageTool.h; sourceTree = "<group>"; };
 		BF7B9E6D1AF7D0760089906A /* imageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imageTool.m; sourceTree = "<group>"; };
 		BF7B9E6F1AF7D4450089906A /* YNavigationControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNavigationControllerViewController.h; sourceTree = "<group>"; };
@@ -359,9 +362,9 @@
 				0BDD001D1AE0BD2500119989 /* YTargetWriteController.h */,
 				0BDD001E1AE0BD2500119989 /* YTargetWriteController.m */,
 				0BDD001F1AE0BD2500119989 /* YTargetWriteController.xib */,
-				BF7B9E671AF7CA340089906A /* YTargetCheckControllerViewController.h */,
-				BF7B9E681AF7CA340089906A /* YTargetCheckControllerViewController.m */,
-				BF7B9E691AF7CA340089906A /* YTargetCheckControllerViewController.xib */,
+				BF7B9E671AF7CA340089906A /* YTargetCheckController.h */,
+				BF7B9E681AF7CA340089906A /* YTargetCheckController.m */,
+				BF7B9E691AF7CA340089906A /* YTargetCheckController.xib */,
 			);
 			path = target;
 			sourceTree = "<group>";
@@ -414,6 +417,8 @@
 				0B98E2161ADE918A00E4B8DB /* targetResult.m */,
 				0BDD002D1AE1F5DE00119989 /* targetParam.h */,
 				0BDD002E1AE1F5DE00119989 /* targetParam.m */,
+				BF4BBC1D1AFEFB6600AEF190 /* targetStep.h */,
+				BF4BBC1E1AFEFB6600AEF190 /* targetStep.m */,
 			);
 			path = target;
 			sourceTree = "<group>";
@@ -783,7 +788,7 @@
 				0B98E23D1ADE918A00E4B8DB /* YMoneyController.xib in Resources */,
 				0B98E2551ADE918A00E4B8DB /* moneyRootCell.xib in Resources */,
 				0BF0320C1AD4BA3100DB1142 /* Main.storyboard in Resources */,
-				BF7B9E6B1AF7CA340089906A /* YTargetCheckControllerViewController.xib in Resources */,
+				BF7B9E6B1AF7CA340089906A /* YTargetCheckController.xib in Resources */,
 				0BF7D25A1AE5DC1D0051B9AD /* moneyRecordCell.xib in Resources */,
 				0BDD00211AE0BD2500119989 /* YTargetWriteController.xib in Resources */,
 				0BDD00261AE0BDD600119989 /* targetWriteCell.xib in Resources */,
@@ -824,7 +829,7 @@
 				0B98E2521ADE918A00E4B8DB /* YTabbarButton.m in Sources */,
 				0B98E24C1ADE918A00E4B8DB /* targetResult.m in Sources */,
 				0B98E23C1ADE918A00E4B8DB /* YMoneyController.m in Sources */,
-				BF7B9E6A1AF7CA340089906A /* YTargetCheckControllerViewController.m in Sources */,
+				BF7B9E6A1AF7CA340089906A /* YTargetCheckController.m in Sources */,
 				0BB25A8C1AE78DE9003F3CA5 /* YTimeController.m in Sources */,
 				BF7B9E711AF7D4450089906A /* YNavigationControllerViewController.m in Sources */,
 				BF5B16441AF5A72A0071ECE8 /* nsstringTool.m in Sources */,
@@ -868,6 +873,7 @@
 				0BF7D1651AE209B60051B9AD /* mockData.m in Sources */,
 				0B98E2721ADE939D00E4B8DB /* FMDatabaseAdditions.m in Sources */,
 				BF57473A1AF5CCF70016AFF0 /* growUpRootObject.m in Sources */,
+				BF4BBC1F1AFEFB6600AEF190 /* targetStep.m in Sources */,
 				0B98E2511ADE918A00E4B8DB /* YTabBar.m in Sources */,
 				0B98E2531ADE918A00E4B8DB /* growUpCell.m in Sources */,
 				BF563B981AF3DC4700DB6A02 /* ySegmentedControl.m in Sources */,
