@@ -37,6 +37,7 @@
 #import "GroupTableView.h"
 #import "YDatePickerView.h"
 #import "rootHeader.h"
+#import "YTabBar.h"
 //----yUI
 #import "yLabel.h"
 #import "YBarButtonitem.h"

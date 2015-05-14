@@ -96,6 +96,7 @@
     if (!_myTable) {
         _myTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height) style:UITableViewStylePlain];
         _myTable.group_delegate = self;
+        _myTable.contentInset = UIEdgeInsetsMake(0, 0, margin_64, 0);
   
     }
     _myTable.tableSectionHeaderData = self.sectionArray;

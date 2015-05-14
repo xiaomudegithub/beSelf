@@ -29,8 +29,10 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.layer.borderColor =  growColor.CGColor;
-        self.layer.borderWidth = 1;
+        self.contentView.layer.borderColor =  growColor.CGColor;
+        self.contentView.layer.borderWidth = 1;
+        self.contentView.layer.cornerRadius = 5;
+
         
         yLabel *title = [[yLabel alloc]init];
         title.font = [UIFont systemFontOfSize:yCellTitleFontSize];
@@ -70,8 +72,9 @@
     
     self.subTitleLabel.text = obj.object.subTitle;
     
-    CGRect cellF = CGRectMake(0, 0, yUIScreenWidth, obj.rowHeight);
-    self.backgroundColor = [UIColor colorWithPatternImage:[yImage creatGrowImageWithFrame:cellF]];
+    //CGRect cellF = CGRectMake(0, 0, yUIScreenWidth, obj.rowHeight);
+    self.contentView.backgroundColor = bgColor;//[UIColor colorWithPatternImage:[yImage creatGrowImageWithFrame:cellF]];
+
 
     
 }
@@ -82,12 +85,16 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGFloat height = self.frame.size.height;
-
-    self.titleLabel.frame = CGRectMake(ySideInset, 0,yUIScreenWidth - ySideInset, yCellHeight);
     
-    self.lineView.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.titleLabel.frame), yUIScreenWidth-2*ySideInset, yLineFont);
+    self.contentView.frame = CGRectMake(yViewTopInset, 0, yUIScreenWidth- yViewTopInset*2, self.frame.size.height);
+    
+    CGFloat width = self.contentView.frame.size.width;
 
-    self.subTitleLabel.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.titleLabel.frame), yUIScreenWidth - ySideInset,height-CGRectGetMaxY(self.titleLabel.frame));
+    self.titleLabel.frame = CGRectMake(ySideInset, 0,width - ySideInset*2, yCellHeight);
+    
+    self.lineView.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.titleLabel.frame), width-2*ySideInset, yLineFont);
+
+    self.subTitleLabel.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.titleLabel.frame), width - 2*ySideInset,height-CGRectGetMaxY(self.titleLabel.frame));
     
 }
 

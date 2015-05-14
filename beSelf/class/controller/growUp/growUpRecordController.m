@@ -56,6 +56,7 @@
     //contentTextView
     self.contentTextView.backgroundColor = [UIColor clearColor];
     self.contentTextView.layer.borderColor = growColor.CGColor;
+    self.contentTextView.layer.cornerRadius = 5;
     self.contentTextView.text = self.object.subTitle;
     self.contentTextView.textColor = growColor;
     self.contentTextView.layer.borderWidth = 0.33;

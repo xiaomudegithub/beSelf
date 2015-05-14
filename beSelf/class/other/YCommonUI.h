@@ -126,7 +126,7 @@
 #define yCache [[cacheTool alloc]init]
 #define yImage [[imageTool alloc]init]
 //=======================颜色宏====================
-#define growColor UIColorWithRGB(82, 237, 199)
+#define growColor UIColorWithRGB(87, 186, 249)
 #define targetColor UIColorWithRGB(255,149,0)
 #define timeColor UIColorWithRGB(90,212,39)
 #define moneyColor UIColorWithRGB(255, 219,76)
@@ -140,6 +140,7 @@
 #define segHeight 30
 //=======================margin=====================
 #define margin_20 20
+#define margin_64 64
 //=======================btn=====================
 //width
 #define btnWidth_44 44

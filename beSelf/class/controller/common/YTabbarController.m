@@ -15,7 +15,8 @@
 @interface YTabbarController ()
 //背景视图
 @property (nonatomic,strong)UIView *backView ;
-
+//自定义tabbar
+@property (strong, nonatomic)YTabBar *yBar;
 @end
 
 @implementation YTabbarController
@@ -82,8 +83,16 @@
     [nav.navigationBar addSubview:navlineView];
     
     [self addChildViewController:nav];
+    
+    //添加tarbar
+    [self.tabBar addSubview:self.yBar];
 
 }
 
-
+- (YTabBar *)yBar{
+    if (!_yBar) {
+        _yBar = [[YTabBar alloc]initWithFrame:self.tabBar.frame];
+    }
+    return _yBar;
+}
 @end

@@ -16,8 +16,8 @@
     
     //设置颜色
     NSMutableArray *tempArray = [NSMutableArray array];
-    UIColor *upColor = UIColorWithRGB(82, 237, 199) ;
-    UIColor *downColor = UIColorWithRGB(90, 200, 251);
+    UIColor *upColor = UIColorWithRGB(87, 186, 249) ;
+    UIColor *downColor = UIColorWithRGB(57, 5, 253);
     [tempArray addObject:upColor];
     [tempArray addObject:downColor];
     //设置图片

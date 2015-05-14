@@ -25,7 +25,6 @@
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
         CGRect frame = self.frame;
         frame.size.width = yUIScreenWidth;
-        self.backgroundColor = targetColor;
         self.frame = frame;
     }
     return self;
@@ -52,6 +51,6 @@
     self.subTimeValueLabel.text = tmpObj.subTime;
     self.moneyValueLabel.text = tmpObj.money;
     self.subMoneyValueLabel.text = tmpObj.subMoney;
-    
+    self.backgroundColor = [UIColor colorWithPatternImage:[yImage creatTargetImageWithFrame:self.frame]];
 }
 @end
