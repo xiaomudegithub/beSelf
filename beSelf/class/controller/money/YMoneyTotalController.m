@@ -34,11 +34,11 @@
 @end
 
 @implementation YMoneyTotalController
-#pragma mark--0,生命周期
+#pragma mark==============1,生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setViewContent];
+    [self setUpEverythings];
     
 }
 
@@ -46,8 +46,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark--1,初始化控件属性
-- (void)setViewContent{
+#pragma mark==============2，UI搭建
+- (void)setUpEverythings{
     //confirmBtn
     _confrimBtn.layer.cornerRadius = 8;
     
@@ -77,20 +77,20 @@
 - (void)setUpNavBar{
     self.title = @"财富";
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(didBack)];
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"收支" style:UIBarButtonItemStylePlain target:self action:@selector(checkMoney)];
+    
+
 }
-- (void)didBack{
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
+#pragma mark==============3，数据渲染
+
+#pragma mark==============4，操作
+//check money record
 - (void)checkMoney{
     YMoneyRecordController *record = [[YMoneyRecordController alloc]init];
     [self.navigationController pushViewController:record animated:YES];
 }
-#pragma mark--2,选择类型：收入或是支出
+
+//2,选择类型：收入或是支出
 //收入
 - (IBAction)selectIn:(UIButton *)sender {
     self.mRecord.type = @"收入";
@@ -103,7 +103,7 @@
     sender.selected = YES;
     self.inBtn.selected = NO;
 }
-#pragma mark--3，确认
+//confirm
 - (IBAction)didConfirm:(UIButton *)sender {
     [self.view endEditing:YES];
     //缓存收支记录
@@ -120,25 +120,23 @@
     [self saveTotalMoney];
     //设置totalMoneyLabel
     self.totalMoneyLabel.text = self.totalMoney;
-
+    
 }
-#pragma mark--4，save
 - (void)saveTotalMoney{
     [[NSUserDefaults standardUserDefaults] setObject:self.totalMoney forKey:@"totalMoney"];
 }
-
-#pragma mark--delegate
+#pragma mark==============5，公用方法
 //textfield's delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.view endEditing:YES];
     return YES;
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
-        [UIView animateWithDuration:0.25 animations:^{
-            CGRect frame = self.view.frame;
-            frame.origin.y -=200;
-            self.view.frame = frame;
-        }];
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.y -=200;
+        self.view.frame = frame;
+    }];
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     if (textField == self.moneyAttentionText) {
@@ -146,11 +144,11 @@
     }else if (textField == self.moneyValueText){
         self.mRecord.value = textField.text;
     }
-        [UIView animateWithDuration:0.25 animations:^{
-            CGRect frame = self.view.frame;
-            frame.origin.y +=200;
-            self.view.frame = frame;
-        }];
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.y +=200;
+        self.view.frame = frame;
+    }];
 }
-#pragma mark--共用方法
+
 @end

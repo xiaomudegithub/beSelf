@@ -32,7 +32,7 @@
     {
         self.dataSource = self;
         self.delegate = self;
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = yWhite;
         
         //去掉多余的线条
         self.tableFooterView = [[UIView alloc] init];

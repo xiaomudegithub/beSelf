@@ -22,7 +22,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.textColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -31,7 +30,6 @@
     self = [super init];
     if ( self) {
         self.backgroundColor = [UIColor clearColor];
-        self.textColor = [UIColor whiteColor];
     }
     return self;
 }

@@ -109,10 +109,7 @@
 #pragma mark--4,点击左边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
     YTotalTimeViewController *controller = [[YTotalTimeViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
-    [self presentViewController:nav animated:YES completion:^{
-        
-    }];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

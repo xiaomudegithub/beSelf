@@ -92,7 +92,7 @@
 		BF7B9E6A1AF7CA340089906A /* YTargetCheckController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E681AF7CA340089906A /* YTargetCheckController.m */; };
 		BF7B9E6B1AF7CA340089906A /* YTargetCheckController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B9E691AF7CA340089906A /* YTargetCheckController.xib */; };
 		BF7B9E6E1AF7D0760089906A /* imageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E6D1AF7D0760089906A /* imageTool.m */; };
-		BF7B9E711AF7D4450089906A /* YNavigationControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E701AF7D4450089906A /* YNavigationControllerViewController.m */; };
+		BF7B9E711AF7D4450089906A /* YNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E701AF7D4450089906A /* YNavigationController.m */; };
 		BFF8EF621AF5B3EE0053980A /* YBarButtonitem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */; };
 /* End PBXBuildFile section */
 
@@ -262,8 +262,8 @@
 		BF7B9E691AF7CA340089906A /* YTargetCheckController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTargetCheckController.xib; sourceTree = "<group>"; };
 		BF7B9E6C1AF7D0760089906A /* imageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageTool.h; sourceTree = "<group>"; };
 		BF7B9E6D1AF7D0760089906A /* imageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imageTool.m; sourceTree = "<group>"; };
-		BF7B9E6F1AF7D4450089906A /* YNavigationControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNavigationControllerViewController.h; sourceTree = "<group>"; };
-		BF7B9E701AF7D4450089906A /* YNavigationControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNavigationControllerViewController.m; sourceTree = "<group>"; };
+		BF7B9E6F1AF7D4450089906A /* YNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNavigationController.h; sourceTree = "<group>"; };
+		BF7B9E701AF7D4450089906A /* YNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNavigationController.m; sourceTree = "<group>"; };
 		BFF8EF601AF5B3EE0053980A /* YBarButtonitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBarButtonitem.h; sourceTree = "<group>"; };
 		BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBarButtonitem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -319,8 +319,8 @@
 			children = (
 				0B98E1E61ADE918900E4B8DB /* YTabbarController.h */,
 				0B98E1E71ADE918900E4B8DB /* YTabbarController.m */,
-				BF7B9E6F1AF7D4450089906A /* YNavigationControllerViewController.h */,
-				BF7B9E701AF7D4450089906A /* YNavigationControllerViewController.m */,
+				BF7B9E6F1AF7D4450089906A /* YNavigationController.h */,
+				BF7B9E701AF7D4450089906A /* YNavigationController.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -831,7 +831,7 @@
 				0B98E23C1ADE918A00E4B8DB /* YMoneyController.m in Sources */,
 				BF7B9E6A1AF7CA340089906A /* YTargetCheckController.m in Sources */,
 				0BB25A8C1AE78DE9003F3CA5 /* YTimeController.m in Sources */,
-				BF7B9E711AF7D4450089906A /* YNavigationControllerViewController.m in Sources */,
+				BF7B9E711AF7D4450089906A /* YNavigationController.m in Sources */,
 				BF5B16441AF5A72A0071ECE8 /* nsstringTool.m in Sources */,
 				0B98E24B1ADE918A00E4B8DB /* targetModal.m in Sources */,
 				0B98E2421ADE918A00E4B8DB /* GroupTableView.m in Sources */,

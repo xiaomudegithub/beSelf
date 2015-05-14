@@ -110,10 +110,5 @@
 #pragma mark--4,点击右边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
     YMoneyTotalController *controller = [[YMoneyTotalController alloc]initWithNibName:@"YMoneyTotalController" bundle:nil];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
-    nav.navigationBar.tintColor = self.view.backgroundColor;
-    [self presentViewController:nav animated:YES completion:^{
-        
-    }];
-}
+    [self.navigationController pushViewController:controller animated:YES];}
 @end

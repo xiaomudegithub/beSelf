@@ -125,7 +125,7 @@ static FMDatabaseQueue *_queue;
     }];
     return result;
 }
-#pragma mark--读取所有成长记录
+#pragma mark--读取所有成长记录  
 - (growUpResult *)readerGrowUpResult{
     __block growUpResult *result = [[growUpResult alloc]init];
     

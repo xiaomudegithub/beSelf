@@ -23,8 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //add backView
     self.backView  = [[UIView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, 50)];
+    self.backView.backgroundColor = bgColor;
     [self.tabBar insertSubview:self.backView atIndex:0];
+    
+  
+    
     //添加子控制器
     [self addChildController];
 }
@@ -55,24 +60,28 @@
     controller.title = title;
     controller.view.backgroundColor = bgColor;
     //包装导航控制器
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
-    [self addChildViewController:nav];
-    
-    //设置tabbar的背景色
-    self.backView.backgroundColor = [UIColor clearColor];
+    YNavigationController *nav = [[YNavigationController alloc]initWithRootViewController:controller];
     
     //设置导航栏的字体属性
     [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:color}];
-    [nav.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:color} forState:UIControlStateNormal];
+    nav.backBtnTitle = @"返回";
+    nav.backBtnColor = color;
     
-    //设置导航栏的背景
-  
-    //设置导航栏的返回按钮
+    //设置导航栏透明
+    nav.navigationBar.translucent = NO;
+    
+    //add tabbarItem
+    UITabBarItem *item = [[UITabBarItem alloc]initWithTitle:title image:nil selectedImage:nil];
+    NSDictionary *textDic = @{NSForegroundColorAttributeName:color};
+    [item setTitleTextAttributes:textDic forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:textDic forState:UIControlStateNormal];
  
     //添加tabbarline
-    UIView *lineView =[[UIView alloc]initWithFrame:CGRectMake(0, 44, yUIScreenWidth, 2)];
-    lineView.backgroundColor = color;
-    [nav.navigationBar addSubview:lineView];
+    UIView *navlineView =[[UIView alloc]initWithFrame:CGRectMake(0, 44, yUIScreenWidth, 2)];
+    navlineView.backgroundColor = color;
+    [nav.navigationBar addSubview:navlineView];
+    
+    [self addChildViewController:nav];
 
 }
 

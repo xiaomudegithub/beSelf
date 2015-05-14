@@ -19,8 +19,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
-        
-        self.backgroundColor = growColor;
+        self.layer.borderWidth =0.33;
+        self.layer.borderColor = growColor.CGColor;
+        self.backgroundColor = bgColor;
     }
     return self;
 }

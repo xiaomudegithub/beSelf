@@ -42,11 +42,13 @@
 #import "YBarButtonitem.h"
 #import "YTextField.h"
 #import "YTextView.h"
+#import "YNavigationController.h"
 
 
 //===========================工具类
 #import "cacheTool.h"
 #import "timeTool.h"
 #import "nsstringTool.h"
+#import "imageTool.h"
 
 #endif

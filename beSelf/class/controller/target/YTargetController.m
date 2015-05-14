@@ -151,12 +151,11 @@
 }
 #pragma mark--4,点击左边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
+    
     YTargetWriteController *controller = [[YTargetWriteController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
-    nav.navigationBar.tintColor = self.view.backgroundColor;
-    [self presentViewController:nav animated:YES completion:^{
-        controller.delegate = self;
-    }];
+    controller.delegate = self;
+     [self.navigationController pushViewController:controller animated:YES];
+    
 }
 #pragma mark--5,保存目标后回调
 - (void)didSaveTarget{

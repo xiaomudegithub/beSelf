@@ -19,7 +19,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入标题" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ur3-NL-t0f" customClass="YTextField">
-                    <rect key="frame" x="15" y="80" width="290" height="44"/>
+                    <rect key="frame" x="15" y="15" width="290" height="44"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="NVL-v3-3dk"/>
                     </constraints>
@@ -27,7 +28,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6G-48-5nR">
-                    <rect key="frame" x="15" y="154" width="290" height="1"/>
+                    <rect key="frame" x="15" y="89" width="290" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Kr4-ae-07V"/>
@@ -40,13 +41,13 @@
                     </variation>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0A-Pb-Jlz" customClass="YTextView">
-                    <rect key="frame" x="15" y="173" width="290" height="335"/>
+                    <rect key="frame" x="15" y="108" width="290" height="400"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="by5-xz-G4Z" customClass="yLabel">
-                    <rect key="frame" x="15" y="131" width="290" height="18"/>
+                    <rect key="frame" x="15" y="66" width="290" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="oBa-dX-FQC"/>
                     </constraints>
@@ -55,13 +56,13 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.40054734980000001" green="0.55388111969999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="by5-xz-G4Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="2hB-32-gWw"/>
                 <constraint firstItem="v6G-48-5nR" firstAttribute="top" secondItem="Ur3-NL-t0f" secondAttribute="bottom" constant="23" id="37a-5D-3Bz"/>
                 <constraint firstItem="v6G-48-5nR" firstAttribute="top" secondItem="Ur3-NL-t0f" secondAttribute="bottom" constant="30" id="7db-hO-hXc"/>
                 <constraint firstAttribute="trailing" secondItem="by5-xz-G4Z" secondAttribute="trailing" constant="15" id="BDi-Lu-OGw"/>
-                <constraint firstItem="Ur3-NL-t0f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="CyR-FB-AU2"/>
+                <constraint firstItem="Ur3-NL-t0f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="CyR-FB-AU2"/>
                 <constraint firstAttribute="trailing" secondItem="I0A-Pb-Jlz" secondAttribute="trailing" constant="15" id="ERi-ij-cRY"/>
                 <constraint firstItem="v6G-48-5nR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="NaW-e1-VVY"/>
                 <constraint firstItem="v6G-48-5nR" firstAttribute="top" secondItem="Ur3-NL-t0f" secondAttribute="bottom" constant="30" id="RK8-sG-fEJ"/>
@@ -88,7 +89,7 @@
                     <exclude reference="V0V-oa-rsZ"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="318" y="391"/>
+            <point key="canvasLocation" x="118" y="393"/>
         </view>
     </objects>
 </document>

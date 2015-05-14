@@ -11,6 +11,8 @@
 #import "growUpRecordController.h"
 
 @interface YGrowUpController ()<GroupTableViewDelegate,growUpRecordControllerDelegate>
+//myTable's view
+@property (strong, nonatomic) UIView *contentView;
 //选择控制器
 @property (nonatomic,strong)UISegmentedControl *seg;
 //内容table
@@ -38,7 +40,7 @@
     
     //在view上添加控件
     [self.view addSubview:self.seg];
-    [self.view addSubview:self.myTable];
+    [self.view addSubview:self.contentView];
     [self getData];
     
 }
@@ -46,13 +48,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark--0,contenView
+- (UIView *)contentView{
+    if (!_contentView) {
+        _contentView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.seg.frame)+yViewTopInset, yUIScreenWidth, yUIScreenHeight-CGRectGetMaxY(self.seg.frame)-yViewTopInset)];
+        [_contentView addSubview:self.myTable];
+    }
+    return _contentView;
+}
 
 #pragma mark--1,添加选择控制器
 //1.1初始化选择控制器
 - (UISegmentedControl *)seg{
     if (!_seg) {
         _seg = [[UISegmentedControl alloc]initWithItems:@[@"成长积累",@"今日事"]];
-        _seg.frame = CGRectMake(ySideInset, yViewTopInset+64, yUIScreenWidth-2*ySideInset, segHeight);
+        _seg.frame = CGRectMake(ySideInset, yViewTopInset, yUIScreenWidth-2*ySideInset, segHeight);
         _seg.selectedSegmentIndex = 0;
         _seg.tintColor = growColor;
         [_seg addTarget:self action:@selector(mainChose:) forControlEvents:UIControlEventValueChanged];
@@ -61,16 +71,30 @@
 }
 //1.2监听选择控制器的点击
 - (void)mainChose:(UISegmentedControl *)seg{
-
+    
+//    if (seg.selectedSegmentIndex==0) {
+//        //tableview 旋转
+//        [UIView animateWithDuration:1.0 animations:^{
+//            self.contentView.layer.transform = CATransform3DMakeRotation(-M_PI, 0, 1, 0);
+//        }];
+//    }else{
+//        //tableview 旋转
+//        [UIView animateWithDuration:1.0 animations:^{
+//            self.contentView.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+//        }];
+//    }
+    
+    //切换数据
     [self.dataArray removeAllObjects];
     [self getData];
+    
 }
 
 #pragma mark--2,添加内容table
 //2.1初始化table
 - (GroupTableView *)myTable{
     if (!_myTable) {
-        _myTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.seg.frame)+yViewTopInset, yUIScreenWidth, yUIScreenHeight-CGRectGetMaxY(self.seg.frame)-yViewTopInset) style:UITableViewStylePlain];
+        _myTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height) style:UITableViewStylePlain];
         _myTable.group_delegate = self;
   
     }
@@ -95,11 +119,14 @@
     }
     
     if (self.seg.selectedSegmentIndex==0) {
+        //查看目标
         growUpRootObject *tmpObj = tmpArr[indexPath.row];
         growUpRecordController *controller = [[growUpRecordController alloc]init];
         controller.object = tmpObj.object;
         [self.navigationController pushViewController:controller animated:YES];
     }else{
+        //查看目标进度
+        
         
     }
 
@@ -118,7 +145,12 @@
 }
 //section的header高度
 - (CGFloat)tableViewHeightForHeaderInSection:(NSInteger)section{
-    return ySectionSpace;
+    if (self.seg.selectedSegmentIndex==1&&section==0) {
+        return 0;
+    }else{
+        return ySectionSpace;
+    }
+   
 }
 
 #pragma mark--3，获取数据
@@ -155,6 +187,7 @@
         
     }
     
+
     [self.myTable reloadData];
 }
 
@@ -192,11 +225,7 @@
 - (void)rightBarButtonItemDidTap:(id)sender{
     growUpRecordController *controller = [[growUpRecordController alloc]initWithNibName:@"growUpRecordController" bundle:nil];
     controller.delegate = self;
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
-    nav.navigationBar.tintColor = self.view.backgroundColor;
-    [self presentViewController:nav animated:YES completion:^{
-        
-    }];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 #pragma mark--5,响应成长记录控制器代理，刷新数据
 - (void)didSaveGrowUpRecord{

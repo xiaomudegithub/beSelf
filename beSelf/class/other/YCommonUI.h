@@ -124,12 +124,13 @@
 #define YLog  NSLog
 #define mData [[mockData alloc]init]
 #define yCache [[cacheTool alloc]init]
+#define yImage [[imageTool alloc]init]
 //=======================颜色宏====================
-#define growColor UIColorWithRGB(68, 178, 247)
-#define targetColor UIColorWithRGB(105,250, 250)
-#define timeColor UIColorWithRGB(91,179,74)
-#define moneyColor UIColorWithRGB(49, 134, 193)
-#define bgColor UIColorWithRGB(244,244,244)
+#define growColor UIColorWithRGB(82, 237, 199)
+#define targetColor UIColorWithRGB(255,149,0)
+#define timeColor UIColorWithRGB(90,212,39)
+#define moneyColor UIColorWithRGB(255, 219,76)
+#define bgColor UIColorWithRGB(255,255,255)
 #define yWhite [UIColor whiteColor];
 //========================label==================
 #define labelHeigh_14 14

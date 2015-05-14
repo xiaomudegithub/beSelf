@@ -27,7 +27,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.backgroundColor = bgColor;
+        self.backgroundColor = yWhite;
         _textLabel = [[yLabel alloc] init];
         _textLabel.font = [UIFont systemFontOfSize:ySectionTitleFontSize];
         _textLabel.textColor = ySectionTitleColor;

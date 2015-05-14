@@ -18,22 +18,20 @@
 
 //方法
 - (IBAction)confirm:(UIButton *)sender;
-
-/**
- *  日期选择器
- */
+//日期选择器
 @property (nonatomic,strong)YDatePickerView *datePicker;
-/**
- *  开始时间或者结束时间
- */
+//开始时间或者结束时间
 @property(nonatomic,assign)BOOL startOrEnd;
+
 @end
 
 @implementation YTotalTimeViewController
-#pragma mark--0,生命周期
+#pragma mark==============1,生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"时间总额";
+    
     [self setUpEverything];
 }
 
@@ -41,8 +39,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark=====================1,初始化控件
-#pragma mark--初始化控件
+#pragma mark==============2，UI搭建
+#pragma mark--初始化
 - (void)setUpEverything{
     //totalTimeLab
     self.timeTotalLab.text = [[NSUserDefaults standardUserDefaults]valueForKey:@"timeTotal"];
@@ -54,19 +52,8 @@
     //datePicker
     [self.view addSubview:self.datePicker];
     
-    //导航栏
-    [self setUpNavBar];
 }
-#pragma mark--导航栏
-- (void)setUpNavBar{
-    self.title = @"时间总额";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(didBack)];
-}
-- (void)didBack{
-    [self dismissViewControllerAnimated:YES completion:^{
-    }];
-}
-#pragma mark--日期选择器
+//datePicker
 - (YDatePickerView *)datePicker{
     if (!_datePicker) {
         _datePicker = [[YDatePickerView alloc]initWithFrame:CGRectMake(0, yUIScreenHeight, yUIScreenWidth, 216)];
@@ -74,7 +61,10 @@
     }
     return _datePicker;
 }
-#pragma mark=====================2,获取数据
+#pragma mark==============3，数据渲染
+
+#pragma mark==============4，操作
+#pragma mark--4.1选择日期
 - (void)didSelectDate:(NSString *)date{
     if (self.startOrEnd) {
         self.startTimeText.text = date;
@@ -82,17 +72,20 @@
         self.endTimeText.text = date;
     }
 }
-#pragma mark=====================3,存储数据
+#pragma mark--4.2确认
 - (IBAction)confirm:(UIButton *)sender {
     NSInteger days = [timeTool daysWithStartDay:self.startTimeText.text andEndDay:self.endTimeText.text andFormat:@"YYYY/MM/dd"];
+    //渲染数据
     self.timeTotalLab.text = [NSString stringWithFormat:@"%ld",days];
+    //存储数据
     [[NSUserDefaults standardUserDefaults]setObject:self.timeTotalLab.text forKey:@"timeTotal"];
 }
-#pragma mark=====================delegate
-#pragma mark=====================公用方法
+#pragma mark==============5，公用方法
+//关闭键盘
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.datePicker closeDatePicker ];
 }
+//开始选择时间
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if (textField == self.startTimeText) {
         self.startOrEnd = YES;
@@ -103,5 +96,6 @@
     [self.datePicker openDatePicker];
     return NO;
 }
+
 
 @end

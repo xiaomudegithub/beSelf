@@ -29,8 +29,8 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-
-        self.backgroundColor = growColor;
+        self.layer.borderColor =  growColor.CGColor;
+        self.layer.borderWidth = 1;
         
         yLabel *title = [[yLabel alloc]init];
         title.font = [UIFont systemFontOfSize:yCellTitleFontSize];
@@ -38,7 +38,7 @@
         self.titleLabel = title;
         
         UIView *view = [[UIView alloc]init];
-        view.backgroundColor = [UIColor whiteColor];
+        view.backgroundColor = growColor;
         [self.contentView addSubview:view];
         self.lineView = view;
         
@@ -70,7 +70,9 @@
     
     self.subTitleLabel.text = obj.object.subTitle;
     
-    
+    CGRect cellF = CGRectMake(0, 0, yUIScreenWidth, obj.rowHeight);
+    self.backgroundColor = [UIColor colorWithPatternImage:[yImage creatGrowImageWithFrame:cellF]];
+
     
 }
 - (void)setCellDelegate:(id)object{
@@ -85,7 +87,7 @@
     
     self.lineView.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.titleLabel.frame), yUIScreenWidth-2*ySideInset, yLineFont);
 
-    self.subTitleLabel.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.lineView.frame), yUIScreenWidth - ySideInset,height-CGRectGetMaxY(self.lineView.frame));
+    self.subTitleLabel.frame = CGRectMake(ySideInset, CGRectGetMaxY(self.titleLabel.frame), yUIScreenWidth - ySideInset,height-CGRectGetMaxY(self.titleLabel.frame));
     
 }
 

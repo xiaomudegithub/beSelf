@@ -221,12 +221,11 @@
 #pragma mark--2.3保存并返回
 - (void)save{
     //保存数据
-    [self dismissViewControllerAnimated:YES completion:^{
-        cacheTool *cache = [[cacheTool alloc]init];
-        [cache cacheTarget:self.target];
-        if ([self.delegate respondsToSelector:@selector(didSaveTarget)]) {
-            [self.delegate didSaveTarget];
-        }
-    }];
+    cacheTool *cache = [[cacheTool alloc]init];
+    [cache cacheTarget:self.target];
+    if ([self.delegate respondsToSelector:@selector(didSaveTarget)]) {
+        [self.delegate didSaveTarget];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

@@ -14,18 +14,22 @@
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 @property (nonatomic, strong)growUpRootObject   *growObject;
+//saveBtn
+@property (strong, nonatomic) UIButton *saveBtn;
 @end
 
 @implementation growUpRecordController
-#pragma mark--0,生命周期
+#pragma mark==============1,生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"温故而知新，可以为师矣";
-    self.view.backgroundColor = growColor;
+    self.view.backgroundColor = bgColor;
     if (!self.object) {
-       
+        self.title = @"千里之行，始于足下";
     }
+    
+    
     [self setControllItem];
 }
 - (void)didReceiveMemoryWarning {
@@ -33,32 +37,62 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark==============2，UI搭建
+//初始化
+- (void)setControllItem{
+    
+    //titleTextField
+    self.titleTextField.text = self.object.title;
+    self.titleTextField.textColor = growColor;
+    self.titleTextField.delegate = self;
+    
+    //timeLabel
+    self.timeLab.text = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
+    self.timeLab.textColor = growColor;
+    
+    //line
+    self.lineView.backgroundColor = growColor;
+    
+    //contentTextView
+    self.contentTextView.backgroundColor = [UIColor clearColor];
+    self.contentTextView.layer.borderColor = growColor.CGColor;
+    self.contentTextView.text = self.object.subTitle;
+    self.contentTextView.textColor = growColor;
+    self.contentTextView.layer.borderWidth = 0.33;
+    self.contentTextView.delegate = self;
+    
+    //saveBtn
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.saveBtn];
+    
+}
+//growObject
+- (growUpRootObject *)growObject{
+    if (!_growObject) {
+        _growObject = [[growUpRootObject alloc]init];
+        _growObject.object.time = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
+    }
+    return _growObject;
+}
+//saveBtn
+- (UIButton *)saveBtn{
+    if (!_saveBtn) {
+        _saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        _saveBtn.backgroundColor = [UIColor clearColor];
+        [_saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+        CGSize btnSize = [nsstringTool sizeWithString:_saveBtn.titleLabel.text andFont:_saveBtn.titleLabel.font.pointSize];
+        _saveBtn.frame = CGRectMake(yUIScreenWidth - btnWidth_44, 0, btnSize.width, btnWidth_44);
+        [_saveBtn addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
+        [_saveBtn setTitleColor:growColor forState:UIControlStateNormal];
+        
+    }
+    return _saveBtn;
 }
-*/
-#pragma mark--1,输入标题
-//1.1更改标题
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    self.growObject.object.title = textField.text;
-}
-//1.2关闭键盘
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
-}
-#pragma mark--2，输入内容
-//2.1编辑内容
-- (void)textViewDidChange:(UITextView *)textView{
-    self.growObject.object.subTitle = textView.text;
-}
-//2.2关闭键盘
-#pragma mark--3,存储数据并返回
+
+#pragma mark==============3，数据渲染
+
+#pragma mark==============4，操作
+#pragma mark--4.1,存储数据并返回
 - (void)save:(id)sender{
     //3.1存储数据
     [yCache cacheGrowUpRecord:self.growObject];
@@ -67,37 +101,23 @@
         [self.delegate didSaveGrowUpRecord];
     };
     //3.2返回
-    [self dismissViewControllerAnimated:YES completion:^{
-      
-    }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
-#pragma mark--初始化控件
-- (void)setControllItem{
-    
-    //titleTextField
-    self.titleTextField.text = self.object.title;
-    self.titleTextField.delegate = self;
-    
-    //timeLabel
-    self.timeLab.text = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
-    self.timeLab.textColor = [UIColor whiteColor];
-    
-    //line
-    self.lineView.backgroundColor = [UIColor whiteColor];
-    
-    //输入内容
-    self.contentTextView.backgroundColor = [UIColor clearColor];
-    self.contentTextView.layer.borderColor = [[UIColor whiteColor]CGColor];
-    self.contentTextView.text = self.object.subTitle;
-    self.contentTextView.layer.borderWidth = 0.33;
-    self.contentTextView.delegate = self;
+#pragma mark==============5，公用方法
+#pragma mark--textField_delegate
+//更改标题
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    self.growObject.object.title = textField.text;
+}
+//关闭键盘
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+#pragma mark--textView_delegate
+- (void)textViewDidChange:(UITextView *)textView{
+    self.growObject.object.subTitle = textView.text;
+}
 
-}
-- (growUpRootObject *)growObject{
-    if (!_growObject) {
-        _growObject = [[growUpRootObject alloc]init];
-        _growObject.object.time = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
-    }
-    return _growObject;
-}
+
 @end
