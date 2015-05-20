@@ -9,7 +9,7 @@
 #import "YTimeController.h"
 
 #import "YTotalTimeViewController.h"
-@interface YTimeController ()<GroupTableViewDelegate>
+@interface YTimeController ()<GroupTableViewDelegate,YTotalTimeViewControllerDelegate>
 
 //主表格
 @property (nonatomic,strong)GroupTableView *myTable;
@@ -21,6 +21,10 @@
 @property (nonatomic,strong)targetResult *result;
 //header
 @property (nonatomic,strong)UIView *tableHeaderView;
+//emptyView
+@property (strong, nonatomic) YEmptyView *emptyView;
+//totalTime
+@property (nonatomic, copy)NSString *timeTotal;
 
 @end
 
@@ -29,6 +33,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+  
     [self getData];
 }
 
@@ -36,8 +41,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //设置导航栏
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(rightBarButtonItemDidTap:)];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    UIButton *rightItem = [[UIButton alloc]initWithFrame:CGRectMake(yUIScreenWidth-btnWidth_44, 0, btnWidth_44, btnWidth_44)];
+    [rightItem setImage:[UIImage imageNamed:@"write.png"] forState:UIControlStateNormal];
+    
+    [rightItem addTarget:self action:@selector(rightBarButtonItemDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightItem];
+    
     [self.view addSubview:self.myTable];
     
     //set background
@@ -62,10 +72,13 @@
     rootHeader *headerView = [[rootHeader alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, 150)];
     TableObject *headerObject = [[TableObject alloc]init];
     headerObject.subTitle = @"时间总额（天）";
+    headerObject.color = timeColor;
     if (IsMock) {
         headerObject.title = mData.timeTotal;
+    }else{
+        headerObject.title = [[NSUserDefaults standardUserDefaults]objectForKey:@"timeTotal"];
     }
-    headerObject.time = [timeTool getCurrentTimeWithFormat:@"yyyy/mm/dd"];
+    headerObject.time = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
     [headerView setContentWithObject:headerObject];
     return headerView;
 }
@@ -84,8 +97,14 @@
     }else{
         self.result = [yCache readerTargetResult];
     }
-    if (self.result.targetArray.count>0) {
+    
+    self.timeTotal = [[NSUserDefaults standardUserDefaults]objectForKey:@"timeTotal"];
+    
+    if (self.result.targetArray.count>0&&self.timeTotal.length>0) {
+        [self.emptyView removeFromSuperview];
         [self setData];
+    }else{
+        [self.view addSubview:self.emptyView];
     }
 }
 
@@ -100,7 +119,7 @@
         timeObj.title = timeObject.targetTitle;
         timeObj.time = timeObject.startTime;
         timeObj.subTime = timeObject.endTime;
-        NSInteger days = [timeTool daysWithStartDay:timeObject.startTime andEndDay:timeObject.endTime andFormat:@"yyyy/mm/dd"];
+        NSInteger days = [timeTool daysWithStartDay:timeObject.startTime andEndDay:timeObject.endTime andFormat:@"YYYY/MM/dd"];
         timeObj.value =  [NSString stringWithFormat:@"%ld",(long)days];
         [self.tableData addObject:timeObj];
     }
@@ -109,7 +128,23 @@
 #pragma mark--4,点击左边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
     YTotalTimeViewController *controller = [[YTotalTimeViewController alloc]init];
+    controller.hidesBottomBarWhenPushed = YES;
+    controller.delegate = self;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+#pragma mark--5,响应记录时间总额代理
+- (void)didSaveTotalMoney{
+    [self getData];
+}
+#pragma mark--初始化
+- (YEmptyView *)emptyView{
+    if (!_emptyView) {
+        _emptyView = [[YEmptyView alloc]initWithFrame:self.view.bounds];
+        TableObject *obj = [[TableObject alloc]init];
+        obj.title = @"赶快去记录时间吧";
+        _emptyView.object = obj;
+    }
+    return _emptyView;
+}
 @end

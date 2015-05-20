@@ -13,7 +13,8 @@
 @property (weak, nonatomic) IBOutlet yLabel *subTimeValueLabel;
 @property (weak, nonatomic) IBOutlet yLabel *subMoneyValueLabel;
 @property (weak, nonatomic) IBOutlet yLabel *title;
-
+@property (weak, nonatomic) IBOutlet UIView *shuLine;
+@property (weak, nonatomic) IBOutlet UIView *hengLine;
 @end
 @implementation targetRootCell
 
@@ -21,14 +22,13 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
- 
+        
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
-        CGRect frame = self.frame;
-        frame.size.width = yUIScreenWidth;
-        self.frame = frame;
+        
     }
     return self;
 }
+
 
 - (void)setContentWithObject:(id)object AtIndexPath:(NSIndexPath *)indexPath{
     id tmpObject = object[indexPath.section];
@@ -51,6 +51,18 @@
     self.subTimeValueLabel.text = tmpObj.subTime;
     self.moneyValueLabel.text = tmpObj.money;
     self.subMoneyValueLabel.text = tmpObj.subMoney;
-    self.backgroundColor = [UIColor colorWithPatternImage:[yImage creatTargetImageWithFrame:self.frame]];
+    
+    self.shuLine.backgroundColor = targetColor;
+    self.hengLine.backgroundColor = targetColor;
+    
+    self.contentView.layer.borderColor = targetColor.CGColor;
+    self.contentView.layer.borderWidth = 0.33;
+    self.contentView.layer.cornerRadius = 5;
+    self.backgroundColor = bgColor;
+}
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.contentView.frame = CGRectMake(yViewTopInset, 0, yUIScreenWidth-yViewTopInset*2, self.frame.size.height);
+    
 }
 @end

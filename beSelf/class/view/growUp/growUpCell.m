@@ -73,7 +73,7 @@
     self.subTitleLabel.text = obj.object.subTitle;
     
     //CGRect cellF = CGRectMake(0, 0, yUIScreenWidth, obj.rowHeight);
-    self.contentView.backgroundColor = bgColor;//[UIColor colorWithPatternImage:[yImage creatGrowImageWithFrame:cellF]];
+    self.contentView.backgroundColor = bgColor;
 
 
     

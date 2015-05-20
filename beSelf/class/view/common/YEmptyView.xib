@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="YEmptyView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="huu-hI-PA9">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="334" id="DJf-jv-cYq"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据为空" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMS-VI-vgt">
+                    <rect key="frame" x="0.0" y="354" width="320" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="UKt-8Y-uF8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mMS-VI-vgt" firstAttribute="top" secondItem="huu-hI-PA9" secondAttribute="bottom" constant="20" id="43Y-9g-Ejo"/>
+                <constraint firstAttribute="trailing" secondItem="mMS-VI-vgt" secondAttribute="trailing" id="DXI-Qg-h4d"/>
+                <constraint firstItem="huu-hI-PA9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="M0L-Fz-VyQ"/>
+                <constraint firstItem="mMS-VI-vgt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Urd-JF-ED8"/>
+                <constraint firstItem="huu-hI-PA9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cuk-on-RnU"/>
+                <constraint firstAttribute="trailing" secondItem="huu-hI-PA9" secondAttribute="trailing" id="kSi-Xo-GYJ"/>
+                <constraint firstItem="mMS-VI-vgt" firstAttribute="top" secondItem="huu-hI-PA9" secondAttribute="bottom" constant="74" id="ksr-Og-pw1"/>
+                <constraint firstAttribute="bottom" secondItem="mMS-VI-vgt" secondAttribute="bottom" constant="48" id="l8o-iq-Ohz"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="ksr-Og-pw1"/>
+                    <exclude reference="l8o-iq-Ohz"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="emptyImage" destination="huu-hI-PA9" id="zAk-vE-o91"/>
+                <outlet property="emptyLabel" destination="mMS-VI-vgt" id="ITA-dd-mS7"/>
+            </connections>
+            <point key="canvasLocation" x="353" y="128"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="empty" width="510" height="382"/>
+    </resources>
+</document>

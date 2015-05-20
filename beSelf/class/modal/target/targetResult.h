@@ -12,4 +12,8 @@
 //targetArray
 @property (nonatomic,strong)NSMutableArray *targetArray;
 + (Class)target;
+
+//targetArray
+@property (nonatomic,strong)NSMutableArray *targetStepArray;
++ (Class)targetStep;
 @end

@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YTabBar : UITabBar
+@protocol YTabBarDelegate <NSObject>
 
+- (void)didSeleckedBtnTag:(NSInteger)btnTag FromLastBtnTag:(NSInteger)lastBtnTag;
+
+@end
+
+@interface YTabBar : UIView
+//delegate
+@property (weak, nonatomic) id<YTabBarDelegate> delegate;
+
+- (void)addBtnWithTitle:(NSString *)btnTitle andNomalColor:(UIColor *)nomalColor andSelectedColor:(UIColor *)selectedColor;
 @end

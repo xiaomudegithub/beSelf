@@ -9,6 +9,8 @@
 #import "YGrowUpController.h"
 #import "growUpRootObject.h"
 #import "growUpRecordController.h"
+#import "targetProgressController.h"
+
 
 @interface YGrowUpController ()<GroupTableViewDelegate,growUpRecordControllerDelegate>
 //myTable's view
@@ -25,6 +27,9 @@
 @property (nonatomic, strong)growUpResult *result;
 //从数据库中读取的目标对象
 @property (nonatomic, strong)targetResult *tResult;
+//空页面
+@property (strong, nonatomic) YEmptyView *emptyView;
+
 
 @end
 
@@ -35,8 +40,14 @@
     // Do any additional setup after loading the view from its nib.
     
     //设置导航栏
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(rightBarButtonItemDidTap:)];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    UIButton *rightItem = [[UIButton alloc]initWithFrame:CGRectMake(yUIScreenWidth-btnWidth_44, 0, btnWidth_44, btnWidth_44)];
+    [rightItem setImage:[UIImage imageNamed:@"write.png"] forState:UIControlStateNormal];
+    
+    [rightItem addTarget:self action:@selector(rightBarButtonItemDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightItem];
+
+
     
     //在view上添加控件
     [self.view addSubview:self.seg];
@@ -72,20 +83,10 @@
 //1.2监听选择控制器的点击
 - (void)mainChose:(UISegmentedControl *)seg{
     
-//    if (seg.selectedSegmentIndex==0) {
-//        //tableview 旋转
-//        [UIView animateWithDuration:1.0 animations:^{
-//            self.contentView.layer.transform = CATransform3DMakeRotation(-M_PI, 0, 1, 0);
-//        }];
-//    }else{
-//        //tableview 旋转
-//        [UIView animateWithDuration:1.0 animations:^{
-//            self.contentView.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
-//        }];
-//    }
-    
     //切换数据
     [self.dataArray removeAllObjects];
+    [yAnimation fanzhuanDownWithView:self.myTable];
+
     [self getData];
     
 }
@@ -123,11 +124,17 @@
         //查看目标
         growUpRootObject *tmpObj = tmpArr[indexPath.row];
         growUpRecordController *controller = [[growUpRecordController alloc]init];
-        controller.object = tmpObj.object;
+        controller.growLastObj = tmpObj;
+        controller.growUpId = indexPath.section;
+        controller.delegate = self;
+//        controller.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }else{
         //查看目标进度
-        
+        targetProgressController *controller = [[targetProgressController alloc]init];
+        controller.targetIndex = indexPath.section;
+//        controller.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:controller animated:YES];
         
     }
 
@@ -156,15 +163,30 @@
 
 #pragma mark--3，获取数据
 - (void)getData{
-
     if (self.seg.selectedSegmentIndex==0) {
-        [self setData];
+        self.result = nil;
+        self.result = [yCache readerGrowUpResult];
+        if (self.result.grows.count>0) {
+            [self.emptyView removeFromSuperview];
+            [self setData];
+        }else{
+            [self.view addSubview:self.emptyView];
+        }
+        
     }else{
-        [self setTagetData];
+        self.tResult = [yCache readerTargetResult];
+        if (self.tResult.targetArray.count>0) {
+            [self.emptyView removeFromSuperview];
+            [self setTagetData];
+        }else{
+            [self.view addSubview:self.emptyView];
+
+        }
     }
     
 }
 - (void)setData{
+    
     self.dataArray = [NSMutableArray array];
     self.sectionArray = [NSMutableArray array];
     for (NSInteger i =0; i<self.result.grows.count; i++) {
@@ -193,6 +215,7 @@
 }
 
 - (void)setTagetData{
+    
     self.dataArray = [NSMutableArray array];
     self.sectionArray = [NSMutableArray array];
     for (NSInteger i =0; i<self.tResult.targetArray.count; i++) {
@@ -226,6 +249,7 @@
 - (void)rightBarButtonItemDidTap:(id)sender{
     growUpRecordController *controller = [[growUpRecordController alloc]initWithNibName:@"growUpRecordController" bundle:nil];
     controller.delegate = self;
+//    controller.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:controller animated:YES];
 }
 #pragma mark--5,响应成长记录控制器代理，刷新数据
@@ -233,18 +257,14 @@
     [self getData];
 }
 #pragma  mark--初始化控件
-- (growUpResult *)result{
-
-    _result = [[growUpResult alloc]init];
-    _result = [yCache readerGrowUpResult];
-    
-    return _result;
-}
-- (targetResult *)tResult{
-
-    _tResult = [[targetResult alloc]init];
-    _tResult = [yCache readerTargetResult];
-
-    return _tResult;
+- (YEmptyView *)emptyView{
+    if (!_emptyView) {
+        _emptyView = [[YEmptyView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.seg
+.frame), yUIScreenWidth, yUIScreenHeight-50-margin_64)];
+        TableObject *obj = [[TableObject alloc]init];
+        obj.title = @"还未有成长记录，赶快去添加吧";
+        _emptyView.object = obj;
+    }
+    return _emptyView;
 }
 @end

@@ -20,7 +20,7 @@
     if (self) {
 
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
-        self.backgroundColor = targetColor;
+        self.backgroundColor = bgColor;
     }
     return self;
 }

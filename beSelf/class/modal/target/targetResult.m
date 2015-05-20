@@ -12,5 +12,9 @@
 + (Class)target{
     return [targetModal class];
 }
+
++ (Class)targetStep{
+    return [targetStep class];
+}
 MJCodingImplementation
 @end

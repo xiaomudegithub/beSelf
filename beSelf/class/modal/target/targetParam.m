@@ -9,5 +9,5 @@
 #import "targetParam.h"
 
 @implementation targetParam
-
+MJCodingImplementation
 @end

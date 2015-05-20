@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YTotalTimeViewControllerDelegate <NSObject>
+
+- (void)didSaveTotalMoney;
+
+@end
+
 @interface YTotalTimeViewController : UIViewController
+//代理
+@property (weak, nonatomic) id<YTotalTimeViewControllerDelegate> delegate;
 
 @end

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol YMoneyTotalControllerDelegate <NSObject>
+
+- (void)didSaveTotalMoney;
+
+@end
 
 @interface YMoneyTotalController : UIViewController
+
+@property(nonatomic ,weak)id<YMoneyTotalControllerDelegate>delegate;
 
 @end

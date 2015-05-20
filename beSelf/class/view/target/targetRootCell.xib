@@ -42,8 +42,8 @@
                             </mask>
                         </variation>
                     </view>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xVy-wh-Ac8">
-                        <rect key="frame" x="159" y="50" width="2" height="71"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVy-wh-Ac8">
+                        <rect key="frame" x="159" y="50" width="2" height="158"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="ULE-Tw-8oP"/>
@@ -222,13 +222,15 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="hengLine" destination="Z6M-Ev-CHB" id="cTM-hh-oY9"/>
                 <outlet property="moneyValueLabel" destination="nVb-fC-9F2" id="XVi-XB-FJo"/>
+                <outlet property="shuLine" destination="xVy-wh-Ac8" id="PL1-3Y-pak"/>
                 <outlet property="subMoneyValueLabel" destination="49o-Bo-JF6" id="BWW-sw-4nW"/>
                 <outlet property="subTimeValueLabel" destination="OpN-fV-1In" id="4HV-Rt-MIw"/>
                 <outlet property="timeValueLabel" destination="wI7-LK-Zkt" id="g5P-9c-44t"/>
                 <outlet property="title" destination="5wU-PA-d41" id="qqB-do-YIF"/>
             </connections>
-            <point key="canvasLocation" x="361" y="454.5"/>
+            <point key="canvasLocation" x="197" y="358.5"/>
         </tableViewCell>
     </objects>
 </document>

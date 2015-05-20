@@ -50,6 +50,7 @@
 - (void)setUpEverythings{
     //confirmBtn
     _confrimBtn.layer.cornerRadius = 8;
+    [_confrimBtn setBackgroundColor:moneyColor];
     
     //_currentTime
     _currentTime.text = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
@@ -57,15 +58,18 @@
     //_totalMoney
     _totalMoney = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalMoney"];
     self.totalMoneyLabel.text = self.totalMoney;
+    self.totalMoneyLabel.textColor = moneyColor;
     
     //_bottomLabel
     _bottomLabel.text =  @"开源节流";
+    _bottomLabel.textColor = moneyColor;
     
     //moneyValueText
-    _moneyValueText.textColor = UIColorWithRGB(136, 254, 237);
-    _moneyValueText.layer.borderColor = [UIColorWithRGB(136, 254, 237) CGColor];
-    _moneyAttentionText.textColor = UIColorWithRGB(136, 254, 237);
-    _moneyAttentionText.layer.borderColor = [UIColorWithRGB(136, 254, 237) CGColor];
+    _moneyValueText.textColor = moneyColor;
+    _moneyValueText.keyboardType = UIKeyboardTypeDecimalPad;
+    _moneyValueText.layer.borderColor = moneyColor.CGColor;
+    _moneyAttentionText.textColor = moneyColor;
+    _moneyAttentionText.layer.borderColor = moneyColor.CGColor;
     
     //导航栏
     [self setUpNavBar];
@@ -78,7 +82,7 @@
     self.title = @"财富";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"收支" style:UIBarButtonItemStylePlain target:self action:@selector(checkMoney)];
-    
+      self.navigationItem.rightBarButtonItem.tintColor = moneyColor;
 
 }
 #pragma mark==============3，数据渲染
@@ -116,10 +120,22 @@
         CGFloat tempTotalMoney = [self.totalMoney floatValue] + [self.moneyValueText.text floatValue];
         self.totalMoney = [NSString stringWithFormat:@"%.2f",tempTotalMoney];
     }
-    //保存totalMoney
-    [self saveTotalMoney];
-    //设置totalMoneyLabel
-    self.totalMoneyLabel.text = self.totalMoney;
+    if (self.totalMoney.length>0) {
+        //保存totalMoney
+        [self saveTotalMoney];
+        //设置totalMoneyLabel
+        self.totalMoneyLabel.text = self.totalMoney;
+        //通知代理
+        if ([self.delegate respondsToSelector:@selector(didSaveTotalMoney)]) {
+            [self.delegate didSaveTotalMoney];
+        }
+        //返回主页面
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"金额记录错误" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+        [alterView show];
+    }
+
     
 }
 - (void)saveTotalMoney{
@@ -132,11 +148,11 @@
     return YES;
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
-    [UIView animateWithDuration:0.25 animations:^{
-        CGRect frame = self.view.frame;
-        frame.origin.y -=200;
-        self.view.frame = frame;
-    }];
+//    [UIView animateWithDuration:0.25 animations:^{
+//        CGRect frame = self.view.frame;
+//        frame.origin.y -=200;
+//        self.view.frame = frame;
+//    }];
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     if (textField == self.moneyAttentionText) {
@@ -144,11 +160,11 @@
     }else if (textField == self.moneyValueText){
         self.mRecord.value = textField.text;
     }
-    [UIView animateWithDuration:0.25 animations:^{
-        CGRect frame = self.view.frame;
-        frame.origin.y +=200;
-        self.view.frame = frame;
-    }];
+//    [UIView animateWithDuration:0.25 animations:^{
+//        CGRect frame = self.view.frame;
+//        frame.origin.y +=200;
+//        self.view.frame = frame;
+//    }];
 }
 
 @end

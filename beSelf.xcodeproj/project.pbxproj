@@ -81,6 +81,7 @@
 		0BF7EFA11AE76B25000D124A /* YTotalTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7EF9F1AE76B25000D124A /* YTotalTimeViewController.m */; };
 		0BF7EFA21AE76B25000D124A /* YTotalTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF7EFA01AE76B25000D124A /* YTotalTimeViewController.xib */; };
 		BF48411F1AF5C8E6003B4F9C /* YTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF48411E1AF5C8E6003B4F9C /* YTextView.m */; };
+		BF49245D1B05E2F000C54D67 /* animationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF49245C1B05E2F000C54D67 /* animationTool.m */; };
 		BF4BBC1F1AFEFB6600AEF190 /* targetStep.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4BBC1E1AFEFB6600AEF190 /* targetStep.m */; };
 		BF563B981AF3DC4700DB6A02 /* ySegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BF563B971AF3DC4700DB6A02 /* ySegmentedControl.m */; };
 		BF563B9B1AF3DE8800DB6A02 /* lineView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF563B9A1AF3DE8800DB6A02 /* lineView.m */; };
@@ -94,6 +95,13 @@
 		BF7B9E6E1AF7D0760089906A /* imageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E6D1AF7D0760089906A /* imageTool.m */; };
 		BF7B9E711AF7D4450089906A /* YNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B9E701AF7D4450089906A /* YNavigationController.m */; };
 		BFF8EF621AF5B3EE0053980A /* YBarButtonitem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */; };
+		BFFD6A171B0457C3003904C1 /* YEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFD6A161B0457C3003904C1 /* YEmptyView.m */; };
+		BFFD6A191B0457E4003904C1 /* YEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFD6A181B0457E4003904C1 /* YEmptyView.xib */; };
+		BFFD6A1D1B0474FE003904C1 /* targetProgressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFD6A1B1B0474FE003904C1 /* targetProgressCell.m */; };
+		BFFD6A1E1B0474FE003904C1 /* targetProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFD6A1C1B0474FE003904C1 /* targetProgressCell.xib */; };
+		BFFD6A221B047A47003904C1 /* targetProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFD6A201B047A47003904C1 /* targetProgressController.m */; };
+		BFFD6A231B047A47003904C1 /* targetProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFD6A211B047A47003904C1 /* targetProgressController.xib */; };
+		BFFD6A261B04FE0E003904C1 /* growUpParam.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFD6A251B04FE0E003904C1 /* growUpParam.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +249,8 @@
 		0BF7EFA01AE76B25000D124A /* YTotalTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTotalTimeViewController.xib; sourceTree = "<group>"; };
 		BF48411D1AF5C8E6003B4F9C /* YTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTextView.h; sourceTree = "<group>"; };
 		BF48411E1AF5C8E6003B4F9C /* YTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTextView.m; sourceTree = "<group>"; };
+		BF49245B1B05E2F000C54D67 /* animationTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animationTool.h; sourceTree = "<group>"; };
+		BF49245C1B05E2F000C54D67 /* animationTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = animationTool.m; sourceTree = "<group>"; };
 		BF4BBC1D1AFEFB6600AEF190 /* targetStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetStep.h; sourceTree = "<group>"; };
 		BF4BBC1E1AFEFB6600AEF190 /* targetStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = targetStep.m; sourceTree = "<group>"; };
 		BF563B961AF3DC4700DB6A02 /* ySegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ySegmentedControl.h; sourceTree = "<group>"; };
@@ -266,6 +276,17 @@
 		BF7B9E701AF7D4450089906A /* YNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNavigationController.m; sourceTree = "<group>"; };
 		BFF8EF601AF5B3EE0053980A /* YBarButtonitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBarButtonitem.h; sourceTree = "<group>"; };
 		BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBarButtonitem.m; sourceTree = "<group>"; };
+		BFFD6A151B0457C3003904C1 /* YEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YEmptyView.h; sourceTree = "<group>"; };
+		BFFD6A161B0457C3003904C1 /* YEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YEmptyView.m; sourceTree = "<group>"; };
+		BFFD6A181B0457E4003904C1 /* YEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YEmptyView.xib; sourceTree = "<group>"; };
+		BFFD6A1A1B0474FE003904C1 /* targetProgressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetProgressCell.h; sourceTree = "<group>"; };
+		BFFD6A1B1B0474FE003904C1 /* targetProgressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = targetProgressCell.m; sourceTree = "<group>"; };
+		BFFD6A1C1B0474FE003904C1 /* targetProgressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = targetProgressCell.xib; sourceTree = "<group>"; };
+		BFFD6A1F1B047A47003904C1 /* targetProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetProgressController.h; sourceTree = "<group>"; };
+		BFFD6A201B047A47003904C1 /* targetProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = targetProgressController.m; sourceTree = "<group>"; };
+		BFFD6A211B047A47003904C1 /* targetProgressController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = targetProgressController.xib; sourceTree = "<group>"; };
+		BFFD6A241B04FE0E003904C1 /* growUpParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = growUpParam.h; sourceTree = "<group>"; };
+		BFFD6A251B04FE0E003904C1 /* growUpParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = growUpParam.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +355,9 @@
 				0B98E1EC1ADE918A00E4B8DB /* YGrowUpController.h */,
 				0B98E1ED1ADE918A00E4B8DB /* YGrowUpController.m */,
 				0B98E1EE1ADE918A00E4B8DB /* YGrowUpController.xib */,
+				BFFD6A1F1B047A47003904C1 /* targetProgressController.h */,
+				BFFD6A201B047A47003904C1 /* targetProgressController.m */,
+				BFFD6A211B047A47003904C1 /* targetProgressController.xib */,
 			);
 			path = growUp;
 			sourceTree = "<group>";
@@ -456,6 +480,9 @@
 				0B98E2271ADE918A00E4B8DB /* YTabbarButton.m */,
 				0BF7D1DF1AE24BAA0051B9AD /* YDatePickerView.h */,
 				0BF7D1E01AE24BAA0051B9AD /* YDatePickerView.m */,
+				BFFD6A151B0457C3003904C1 /* YEmptyView.h */,
+				BFFD6A161B0457C3003904C1 /* YEmptyView.m */,
+				BFFD6A181B0457E4003904C1 /* YEmptyView.xib */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -494,6 +521,9 @@
 				0BDD00221AE0BDD600119989 /* targetWriteCell.h */,
 				0BDD00231AE0BDD600119989 /* targetWriteCell.m */,
 				0BDD00241AE0BDD600119989 /* targetWriteCell.xib */,
+				BFFD6A1A1B0474FE003904C1 /* targetProgressCell.h */,
+				BFFD6A1B1B0474FE003904C1 /* targetProgressCell.m */,
+				BFFD6A1C1B0474FE003904C1 /* targetProgressCell.xib */,
 			);
 			path = target;
 			sourceTree = "<group>";
@@ -519,6 +549,8 @@
 				BF5B16431AF5A72A0071ECE8 /* nsstringTool.m */,
 				BF7B9E6C1AF7D0760089906A /* imageTool.h */,
 				BF7B9E6D1AF7D0760089906A /* imageTool.m */,
+				BF49245B1B05E2F000C54D67 /* animationTool.h */,
+				BF49245C1B05E2F000C54D67 /* animationTool.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -699,6 +731,8 @@
 				BF5747391AF5CCF70016AFF0 /* growUpRootObject.m */,
 				BF57473B1AF5E0AF0016AFF0 /* growUpResult.h */,
 				BF57473C1AF5E0AF0016AFF0 /* growUpResult.m */,
+				BFFD6A241B04FE0E003904C1 /* growUpParam.h */,
+				BFFD6A251B04FE0E003904C1 /* growUpParam.m */,
 			);
 			path = growUp;
 			sourceTree = "<group>";
@@ -790,17 +824,20 @@
 				0BF0320C1AD4BA3100DB1142 /* Main.storyboard in Resources */,
 				BF7B9E6B1AF7CA340089906A /* YTargetCheckController.xib in Resources */,
 				0BF7D25A1AE5DC1D0051B9AD /* moneyRecordCell.xib in Resources */,
+				BFFD6A231B047A47003904C1 /* targetProgressController.xib in Resources */,
 				0BDD00211AE0BD2500119989 /* YTargetWriteController.xib in Resources */,
 				0BDD00261AE0BDD600119989 /* targetWriteCell.xib in Resources */,
 				0B98E23B1ADE918A00E4B8DB /* YGrowUpController.xib in Resources */,
 				0BF032111AD4BA3100DB1142 /* LaunchScreen.xib in Resources */,
 				0B98E2391ADE918A00E4B8DB /* growUpRecordController.xib in Resources */,
 				0BF7EFA21AE76B25000D124A /* YTotalTimeViewController.xib in Resources */,
+				BFFD6A1E1B0474FE003904C1 /* targetProgressCell.xib in Resources */,
 				0B98E2591ADE918A00E4B8DB /* timeRootCell.xib in Resources */,
 				0BF7D2551AE5DA490051B9AD /* growUpTodayThingsCell.xib in Resources */,
 				0BF0320E1AD4BA3100DB1142 /* Images.xcassets in Resources */,
 				0BF7D25F1AE5E1B80051B9AD /* YMoneyTotalController.xib in Resources */,
 				0B98E23F1ADE918A00E4B8DB /* YTargetController.xib in Resources */,
+				BFFD6A191B0457E4003904C1 /* YEmptyView.xib in Resources */,
 				0B98E2501ADE918A00E4B8DB /* rootHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -823,6 +860,7 @@
 				0BF032091AD4BA3100DB1142 /* ViewController.m in Sources */,
 				0BF032061AD4BA3100DB1142 /* AppDelegate.m in Sources */,
 				BF48411F1AF5C8E6003B4F9C /* YTextView.m in Sources */,
+				BFFD6A261B04FE0E003904C1 /* growUpParam.m in Sources */,
 				0BF032031AD4BA3100DB1142 /* main.m in Sources */,
 				BF5B16411AF50CE90071ECE8 /* yLabel.m in Sources */,
 				BF5B16471AF5AF7B0071ECE8 /* YTextField.m in Sources */,
@@ -839,6 +877,7 @@
 				0B98E23E1ADE918A00E4B8DB /* YTargetController.m in Sources */,
 				0B98E29A1ADFDCB500E4B8DB /* NSObject+MJCoding.m in Sources */,
 				BF57473D1AF5E0AF0016AFF0 /* growUpResult.m in Sources */,
+				BFFD6A171B0457C3003904C1 /* YEmptyView.m in Sources */,
 				0B98E2441ADE918A00E4B8DB /* TableObject.m in Sources */,
 				0BF7D1E11AE24BAA0051B9AD /* YDatePickerView.m in Sources */,
 				BF563B9B1AF3DE8800DB6A02 /* lineView.m in Sources */,
@@ -853,7 +892,9 @@
 				0B98E2951ADFDCB500E4B8DB /* MJIvar.m in Sources */,
 				0B98E29B1ADFDCB500E4B8DB /* NSObject+MJKeyValue.m in Sources */,
 				0B98E2451ADE918A00E4B8DB /* titleSectionView.m in Sources */,
+				BFFD6A1D1B0474FE003904C1 /* targetProgressCell.m in Sources */,
 				0B98E2941ADFDCB500E4B8DB /* MJArgument.m in Sources */,
+				BFFD6A221B047A47003904C1 /* targetProgressController.m in Sources */,
 				0BDD002C1AE0F62900119989 /* timeTool.m in Sources */,
 				0B98E29C1ADFDCB500E4B8DB /* NSObject+MJMember.m in Sources */,
 				BFF8EF621AF5B3EE0053980A /* YBarButtonitem.m in Sources */,
@@ -875,6 +916,7 @@
 				BF57473A1AF5CCF70016AFF0 /* growUpRootObject.m in Sources */,
 				BF4BBC1F1AFEFB6600AEF190 /* targetStep.m in Sources */,
 				0B98E2511ADE918A00E4B8DB /* YTabBar.m in Sources */,
+				BF49245D1B05E2F000C54D67 /* animationTool.m in Sources */,
 				0B98E2531ADE918A00E4B8DB /* growUpCell.m in Sources */,
 				BF563B981AF3DC4700DB6A02 /* ySegmentedControl.m in Sources */,
 				0B98E2371ADE918A00E4B8DB /* YTabbarController.m in Sources */,

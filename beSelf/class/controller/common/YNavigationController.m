@@ -9,7 +9,6 @@
 #import "YNavigationController.h"
 
 @interface YNavigationController ()
-
 @end
 
 @implementation YNavigationController
@@ -18,6 +17,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationBar.backgroundColor = yWhite;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,11 +27,8 @@
 
 
 -(void)popself
-
 {
-    
     [self popViewControllerAnimated:YES];
-    
 }
 
 -(UIBarButtonItem*) createBackButton
@@ -51,7 +48,6 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    
     [super pushViewController:viewController animated:animated];
     
     if (viewController.navigationItem.leftBarButtonItem== nil && [self.viewControllers count] > 1) {
@@ -61,4 +57,6 @@
     } 
     
 }
+
+
 @end

@@ -22,6 +22,8 @@
  *  目标
  */
 @property (nonatomic,strong)targetResult *result;
+//emptyView
+@property (strong, nonatomic) YEmptyView *emptyView;
 
 
 @end
@@ -37,8 +39,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //设置导航栏
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(rightBarButtonItemDidTap:)];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    UIButton *rightItem = [[UIButton alloc]initWithFrame:CGRectMake(yUIScreenWidth-btnWidth_44, 0, btnWidth_44, btnWidth_44)];
+    [rightItem setImage:[UIImage imageNamed:@"write.png"] forState:UIControlStateNormal];
+    
+    [rightItem addTarget:self action:@selector(rightBarButtonItemDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightItem];
     
     //add tableview
     [self.view addSubview:self.GroupTable];
@@ -110,7 +116,12 @@
         self.result = [yCache readerTargetResult];
     }
 
-    [self setData];
+    if (self.result.targetArray.count>0) {//有数据
+        [self.emptyView removeFromSuperview];
+        [self setData];
+    }else{//没有数据
+        [self.view addSubview:self.emptyView];
+    }
 
 }
 
@@ -135,9 +146,9 @@
         object.title = target.targetTitle;
         object.money = target.targetMoney;
         object.subMoney = target.moneyUse;
-        NSInteger days = [timeTool daysWithStartDay:target.startTime andEndDay:target.endTime andFormat:@"yyyy/mm/dd"];
+        NSInteger days = [timeTool daysWithStartDay:target.startTime andEndDay:target.endTime andFormat:@"YYYY/MM/dd"];
         object.time = [NSString stringWithFormat:@"%ld",(long)days];
-        NSInteger leftDays = [timeTool daysWithStartDay:[timeTool getCurrentTimeWithFormat:@"yyyy/mm/dd"] andEndDay:target.endTime andFormat:@"yyyy/mm/dd"];
+        NSInteger leftDays = [timeTool daysWithStartDay:[timeTool getCurrentTimeWithFormat:@"YYYY/MM /dd"] andEndDay:target.endTime andFormat:@"YYYY/MM/dd"];
         object.subTime = [NSString stringWithFormat:@"%ld",(long)leftDays];
         
         [tempArray addObject:object];
@@ -154,6 +165,7 @@
     
     YTargetWriteController *controller = [[YTargetWriteController alloc]init];
     controller.delegate = self;
+    controller.hidesBottomBarWhenPushed = YES;
      [self.navigationController pushViewController:controller animated:YES];
     
 }
@@ -162,4 +174,17 @@
     self.tableData = nil;
     [self getData];
 }
+#pragma mark--初始化控件
+- (YEmptyView *)emptyView{
+    if (!_emptyView) {
+        _emptyView = [[YEmptyView alloc]initWithFrame:self.view.bounds];
+        TableObject *obj = [[TableObject alloc]init];
+        obj.title = @"还未有时间总额";
+        _emptyView.object = obj;
+    }
+    return _emptyView;
+}
+
+
+
 @end

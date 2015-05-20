@@ -31,6 +31,7 @@
     TableObject *obj = (TableObject *)object;
     self.subTitleLab.text = obj.subTitle;
     self.titleLab.text = obj.title;
+    self.titleLab.textColor = obj.color;
     self.timeLab.text =  obj.time;
 }
 @end

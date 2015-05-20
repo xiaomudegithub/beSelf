@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YTotalTimeViewController">
@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oz9-9x-yYs">
-                    <rect key="frame" x="15" y="64" width="290" height="120"/>
+                    <rect key="frame" x="15" y="0.0" width="290" height="120"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间总额（天）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iou-K5-PQ0">
                             <rect key="frame" x="0.0" y="20" width="290" height="16"/>
@@ -65,7 +65,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpc-dK-4e3">
-                    <rect key="frame" x="0.0" y="184" width="320" height="1"/>
+                    <rect key="frame" x="0.0" y="120" width="320" height="1"/>
                     <color key="backgroundColor" red="0.4039215686" green="1" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="3wN-RC-Vsv"/>
@@ -85,7 +85,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="开始时间" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78Z-He-6Wd">
-                    <rect key="frame" x="15" y="205" width="290" height="30"/>
+                    <rect key="frame" x="15" y="141" width="290" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="0D4-XX-czE"/>
                     </constraints>
@@ -97,7 +97,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="结束时间" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JYJ-Sc-qQT">
-                    <rect key="frame" x="15" y="250" width="290" height="30"/>
+                    <rect key="frame" x="15" y="186" width="290" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="sXI-eE-LY3"/>
                     </constraints>
@@ -108,7 +108,7 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQQ-6C-dEe">
-                    <rect key="frame" x="30" y="300" width="260" height="44"/>
+                    <rect key="frame" x="30" y="236" width="260" height="44"/>
                     <color key="backgroundColor" red="0.4039215686" green="1" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="Ea0-Iv-OD3"/>
@@ -124,7 +124,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Qpc-dK-4e3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5by-0C-KfF"/>
-                <constraint firstItem="oz9-9x-yYs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Jga-tY-hfN"/>
+                <constraint firstItem="oz9-9x-yYs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Jga-tY-hfN"/>
                 <constraint firstItem="xQQ-6C-dEe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Mql-om-eer"/>
                 <constraint firstAttribute="trailing" secondItem="78Z-He-6Wd" secondAttribute="trailing" constant="15" id="SsN-dh-hCb"/>
                 <constraint firstItem="K8F-q8-DPQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="UKQ-l1-oTk"/>

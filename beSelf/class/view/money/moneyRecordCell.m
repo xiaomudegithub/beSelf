@@ -21,7 +21,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
-        self.backgroundColor = moneyColor;
+        self.backgroundColor = [UIColor clearColor];
+        self.contentView.layer.borderColor = moneyColor.CGColor;
+        self.contentView.layer.borderWidth = 0.33;
+        self.contentView.layer.cornerRadius = 5;
+        self.backgroundColor = bgColor;
     }
     return self;
 }
@@ -44,7 +48,14 @@
     TableObject *tmpObj = tmpArr[indexPath.row];
     self.typeLabel.text = tmpObj.title;
     self.moneyValueLabel.text = tmpObj.money;
+    self.moneyValueLabel.textColor = moneyColor;
+    self.moneyUseLabel.textColor = moneyColor;
     self.moneyUseLabel.text = tmpObj.subTitle;
+    
+}
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.contentView.frame = CGRectMake(yViewTopInset, 0, yUIScreenWidth-yViewTopInset*2, self.frame.size.height);
     
 }
 

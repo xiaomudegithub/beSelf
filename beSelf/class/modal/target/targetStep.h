@@ -12,5 +12,5 @@
 //targetId
 @property (nonatomic, assign)NSInteger targetId;
 //步骤数组
-@property (strong, nonatomic) NSMutableArray *targetStepArray;
+@property (strong, nonatomic) NSMutableArray *targetSteps;
 @end

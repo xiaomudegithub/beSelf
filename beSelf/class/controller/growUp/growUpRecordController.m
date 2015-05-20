@@ -25,7 +25,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"温故而知新，可以为师矣";
     self.view.backgroundColor = bgColor;
-    if (!self.object) {
+    if (!self.growLastObj) {
         self.title = @"千里之行，始于足下";
     }
     
@@ -42,7 +42,7 @@
 - (void)setControllItem{
     
     //titleTextField
-    self.titleTextField.text = self.object.title;
+    self.titleTextField.text = self.growLastObj.object.title;
     self.titleTextField.textColor = growColor;
     self.titleTextField.delegate = self;
     
@@ -57,7 +57,7 @@
     self.contentTextView.backgroundColor = [UIColor clearColor];
     self.contentTextView.layer.borderColor = growColor.CGColor;
     self.contentTextView.layer.cornerRadius = 5;
-    self.contentTextView.text = self.object.subTitle;
+    self.contentTextView.text = self.growLastObj.object.subTitle;
     self.contentTextView.textColor = growColor;
     self.contentTextView.layer.borderWidth = 0.33;
     self.contentTextView.delegate = self;
@@ -96,7 +96,14 @@
 #pragma mark--4.1,存储数据并返回
 - (void)save:(id)sender{
     //3.1存储数据
-    [yCache cacheGrowUpRecord:self.growObject];
+    if (self.growLastObj) {
+        growUpParam *param = [[growUpParam alloc]init];
+        param.growId = self.growUpId+1;
+        param.growObj = self.growLastObj;
+        [yCache updateGrowUpRecord:param];
+    }else{
+        [yCache cacheGrowUpRecord:self.growObject];
+    }
     //3.2.1通知代理
     if([self.delegate respondsToSelector:@selector(didSaveGrowUpRecord)]){
         [self.delegate didSaveGrowUpRecord];
@@ -109,6 +116,7 @@
 //更改标题
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     self.growObject.object.title = textField.text;
+    self.growLastObj.object.title = textField.text;
 }
 //关闭键盘
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -118,6 +126,7 @@
 #pragma mark--textView_delegate
 - (void)textViewDidChange:(UITextView *)textView{
     self.growObject.object.subTitle = textView.text;
+    self.growLastObj.object.subTitle = textView.text;
 }
 
 

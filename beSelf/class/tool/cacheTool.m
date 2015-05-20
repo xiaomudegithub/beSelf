@@ -64,10 +64,13 @@ static FMDatabaseQueue *_queue;
 - (void)cacheTargetSteps:(targetStep *)tStep{
     [_queue inDatabase:^(FMDatabase *db) {
         //1,获得需要存储的数据
-        NSData *moneyData = [NSKeyedArchiver archivedDataWithRootObject:tStep];
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tStep];
         
+        NSString *sql = [NSString stringWithFormat:@"update y_target set targetStep = '%@' where targetID = '%ld';",data,tStep.targetId];
         //2,存储数据
-        [db executeUpdate:@"insert into y_target (targetStep) values (?) where targetID = (?)",moneyData,tStep.targetId];
+        BOOL success =  [db executeUpdate:sql];
+
+        [self isSuccess:success];
     }];
 }
 #pragma mark===================读取
@@ -99,6 +102,38 @@ static FMDatabaseQueue *_queue;
             [tempArray addObject:target];
         }
         result.targetArray = tempArray;
+    }];
+    return result;
+}
+#pragma mark--读取某一个目标步骤
+- (targetStep *)readerTargetStepWithParam:(targetParam *)param{
+    __block targetStep *target = [[targetStep alloc]init];
+    [_queue inDatabase:^(FMDatabase *db) {
+        FMResultSet *rs = nil;
+        
+        NSString *sql = [NSString stringWithFormat:@"select targetStep from y_target where targetId = '%ld'",param.targetId];
+        rs = [db executeQuery:sql];//@"select targetStep from y_target where targetId = '?' ",param.targetId];
+        while (rs.next) {
+            NSData *data = [rs dataForColumn:@"targetStep"];
+            target = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        }
+        
+    }];
+    return target;
+}
+#pragma mark--读取所有目标步骤
+- (targetResult *)readerTargetStepResult{
+    __block targetResult *result = [[targetResult alloc]init];
+    [_queue inDatabase:^(FMDatabase *db) {
+        FMResultSet *rs = nil;
+        NSMutableArray *tempArray = [NSMutableArray array];
+        rs = [db executeQuery:@"select targetStep from y_target"];
+        while (rs.next) {
+            NSData *data = [rs dataForColumn:@"target"];
+            targetStep *target = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            [tempArray addObject:target];
+        }
+        result.targetStepArray = tempArray;
     }];
     return result;
 }
@@ -144,5 +179,25 @@ static FMDatabaseQueue *_queue;
         result.grows = tempArray;
     }];
     return result;
+}
+#pragma mark===================修改
+#pragma mark--修改成长记录
+- (void)updateGrowUpRecord:(growUpParam *)param{
+    [_queue inDatabase:^(FMDatabase *db) {
+        //获得需要修改的数据
+        NSData *growData = [NSKeyedArchiver archivedDataWithRootObject:param.growObj];
+        NSString *sql = [NSString stringWithFormat:@"update y_target set targetStep = '%@' where targetID = '%ld';",growData,param.growId];
+        BOOL success = [db executeUpdate:@"update y_growUp set growRecord = ('?') where growId  = ('?');",growData,param.growId];
+        
+        [self isSuccess:success];
+    }];
+}
+#pragma mark--公共方法
+- (void)isSuccess:(BOOL)success{
+    if (success) {
+        [MBProgressHUD showSuccess:@"操作成功"];
+    }else{
+        [MBProgressHUD showSuccess:@"操作失败"];
+    }
 }
 @end

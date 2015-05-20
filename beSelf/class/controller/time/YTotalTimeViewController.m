@@ -75,10 +75,24 @@
 #pragma mark--4.2确认
 - (IBAction)confirm:(UIButton *)sender {
     NSInteger days = [timeTool daysWithStartDay:self.startTimeText.text andEndDay:self.endTimeText.text andFormat:@"YYYY/MM/dd"];
-    //渲染数据
-    self.timeTotalLab.text = [NSString stringWithFormat:@"%ld",days];
-    //存储数据
-    [[NSUserDefaults standardUserDefaults]setObject:self.timeTotalLab.text forKey:@"timeTotal"];
+    if (days>0) {
+        
+        //渲染数据
+        self.timeTotalLab.text = [NSString stringWithFormat:@"%ld",days];
+        //存储数据
+        [[NSUserDefaults standardUserDefaults]setObject:self.timeTotalLab.text forKey:@"timeTotal"];
+        //通知代理
+        if ([self.delegate respondsToSelector:@selector(didSaveTotalMoney)]) {
+            [self.delegate didSaveTotalMoney];
+        }
+        
+        //返回主页面
+        [self.navigationController popViewControllerAnimated:YES];
+
+    }else{
+        UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"时间输入错误" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+        [alterView show];
+    }
 }
 #pragma mark==============5，公用方法
 //关闭键盘

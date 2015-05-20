@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = bgColor;
     [self getData];
     [self.view addSubview:self.myTable];
 }
@@ -115,7 +115,7 @@
         
         TableObject *object = [[TableObject alloc]init];
         object.cellString = @"moneyRecordCell";
-        object.cellHeight = 66;
+        object.cellHeight = 88;
         object.title = record.type;
         object.money = record.value;
         object.subTitle = record.subTitle;

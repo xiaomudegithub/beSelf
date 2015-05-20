@@ -63,6 +63,7 @@
     self.title = @"有目标才有方向";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
+      self.navigationItem.rightBarButtonItem.tintColor = targetColor;
 }
 
 #pragma mark--myTable
@@ -221,8 +222,7 @@
 #pragma mark--2.3保存并返回
 - (void)save{
     //保存数据
-    cacheTool *cache = [[cacheTool alloc]init];
-    [cache cacheTarget:self.target];
+    [yCache cacheTarget:self.target];
     if ([self.delegate respondsToSelector:@selector(didSaveTarget)]) {
         [self.delegate didSaveTarget];
     }

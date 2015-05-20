@@ -9,7 +9,7 @@
 #import "YMoneyController.h"
 #import "YMoneyTotalController.h"
 
-@interface YMoneyController ()<GroupTableViewDelegate>
+@interface YMoneyController ()<GroupTableViewDelegate,YMoneyTotalControllerDelegate>
 
 //主表格
 @property (nonatomic,strong)GroupTableView *myTable;
@@ -23,8 +23,10 @@
  *  targetResut
  */
 @property (nonatomic,strong)targetResult *result;
-
-
+//emptyView
+@property (strong, nonatomic) YEmptyView *emptyView;
+//时间总额
+@property (nonatomic,copy)NSString *moneyTotal;
 
 @end
 
@@ -33,17 +35,23 @@
 #pragma mark--0,生命周期
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-        [self getData];
+    [self getData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //设置导航栏
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(rightBarButtonItemDidTap:)];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    //设置导航栏
+    UIButton *rightItem = [[UIButton alloc]initWithFrame:CGRectMake(yUIScreenWidth-btnWidth_44, 0, btnWidth_44, btnWidth_44)];
+    [rightItem setImage:[UIImage imageNamed:@"write.png"] forState:UIControlStateNormal];
+    
+    [rightItem addTarget:self action:@selector(rightBarButtonItemDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightItem];
 
     [self.view addSubview:self.myTable];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,6 +72,7 @@
     rootHeader *headerView = [[rootHeader alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, 150)];
     TableObject *headerObject = [[TableObject alloc]init];
     headerObject.subTitle = @"财富总额（元）";
+    headerObject.color = moneyColor;
     if (IsMock) {
         headerObject.title = mData.moneyTotal;
     }else{
@@ -88,7 +97,15 @@
     }else{
         self.result = [yCache readerTargetResult];
     }
-    [self setData];
+    self.moneyTotal = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalMoney"];
+
+    if (self.result.targetArray.count>0&&self.moneyTotal.length>0) {
+        [self.emptyView removeFromSuperview];
+        [self setData];
+    }else{
+        [self.view addSubview:self.emptyView];
+    }
+ 
 
 }
 
@@ -110,5 +127,22 @@
 #pragma mark--4,点击右边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
     YMoneyTotalController *controller = [[YMoneyTotalController alloc]initWithNibName:@"YMoneyTotalController" bundle:nil];
-    [self.navigationController pushViewController:controller animated:YES];}
+    controller.delegate = self;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+#pragma mark--5，响应代理
+- (void)didSaveTotalMoney{
+    [self getData];
+}
+
+#pragma mark--初始化
+- (YEmptyView *)emptyView{
+    if (!_emptyView) {
+        _emptyView = [[YEmptyView alloc]initWithFrame:self.view.bounds];
+        TableObject *obj = [[TableObject alloc]init];
+        obj.title = @"赶快去记录财富吧";
+        _emptyView.object = obj;
+    }
+    return _emptyView;
+}
 @end

@@ -27,6 +27,11 @@
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
         //timeVlueBtn
         self.timeValueBtn.backgroundColor = timeColor;
+        
+        self.contentView.layer.borderColor = timeColor.CGColor;
+        self.contentView.layer.borderWidth = 0.33;
+        self.contentView.layer.cornerRadius = 5;
+        self.backgroundColor = bgColor;
     }
     return self;
 }
@@ -48,10 +53,25 @@
     }
     
     TableObject *tmpObj = tmpArr[indexPath.row];
+    //targetTitle
     self.targetTitleLab.text = tmpObj.title;
+    self.targetTitleLab.textColor = timeColor;
+    //timeStart
     self.timeStartLab.text = tmpObj.time;
+    self.timeStartLab.textColor = timeColor;
+    //timeEnd
     self.timeEndLab.text = tmpObj.subTime;
+    self.timeEndLab.textColor = timeColor;
+    //timeValueBtn
     [self.timeValueBtn setTitle:tmpObj.value forState:UIControlStateNormal];
+    [self.timeValueBtn setBackgroundColor:timeColor];
+    [self.timeValueBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.timeValueBtn.layer.cornerRadius = 5;
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.contentView.frame = CGRectMake(yViewTopInset, 0, yUIScreenWidth-yViewTopInset*2, self.frame.size.height);
+    
+}
 @end

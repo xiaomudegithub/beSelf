@@ -42,4 +42,7 @@
  *  标识
  */
 @property(nonatomic,assign)NSInteger tag;
+
+//color
+@property (strong, nonatomic) UIColor *color;
 @end

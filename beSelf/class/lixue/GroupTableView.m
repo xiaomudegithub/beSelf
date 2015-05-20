@@ -211,6 +211,8 @@
         [cell addSubview:self.separatorLineview];
     }
     
+    //取消选中效果
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

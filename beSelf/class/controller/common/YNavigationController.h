@@ -13,4 +13,7 @@
 @property (nonatomic, copy)NSString *backBtnTitle;
 //backBtn color
 @property (strong, nonatomic)UIColor *backBtnColor;
+//title color
+@property (strong, nonatomic)UIColor *rightBtnColor;
+
 @end

@@ -125,6 +125,7 @@
 #define mData [[mockData alloc]init]
 #define yCache [[cacheTool alloc]init]
 #define yImage [[imageTool alloc]init]
+#define yAnimation [[animationTool alloc]init]
 //=======================颜色宏====================
 #define growColor UIColorWithRGB(87, 186, 249)
 #define targetColor UIColorWithRGB(255,149,0)
@@ -141,11 +142,16 @@
 //=======================margin=====================
 #define margin_20 20
 #define margin_64 64
+#define margin_44 44
 //=======================btn=====================
 //width
 #define btnWidth_44 44
+#define btnWidth_60 60
 //height
 #define btnHeight_30 30
-
-
+//=======================cell=====================
+//cellHeight
+#define cellHeight_59 59
+//=======================animational=====================
+#define DURATION 0.25
 #endif

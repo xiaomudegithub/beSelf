@@ -15,8 +15,10 @@
 @end
 
 @interface growUpRecordController : UIViewController
-//
+
 @property(nonatomic, weak)id<growUpRecordControllerDelegate> delegate;
 //上个页面传过来的数据
-@property (nonatomic,strong)TableObject *object;
+@property (nonatomic,strong)growUpRootObject *growLastObj;
+//growUpId
+@property (nonatomic, assign)NSInteger growUpId;
 @end
