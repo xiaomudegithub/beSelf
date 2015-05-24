@@ -18,4 +18,16 @@
     NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]};
     return [str sizeWithAttributes:attribute];
 }
+
++ (CGSize)sizeWithString:(NSString *)str andFont:(CGFloat)fontSize andMaxWidth:(CGFloat)maxWidth{
+    //字体属性
+    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]};
+    //
+    NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+    //获取字体的frame
+    CGRect frame = [str boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:options attributes:attribute context:nil];
+    
+    return frame.size;
+    
+}
 @end

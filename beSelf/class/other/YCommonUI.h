@@ -151,7 +151,10 @@
 #define btnHeight_30 30
 //=======================cell=====================
 //cellHeight
-#define cellHeight_59 59
+#define cellHeight_60 60
+
 //=======================animational=====================
 #define DURATION 0.25
+//=======================view=====================
+#define viewHeight_50 50
 #endif

@@ -29,22 +29,29 @@ static FMDatabaseQueue *_queue;
 #pragma mark--写入成长记录
 - (void)cacheGrowUpRecord:(growUpRootObject *)growUp{
     [_queue inDatabase:^(FMDatabase *db) {
+        
+        
         //获得需要存储的数据
         NSData *growData = [NSKeyedArchiver archivedDataWithRootObject:growUp];
         
         //存储数据
         [db executeUpdate:@"insert into y_growUp (growRecord) values (?)",growData];
+        
+       
     }];
 }
 #pragma mark--写入目标
 - (void)cacheTarget:(targetModal *)target{
     
     [_queue inDatabase:^(FMDatabase *db) {
+        
         //1,获得需要存储的数据
         NSData *targetData = [NSKeyedArchiver archivedDataWithRootObject:target];
         
         //2,存储数据
         [db executeUpdate:@"insert into y_target (target) values (?)",targetData];
+        
+       
     }];
   
 }
@@ -52,25 +59,33 @@ static FMDatabaseQueue *_queue;
 - (void)cacheMoneyRecord:(moneyRecord *)money{
     
     [_queue inDatabase:^(FMDatabase *db) {
+        
+        
         //1,获得需要存储的数据
         NSData *moneyData = [NSKeyedArchiver archivedDataWithRootObject:money];
         
         //2,存储数据
         [db executeUpdate:@"insert into y_moneyRecord (moneyRecord) values (?)",moneyData];
+        
+       
     }];
     
 }
 #pragma mark--写入目标分解步骤
 - (void)cacheTargetSteps:(targetStep *)tStep{
     [_queue inDatabase:^(FMDatabase *db) {
+        
+        
         //1,获得需要存储的数据
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tStep];
         
-        NSString *sql = [NSString stringWithFormat:@"update y_target set targetStep = '%@' where targetID = '%ld';",data,tStep.targetId];
+        NSString *sql = [NSString stringWithFormat:@"update y_target set targetStep = '%@' where targetID = '%d';",data,(int)tStep.targetId];
         //2,存储数据
         BOOL success =  [db executeUpdate:sql];
 
         [self isSuccess:success];
+        
+       
     }];
 }
 #pragma mark===================读取
@@ -78,6 +93,8 @@ static FMDatabaseQueue *_queue;
 - (targetModal *)readerTargetWithParam:(targetParam *)param{
     __block targetModal *target = [[targetModal alloc]init];
     [_queue inDatabase:^(FMDatabase *db) {
+        
+        
         FMResultSet *rs = nil;
  
         rs = [db executeQuery:@"select * from y_target where targetId = ? ",param.targetId];
@@ -85,14 +102,19 @@ static FMDatabaseQueue *_queue;
             NSData *data = [rs dataForColumn:@"target"];
             target = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         }
+        
+       
  
     }];
     return target;
 }
 #pragma mark--读取所有目标
 - (targetResult *)readerTargetResult{
+    
     __block targetResult *result = [[targetResult alloc]init];
     [_queue inDatabase:^(FMDatabase *db) {
+        
+        
         FMResultSet *rs = nil;
         NSMutableArray *tempArray = [NSMutableArray array];
         rs = [db executeQuery:@"select * from y_target"];
@@ -102,6 +124,7 @@ static FMDatabaseQueue *_queue;
             [tempArray addObject:target];
         }
         result.targetArray = tempArray;
+       
     }];
     return result;
 }
@@ -109,39 +132,28 @@ static FMDatabaseQueue *_queue;
 - (targetStep *)readerTargetStepWithParam:(targetParam *)param{
     __block targetStep *target = [[targetStep alloc]init];
     [_queue inDatabase:^(FMDatabase *db) {
+        
+        
         FMResultSet *rs = nil;
         
-        NSString *sql = [NSString stringWithFormat:@"select targetStep from y_target where targetId = '%ld'",param.targetId];
-        rs = [db executeQuery:sql];//@"select targetStep from y_target where targetId = '?' ",param.targetId];
+        NSString *sql = [NSString stringWithFormat:@"select * from y_target where targetId = '%d'",(int)param.targetId];
+        rs = [db executeQuery:sql];
+        
         while (rs.next) {
             NSData *data = [rs dataForColumn:@"targetStep"];
             target = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         }
-        
+       
     }];
     return target;
 }
-#pragma mark--读取所有目标步骤
-- (targetResult *)readerTargetStepResult{
-    __block targetResult *result = [[targetResult alloc]init];
-    [_queue inDatabase:^(FMDatabase *db) {
-        FMResultSet *rs = nil;
-        NSMutableArray *tempArray = [NSMutableArray array];
-        rs = [db executeQuery:@"select targetStep from y_target"];
-        while (rs.next) {
-            NSData *data = [rs dataForColumn:@"target"];
-            targetStep *target = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-            [tempArray addObject:target];
-        }
-        result.targetStepArray = tempArray;
-    }];
-    return result;
-}
+
 #pragma mark--读取所有收支记录
 - (moneyResult *)readerMoneyResult{
     __block moneyResult *result = [[moneyResult alloc]init];
     
     [_queue inDatabase:^(FMDatabase *db) {
+        
         
         FMResultSet *rs = nil;
         NSMutableArray *tempArray = [NSMutableArray array];
@@ -157,6 +169,8 @@ static FMDatabaseQueue *_queue;
         }
         
         result.mRecordArray = tempArray;
+        
+       
     }];
     return result;
 }
@@ -165,6 +179,8 @@ static FMDatabaseQueue *_queue;
     __block growUpResult *result = [[growUpResult alloc]init];
     
     [_queue inDatabase:^(FMDatabase *db) {
+        
+        
         FMResultSet *rs = nil;
         NSMutableArray *tempArray = [NSMutableArray array];
         rs = [db executeQuery:@"select * from y_growUp"];
@@ -177,6 +193,8 @@ static FMDatabaseQueue *_queue;
             }
         }
         result.grows = tempArray;
+        
+       
     }];
     return result;
 }
@@ -184,12 +202,15 @@ static FMDatabaseQueue *_queue;
 #pragma mark--修改成长记录
 - (void)updateGrowUpRecord:(growUpParam *)param{
     [_queue inDatabase:^(FMDatabase *db) {
+        
+        
         //获得需要修改的数据
         NSData *growData = [NSKeyedArchiver archivedDataWithRootObject:param.growObj];
-        NSString *sql = [NSString stringWithFormat:@"update y_target set targetStep = '%@' where targetID = '%ld';",growData,param.growId];
-        BOOL success = [db executeUpdate:@"update y_growUp set growRecord = ('?') where growId  = ('?');",growData,param.growId];
-        
+        NSString *sql = [NSString stringWithFormat:@"update y_target set targetStep = '%@' where targetID = '%d';",growData,(int)param.growId];
+        BOOL success = [db executeUpdate:sql];
         [self isSuccess:success];
+        
+       
     }];
 }
 #pragma mark--公共方法

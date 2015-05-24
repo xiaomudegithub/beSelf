@@ -13,4 +13,7 @@
 + (CGSize)sizeWithUILabel:(UILabel *)label;
 
 + (CGSize)sizeWithString:(NSString *)str andFont:(CGFloat)fontSize;
+
+
++ (CGSize)sizeWithString:(NSString *)str andFont:(CGFloat)fontSize andMaxWidth:(CGFloat)maxWidth;
 @end

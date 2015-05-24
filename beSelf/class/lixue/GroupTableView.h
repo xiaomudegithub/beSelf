@@ -15,6 +15,8 @@
 - (CGFloat) tableRowHeightAtIndex:(NSIndexPath *)indexPath;
 //点击代理事件
 - (void) tabledidSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+//滑动
+- (void) tableDidScorll:(UIScrollView *)scrollView;
 
 //footer header View 高
 - (CGFloat) tableViewHeightForFooterInSection:(NSInteger)section;

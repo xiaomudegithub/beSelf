@@ -30,6 +30,8 @@
  *  totalMoney
  */
 @property (nonatomic,copy)NSString *totalMoney;
+//moveHeight
+@property (nonatomic, assign)CGFloat moveHeight;
 
 @end
 
@@ -129,8 +131,6 @@
         if ([self.delegate respondsToSelector:@selector(didSaveTotalMoney)]) {
             [self.delegate didSaveTotalMoney];
         }
-        //返回主页面
-        [self.navigationController popViewControllerAnimated:YES];
     }else{
         UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"金额记录错误" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
         [alterView show];
@@ -142,29 +142,40 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.totalMoney forKey:@"totalMoney"];
 }
 #pragma mark==============5，公用方法
+#pragma mark--关闭键盘
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 //textfield's delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.view endEditing:YES];
     return YES;
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
-//    [UIView animateWithDuration:0.25 animations:^{
-//        CGRect frame = self.view.frame;
-//        frame.origin.y -=200;
-//        self.view.frame = frame;
-//    }];
+    CGFloat maxY;
+    if (textField == self.moneyValueText) {
+        maxY = CGRectGetMaxY(self.moneyValueText.frame);
+    }else{
+        maxY = CGRectGetMaxY(self.moneyAttentionText.frame);
+    }
+    //判断是否遮挡
+    if (maxY+216>yUIScreenHeight-margin_64) {
+        self.moveHeight = maxY+216-yUIScreenHeight+margin_64+margin_20;
+        [yAnimation moveUpView:self.view WithHeight:self.moveHeight];
+    }else{
+        self.moveHeight = 0;
+    }
+    
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
+    if (self.moveHeight>0) {
+        [yAnimation moveDownView:self.view WithHeight:self.moveHeight];
+    }
     if (textField == self.moneyAttentionText) {
         self.mRecord.subTitle = textField.text;
     }else if (textField == self.moneyValueText){
         self.mRecord.value = textField.text;
     }
-//    [UIView animateWithDuration:0.25 animations:^{
-//        CGRect frame = self.view.frame;
-//        frame.origin.y +=200;
-//        self.view.frame = frame;
-//    }];
 }
 
 @end

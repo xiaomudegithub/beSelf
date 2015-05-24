@@ -123,7 +123,7 @@
         _stepsIcon = [NSMutableArray array];
         
         for (NSInteger i = 1; i<=5; i++) {
-            NSString *iconName = [NSString stringWithFormat:@"step%ld.png",i];
+            NSString *iconName = [NSString stringWithFormat:@"step%d.png",(int)i];
             [_stepsIcon addObject:iconName];
         }
     }
@@ -157,6 +157,8 @@
 #pragma mark==============4，操作
 #pragma mark--下一步
 - (IBAction)didNextStepTapped:(id)sender {
+    //存储数据
+    [self.stepsArray addObject:self.stepTextView.text];
     if (self.step == 4) {
         //缓存数据
         [self cacheStep];
@@ -171,8 +173,6 @@
     
     //加一步
     self.step ++;
-    //存储数据
-    [self.stepsArray addObject:self.stepTextView.text];
     //清空数据
     self.stepTextView.text = @"";
     [self refreshUI];
@@ -189,6 +189,7 @@
         self.step --;
     
         [yAnimation fanYeDownWithView:self.headerView];
+        self.stepTextView.text = self.stepsArray[self.step];
         [self refreshUI];
     }
 
@@ -210,6 +211,12 @@
         self.view.frame = viewFrame;
     }];
 }
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+
+    
+    return YES;
+}
 #pragma mark--关闭键盘
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -220,7 +227,28 @@
 #pragma mark--缓存数据
 - (void)cacheStep{
     targetStep *tStep = [[targetStep alloc]init];
-    tStep.targetSteps = self.stepsArray;
+    for (NSInteger i = 0;i<self.stepsArray.count;i++ ) {
+        NSString *tempString = self.stepsArray[i];
+        switch (i) {
+            case 0:
+                tStep.firstStep = tempString;
+                break;
+            case 1:
+                tStep.secordStep = tempString;
+                break;
+            case 2:
+                tStep.thirdStep = tempString;
+                break;
+            case 3:
+                tStep.forthStep = tempString;
+                break;
+            case 4:
+                tStep.fifthStep = tempString;
+                break;
+            default:
+                break;
+        }
+    }
     tStep.targetId = self.targetId+1;
     //存储数据
     [yCache cacheTargetSteps:tStep];

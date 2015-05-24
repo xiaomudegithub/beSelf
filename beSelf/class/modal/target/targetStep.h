@@ -11,6 +11,14 @@
 @interface targetStep : NSObject
 //targetId
 @property (nonatomic, assign)NSInteger targetId;
-//步骤数组
-@property (strong, nonatomic) NSMutableArray *targetSteps;
+//1
+@property (nonatomic, copy)NSString *firstStep;
+//2
+@property (nonatomic, copy)NSString *secordStep;
+//3
+@property (nonatomic, copy)NSString *thirdStep;
+//4
+@property (nonatomic, copy)NSString *forthStep;
+//5
+@property (nonatomic, copy)NSString *fifthStep;
 @end

@@ -101,4 +101,27 @@
     [self transitionWithType:@"rippleEffect" WithSubtype:self.subTypeTitle ForView:view];
     
 }
+
+//上移
+- (void) moveUpView:(UIView *)view WithHeight:(CGFloat )height{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect viewF =  view.frame;
+        viewF.origin.y -= height;
+        view.frame = viewF;
+
+    }];
+
+}
+
+//下移
+- (void) moveDownView:(UIView *)view WithHeight:(CGFloat )height{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect viewF =  view.frame;
+        viewF.origin.y += height;
+        view.frame = viewF;
+    }];
+}
+
 @end

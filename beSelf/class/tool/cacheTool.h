@@ -27,8 +27,6 @@
 - (targetResult *)readerTargetResult;
 #pragma mark--读取某一个目标步骤
 - (targetStep *)readerTargetStepWithParam:(targetParam *)param;
-#pragma mark--读取所有目标步骤
-- (NSMutableArray *)readerTargetStepResult;
 #pragma mark--读取所有收支记录
 - (moneyResult *)readerMoneyResult;
 #pragma mark===================修改

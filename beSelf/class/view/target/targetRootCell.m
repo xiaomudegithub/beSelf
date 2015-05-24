@@ -55,14 +55,17 @@
     self.shuLine.backgroundColor = targetColor;
     self.hengLine.backgroundColor = targetColor;
     
+
     self.contentView.layer.borderColor = targetColor.CGColor;
     self.contentView.layer.borderWidth = 0.33;
     self.contentView.layer.cornerRadius = 5;
     self.backgroundColor = bgColor;
+    
+    
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.contentView.frame = CGRectMake(yViewTopInset, 0, yUIScreenWidth-yViewTopInset*2, self.frame.size.height);
+   
     
 }
 @end

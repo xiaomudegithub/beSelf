@@ -62,9 +62,8 @@
 #pragma mark--1,设置表格
 - (GroupTableView *)myTable{
     if (!_myTable) {
-        _myTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight) style:UITableViewStylePlain];
+        _myTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight-margin_64-viewHeight_50) style:UITableViewStylePlain];
         _myTable.group_delegate = self;
-        _myTable.tableHeaderView = self.tableHeaderView;
     }
     return _myTable;
 }
@@ -103,6 +102,8 @@
     if (self.result.targetArray.count>0&&self.timeTotal.length>0) {
         [self.emptyView removeFromSuperview];
         [self setData];
+        self.myTable.tableData = self.tableData;
+        self.myTable.tableHeaderView = self.tableHeaderView;
     }else{
         [self.view addSubview:self.emptyView];
     }
@@ -123,7 +124,7 @@
         timeObj.value =  [NSString stringWithFormat:@"%ld",(long)days];
         [self.tableData addObject:timeObj];
     }
-    self.myTable.tableData = self.tableData;
+
 }
 #pragma mark--4,点击左边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
@@ -134,13 +135,13 @@
 }
 
 #pragma mark--5,响应记录时间总额代理
-- (void)didSaveTotalMoney{
+- (void)didSaveTotalTime{
     [self getData];
 }
 #pragma mark--初始化
 - (YEmptyView *)emptyView{
     if (!_emptyView) {
-        _emptyView = [[YEmptyView alloc]initWithFrame:self.view.bounds];
+        _emptyView = [[YEmptyView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight-margin_64-viewHeight_50)];
         TableObject *obj = [[TableObject alloc]init];
         obj.title = @"赶快去记录时间吧";
         _emptyView.object = obj;

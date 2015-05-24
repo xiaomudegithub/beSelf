@@ -73,7 +73,7 @@
 }
 #pragma mark==============3，数据渲染
 - (void)getData{
-    if (self.result.targetSteps.count>0) {
+    if (self.result) {
         [self.view addSubview:self.myTable];
         [self setData];
     }else{
@@ -82,13 +82,31 @@
 }
 - (void)setData{
     //设置数据
-    for (NSInteger i = 0; i < self.result.targetSteps.count; i++) {
-        TableObject *obj = [[TableObject alloc]init];
-        obj.title = self.result.targetSteps[i];
-        obj.cellString = @"targetProgressCell";
-        obj.cellHeight = cellHeight_59;
-        [self.tableData addObject:obj];
+    
+    for (NSInteger i=0; i<5; i++) {
+        switch (i) {
+            case 0:
+                [self creatObjWithTitle:self.result.firstStep];
+                break;
+            case 1:
+                 [self creatObjWithTitle:self.result.secordStep];
+                break;
+            case 2:
+                 [self creatObjWithTitle:self.result.thirdStep];
+                break;
+            case 3:
+                 [self creatObjWithTitle:self.result.forthStep];
+                break;
+            case 4:
+                 [self creatObjWithTitle:self.result.fifthStep];
+                break;
+            default:
+                break;
+        }
     }
+ 
+  
+  
     
     //刷新数据
     if (self.tableData.count>0) {
@@ -101,7 +119,17 @@
 #pragma mark==============5，公用方法
 #pragma mark--tableview's delegate
 - (CGFloat)tableRowHeightAtIndex:(NSIndexPath *)indexPath{
-    return cellHeight_59;
+    return cellHeight_60;
 }
 
+- (void)creatObjWithTitle:(NSString *)title{
+    if (title.length>0) {
+        TableObject *obj = [[TableObject alloc]init];
+        obj.title = nil;
+        obj.cellString = @"targetProgressCell";
+        obj.cellHeight = cellHeight_60;
+        [self.tableData addObject:obj];
+    }
+
+}
 @end

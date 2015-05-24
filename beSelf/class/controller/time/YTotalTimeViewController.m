@@ -8,7 +8,7 @@
 
 #import "YTotalTimeViewController.h"
 
-@interface YTotalTimeViewController ()<UITextFieldDelegate,YDatePickerViewDelegate>
+@interface YTotalTimeViewController ()<UITextFieldDelegate,YDatePickViewControllerDelegate>
 //属性
 @property (weak, nonatomic) IBOutlet yLabel *timeTotalLab;
 @property (weak, nonatomic) IBOutlet yLabel *currentTime;
@@ -43,24 +43,19 @@
 #pragma mark--初始化
 - (void)setUpEverything{
     //totalTimeLab
-    self.timeTotalLab.text = [[NSUserDefaults standardUserDefaults]valueForKey:@"timeTotal"];
+    NSString *totalTime =  [[NSUserDefaults standardUserDefaults]valueForKey:@"timeTotal"];
+    self.timeTotalLab.text = totalTime;
     
     //currentTime
     self.currentTime.text = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
-    self.startTimeText.layer.borderColor = UIColorWithRGB(110, 253, 103).CGColor;
     
-    //datePicker
-    [self.view addSubview:self.datePicker];
+    //confirmBtn
+    [self.cofirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.cofirmBtn.layer.cornerRadius = 5;
+    self.cofirmBtn.backgroundColor = timeColor;
     
 }
-//datePicker
-- (YDatePickerView *)datePicker{
-    if (!_datePicker) {
-        _datePicker = [[YDatePickerView alloc]initWithFrame:CGRectMake(0, yUIScreenHeight, yUIScreenWidth, 216)];
-        _datePicker.delegate = self;
-    }
-    return _datePicker;
-}
+
 #pragma mark==============3，数据渲染
 
 #pragma mark==============4，操作
@@ -78,17 +73,14 @@
     if (days>0) {
         
         //渲染数据
-        self.timeTotalLab.text = [NSString stringWithFormat:@"%ld",days];
+        self.timeTotalLab.text = [NSString stringWithFormat:@"%d",days];
         //存储数据
         [[NSUserDefaults standardUserDefaults]setObject:self.timeTotalLab.text forKey:@"timeTotal"];
         //通知代理
-        if ([self.delegate respondsToSelector:@selector(didSaveTotalMoney)]) {
-            [self.delegate didSaveTotalMoney];
+        if ([self.delegate respondsToSelector:@selector(didSaveTotalTime)]) {
+            [self.delegate didSaveTotalTime];
         }
         
-        //返回主页面
-        [self.navigationController popViewControllerAnimated:YES];
-
     }else{
         UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"时间输入错误" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
         [alterView show];
@@ -107,9 +99,39 @@
         self.startOrEnd = NO;
     }
     textField.placeholder = @"";
-    [self.datePicker openDatePicker];
+    
+    [self getUpDateKeyboard];
+    
     return NO;
 }
 
+//调起日期键盘
+- (void)getUpDateKeyboard{
+    
+    YDatePickViewController *controller = [[YDatePickViewController alloc]init];
+    controller.modalPresentationStyle = UIModalPresentationCustom;
+    controller.mainColor = timeColor;
+    controller.delegate =  self;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+//日期键盘代理
+//确定
+- (void)didDatePickWithDateString:(NSString *)dateString{
+    if (self.startOrEnd) {
+        self.startTimeText.text = dateString;
+    }else{
+        self.endTimeText.text = dateString;
+    }
+}
+//取消
+- (void)cancelDatePick{
+    if (self.startOrEnd) {
+        self.startTimeText.text = nil;
+        self.startTimeText.placeholder = @"请输入开始时间";
+    }else{
+        self.endTimeText.text = nil;
+        self.endTimeText.placeholder = @"请输入结束时间";
+    }
 
+}
 @end

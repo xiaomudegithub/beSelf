@@ -62,7 +62,8 @@
 #pragma mark--0,contenView
 - (UIView *)contentView{
     if (!_contentView) {
-        _contentView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.seg.frame)+yViewTopInset, yUIScreenWidth, yUIScreenHeight-CGRectGetMaxY(self.seg.frame)-yViewTopInset)];
+        CGFloat _contentViewH =  yUIScreenHeight -CGRectGetMaxY(self.seg.frame)-yViewTopInset-viewHeight_50-margin_64;
+        _contentView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.seg.frame)+yViewTopInset, yUIScreenWidth,_contentViewH)];
         [_contentView addSubview:self.myTable];
     }
     return _contentView;
@@ -95,7 +96,7 @@
 //2.1初始化table
 - (GroupTableView *)myTable{
     if (!_myTable) {
-        _myTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height) style:UITableViewStylePlain];
+        _myTable = [[GroupTableView alloc]initWithFrame:self.contentView.bounds style:UITableViewStylePlain];
         _myTable.group_delegate = self;
         _myTable.contentInset = UIEdgeInsetsMake(0, 0, margin_64, 0);
   
@@ -170,7 +171,7 @@
             [self.emptyView removeFromSuperview];
             [self setData];
         }else{
-            [self.view addSubview:self.emptyView];
+            [self.contentView addSubview:self.emptyView];
         }
         
     }else{
@@ -179,7 +180,7 @@
             [self.emptyView removeFromSuperview];
             [self setTagetData];
         }else{
-            [self.view addSubview:self.emptyView];
+            [self.contentView addSubview:self.emptyView];
 
         }
     }
@@ -259,8 +260,7 @@
 #pragma  mark--初始化控件
 - (YEmptyView *)emptyView{
     if (!_emptyView) {
-        _emptyView = [[YEmptyView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.seg
-.frame), yUIScreenWidth, yUIScreenHeight-50-margin_64)];
+        _emptyView = [[YEmptyView alloc]initWithFrame:self.contentView.bounds];
         TableObject *obj = [[TableObject alloc]init];
         obj.title = @"还未有成长记录，赶快去添加吧";
         _emptyView.object = obj;

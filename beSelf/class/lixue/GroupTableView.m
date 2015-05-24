@@ -292,5 +292,11 @@
     return _separatorLineview;
 }
 
-
+#pragma mark--scrolldelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if ([self.group_delegate respondsToSelector:@selector(tableDidScorll:)])
+    {
+        [self.group_delegate tableDidScorll:scrollView];
+    }
+}
 @end

@@ -9,5 +9,6 @@
 #import "targetStep.h"
 
 @implementation targetStep
+
 MJCodingImplementation
 @end

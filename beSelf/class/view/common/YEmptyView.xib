@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
@@ -11,13 +12,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="huu-hI-PA9">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="396"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="334" id="DJf-jv-cYq"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="DJf-jv-cYq"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据为空" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMS-VI-vgt">
-                    <rect key="frame" x="0.0" y="354" width="320" height="24"/>
+                    <rect key="frame" x="0.0" y="416" width="320" height="24"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="UKt-8Y-uF8"/>
                     </constraints>
@@ -26,13 +34,16 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="mMS-VI-vgt" firstAttribute="top" secondItem="huu-hI-PA9" secondAttribute="bottom" constant="20" id="43Y-9g-Ejo"/>
                 <constraint firstAttribute="trailing" secondItem="mMS-VI-vgt" secondAttribute="trailing" id="DXI-Qg-h4d"/>
                 <constraint firstItem="huu-hI-PA9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="M0L-Fz-VyQ"/>
+                <constraint firstAttribute="bottom" secondItem="mMS-VI-vgt" secondAttribute="bottom" constant="40" id="U6N-78-GaR"/>
                 <constraint firstItem="mMS-VI-vgt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Urd-JF-ED8"/>
+                <constraint firstItem="mMS-VI-vgt" firstAttribute="top" secondItem="huu-hI-PA9" secondAttribute="bottom" constant="20" id="cgG-KD-Hw5"/>
                 <constraint firstItem="huu-hI-PA9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cuk-on-RnU"/>
+                <constraint firstAttribute="bottom" secondItem="huu-hI-PA9" secondAttribute="bottom" constant="84" id="kG4-Of-BNd"/>
                 <constraint firstAttribute="trailing" secondItem="huu-hI-PA9" secondAttribute="trailing" id="kSi-Xo-GYJ"/>
                 <constraint firstItem="mMS-VI-vgt" firstAttribute="top" secondItem="huu-hI-PA9" secondAttribute="bottom" constant="74" id="ksr-Og-pw1"/>
                 <constraint firstAttribute="bottom" secondItem="mMS-VI-vgt" secondAttribute="bottom" constant="48" id="l8o-iq-Ohz"/>
@@ -41,6 +52,8 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="43Y-9g-Ejo"/>
+                    <exclude reference="cgG-KD-Hw5"/>
                     <exclude reference="ksr-Og-pw1"/>
                     <exclude reference="l8o-iq-Ohz"/>
                 </mask>

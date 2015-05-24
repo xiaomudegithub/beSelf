@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
@@ -172,17 +173,6 @@
                         </mask>
                     </variation>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金额" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0w7-44-ohW">
-                    <rect key="frame" x="15" y="199" width="290" height="33"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="33" id="715-fB-4bM"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="k3j-WN-Ors"/>
-                    </connections>
-                </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="备注：" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeW-cb-uXK">
                     <rect key="frame" x="15" y="240" width="290" height="33"/>
                     <constraints>
@@ -214,6 +204,17 @@
                         <constraint firstAttribute="height" constant="1" id="8dH-NW-c0S"/>
                     </constraints>
                 </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金额" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0w7-44-ohW">
+                    <rect key="frame" x="15" y="199" width="290" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="715-fB-4bM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="k3j-WN-Ors"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -243,7 +244,7 @@
                 <constraint firstItem="dz4-O3-5AL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zeT-eK-JUf"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="103" y="324"/>
+            <point key="canvasLocation" x="-255" y="354"/>
         </view>
     </objects>
     <resources>

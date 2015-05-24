@@ -20,6 +20,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
         self.backgroundColor = [UIColor clearColor];
         self.contentView.layer.borderColor = moneyColor.CGColor;
@@ -55,7 +56,6 @@
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.contentView.frame = CGRectMake(yViewTopInset, 0, yUIScreenWidth-yViewTopInset*2, self.frame.size.height);
     
 }
 

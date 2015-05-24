@@ -57,13 +57,12 @@
 }
 
 #pragma mark--0,设置table
-//0.1初始化表格
+//0.1初始化表
 - (GroupTableView *)GroupTable{
     if (!_GroupTable) {
-        _GroupTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight) style:UITableViewStylePlain];
+        _GroupTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight-margin_64-viewHeight_50) style:UITableViewStylePlain];
         _GroupTable.group_delegate = self;
-        _GroupTable.tableData = self.tableData;
-        _GroupTable.tableSectionHeaderData = self.sectionData;
+
     }
     return _GroupTable;
 }
@@ -119,6 +118,8 @@
     if (self.result.targetArray.count>0) {//有数据
         [self.emptyView removeFromSuperview];
         [self setData];
+        self.GroupTable.tableData = self.tableData;
+        self.GroupTable.tableSectionHeaderData = self.sectionData;
     }else{//没有数据
         [self.view addSubview:self.emptyView];
     }
@@ -156,9 +157,6 @@
         [self.tableData addObject:tempDic];
         
     }
-
-    self.GroupTable.tableData =  self.tableData;
-
 }
 #pragma mark--4,点击左边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
@@ -177,9 +175,9 @@
 #pragma mark--初始化控件
 - (YEmptyView *)emptyView{
     if (!_emptyView) {
-        _emptyView = [[YEmptyView alloc]initWithFrame:self.view.bounds];
+        _emptyView = [[YEmptyView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight-margin_64-viewHeight_50)];
         TableObject *obj = [[TableObject alloc]init];
-        obj.title = @"还未有时间总额";
+        obj.title = @"还未制定目标";
         _emptyView.object = obj;
     }
     return _emptyView;

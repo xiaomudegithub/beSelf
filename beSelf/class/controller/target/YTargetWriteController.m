@@ -8,7 +8,7 @@
 
 #import "YTargetWriteController.h"
 
-@interface YTargetWriteController ()<GroupTableViewDelegate,UITextFieldDelegate,YDatePickerViewDelegate>
+@interface YTargetWriteController ()<GroupTableViewDelegate,UITextFieldDelegate,YDatePickerViewDelegate,YDatePickViewControllerDelegate>
 /**
  *  表
  */
@@ -33,6 +33,15 @@
  *  结束日期
  */
 @property (nonatomic,strong)UITextField *endTimeField;
+
+//endOrBegain:end-yes
+@property (nonatomic, assign)BOOL endOrBegain;
+
+//第几行
+@property (nonatomic, assign)CGFloat selectCellMaxY;
+
+//moveHeight
+@property (nonatomic, assign)CGFloat moveHeight;
 
 @end
 
@@ -97,6 +106,9 @@
     
     return tmpObj.cellHeight;
 }
+- (void)tableDidScorll:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
 #pragma mark--tableData
 - (NSMutableArray *)tableData{
     if (!_tableData) {
@@ -126,7 +138,7 @@
     for (NSInteger i = 101; i<101+cellName.count; i++) {
         TableObject *object = [[TableObject alloc]init];
         object.cellString = @"targetWriteCell";
-        object.cellHeight = 60;
+        object.cellHeight = cellHeight_60;
         object.subTitle = cellName[i-101];
         object.tag = i;
         [self.tableData addObject:object];
@@ -136,36 +148,42 @@
 #pragma mark--2.1调取不同的键盘
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    self.selectCellMaxY = cellHeight_60*(textField.tag-100);
+    CGFloat height = self.selectCellMaxY+216;
+    if (height > yUIScreenHeight-margin_64) {
+        self.moveHeight = height - yUIScreenHeight+margin_64+margin_20;
+        [yAnimation moveUpView:self.view WithHeight:self.moveHeight];
+    }
     switch (textField.tag) {
         case targetTag:
-            [self.datePicker closeDatePicker];
+            
             self.target.targetTitle = textField.text;
             return YES;
             break;
         case startTimeTag:{
             [self.view endEditing:YES];
             textField.placeholder = nil;
-            self.datePicker.tag = startTimeTag;
             self.startTimeField = textField;
-            [self.datePicker openDatePicker];
+            self.endOrBegain = NO;
+            [self startDatePickModalController];
         }
             return NO;
             break;
         case endTimeTag:
             [self.view endEditing:YES];
             textField.placeholder = nil;
-            self.datePicker.tag =endTimeTag;
             self.endTimeField = textField;
-            [self.datePicker openDatePicker];
+            self.endOrBegain = YES;
+            [self startDatePickModalController];
             return NO;
             break;
         case moneyTag:
-            [self.datePicker closeDatePicker];
+            
             textField.keyboardType = UIKeyboardTypeDecimalPad;
             return YES;
             break;
         case moneyUseTag:
-            [self.datePicker closeDatePicker];
+            
             return YES;
             break;
         default:
@@ -176,27 +194,14 @@
 #pragma mark--2.2获取输入数据
 //收起键盘
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.datePicker closeDatePicker];
+    
     [textField resignFirstResponder];
     return YES;
 }
-//相应datePicker并获取时间值
-- (void)didSelectDate:(NSString *)date{
-    switch (self.datePicker.tag) {
-        case startTimeTag:
-            self.startTimeField.text = date;
-            self.target.startTime = date;
-            break;
-        case endTimeTag:
-            self.endTimeField.text = date;
-            self.target.endTime = date;
-            break;
-        default:
-            break;
-    }
-}
+
 //获取数据
 - (void)textFieldDidEndEditing:(UITextField *)textField{
+    [yAnimation moveDownView:self.view WithHeight:self.moveHeight];
     switch (textField.tag) {
         case targetTag:
             self.target.targetTitle = textField.text;
@@ -227,5 +232,39 @@
         [self.delegate didSaveTarget];
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark--公共方法
+//吊起日期选择器
+- (void)startDatePickModalController{
+    YDatePickViewController *controller = [[YDatePickViewController alloc]init];
+    controller.modalPresentationStyle = UIModalPresentationCustom;
+    controller.mainColor = targetColor;
+    controller.delegate = self;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+//确认选择日期
+- (void)didDatePickWithDateString:(NSString *)dateString{
+    if (self.endOrBegain) {
+        self.endTimeField.text = dateString;
+        self.target.endTime = dateString;
+    }else{
+        self.startTimeField.text = dateString;
+        self.target.startTime = dateString;
+    }
+    
+}
+//取消选择日期
+- (void)cancelDatePick{
+    if (self.endOrBegain) {
+        self.endTimeField.text = nil;
+        self.target.startTime = nil;
+        self.endTimeField.placeholder = @"请输入结束时间";
+    }else{
+        self.startTimeField.text = nil;
+        self.target.endTime = nil;
+        self.startTimeField.placeholder = @"请输入开始时间";
+    }
+
 }
 @end

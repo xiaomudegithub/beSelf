@@ -35,4 +35,10 @@ typedef enum{
 //波纹效果
 - (void) boWenWithView:(UIView *)view;
 
+//上移
+- (void) moveUpView:(UIView *)view WithHeight:(CGFloat )height;
+
+//下移
+- (void) moveDownView:(UIView *)view WithHeight:(CGFloat )height;
+
 @end

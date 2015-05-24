@@ -29,6 +29,7 @@
         self.title = @"千里之行，始于足下";
     }
     
+    self.contentTextView.contentInset = UIEdgeInsetsMake(0, 0, self.contentTextView.frame.size.height - 216-margin_20, 0);
     
     [self setControllItem];
 }
@@ -98,7 +99,7 @@
     //3.1存储数据
     if (self.growLastObj) {
         growUpParam *param = [[growUpParam alloc]init];
-        param.growId = self.growUpId+1;
+        param.growId = self.growUpId;
         param.growObj = self.growLastObj;
         [yCache updateGrowUpRecord:param];
     }else{
@@ -128,6 +129,21 @@
     self.growObject.object.subTitle = textView.text;
     self.growLastObj.object.subTitle = textView.text;
 }
+//开始编辑
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    
+    //上移视图
+    [yAnimation moveUpView:self.view WithHeight:CGRectGetMaxY(self.lineView.frame)];
+    
+}
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+//    NSString *content = [textView.text stringByAppendingString:text];
+//    CGSize contentSize = [nsstringTool sizeWithString:content andFont:14 andMaxWidth:yUIScreenWidth-2*yViewTopInset];
+    
+    
+    return YES;
 
+}
 @end

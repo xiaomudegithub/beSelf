@@ -61,7 +61,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.contentView.frame = CGRectMake(yViewTopInset, 0, yUIScreenWidth-yViewTopInset*2, self.frame.size.height);
+
     
 }
 @end

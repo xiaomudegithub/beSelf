@@ -62,9 +62,9 @@
 #pragma mark--1,设置表格
 - (GroupTableView *)myTable{
     if (!_myTable) {
-        _myTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight) style:UITableViewStylePlain];
+        _myTable = [[GroupTableView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight-margin_64-viewHeight_50) style:UITableViewStylePlain];
         _myTable.group_delegate = self;
-        _myTable.tableHeaderView = self.tableHeaderView;
+
     }
     return _myTable;
 }
@@ -123,6 +123,7 @@
         [self.tableData addObject:moneyObj];
     }
     self.myTable.tableData = self.tableData;
+    self.myTable.tableHeaderView = self.tableHeaderView;
 }
 #pragma mark--4,点击右边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
@@ -138,7 +139,7 @@
 #pragma mark--初始化
 - (YEmptyView *)emptyView{
     if (!_emptyView) {
-        _emptyView = [[YEmptyView alloc]initWithFrame:self.view.bounds];
+        _emptyView = [[YEmptyView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight-margin_64-viewHeight_50)];
         TableObject *obj = [[TableObject alloc]init];
         obj.title = @"赶快去记录财富吧";
         _emptyView.object = obj;

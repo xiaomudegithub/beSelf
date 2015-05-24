@@ -10,7 +10,7 @@
 
 @protocol YTotalTimeViewControllerDelegate <NSObject>
 
-- (void)didSaveTotalMoney;
+- (void)didSaveTotalTime;
 
 @end
 
