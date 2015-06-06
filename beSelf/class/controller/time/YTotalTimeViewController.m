@@ -10,6 +10,7 @@
 
 @interface YTotalTimeViewController ()<UITextFieldDelegate,YDatePickViewControllerDelegate>
 //属性
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 @property (weak, nonatomic) IBOutlet yLabel *timeTotalLab;
 @property (weak, nonatomic) IBOutlet yLabel *currentTime;
 @property (weak, nonatomic) IBOutlet UITextField *startTimeText;
@@ -45,15 +46,18 @@
     //totalTimeLab
     NSString *totalTime =  [[NSUserDefaults standardUserDefaults]valueForKey:@"timeTotal"];
     self.timeTotalLab.text = totalTime;
+    self.timeTotalLab.textColor = timeColor;
     
     //currentTime
     self.currentTime.text = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
+    self.currentTime.textColor = [UIColor lightGrayColor];
     
     //confirmBtn
     [self.cofirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.cofirmBtn.layer.cornerRadius = 5;
     self.cofirmBtn.backgroundColor = timeColor;
     
+    self.lineView.backgroundColor = timeColor;
 }
 
 #pragma mark==============3，数据渲染

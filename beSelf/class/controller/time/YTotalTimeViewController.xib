@@ -10,6 +10,7 @@
                 <outlet property="cofirmBtn" destination="xQQ-6C-dEe" id="CIO-N0-bBb"/>
                 <outlet property="currentTime" destination="psW-Wn-bHX" id="MIq-f1-QBi"/>
                 <outlet property="endTimeText" destination="JYJ-Sc-qQT" id="7Bg-pZ-G3R"/>
+                <outlet property="lineView" destination="Qpc-dK-4e3" id="BsV-0h-AlA"/>
                 <outlet property="startTimeText" destination="78Z-He-6Wd" id="5WW-8z-4mJ"/>
                 <outlet property="timeTotalLab" destination="TnM-t7-5wH" id="DBr-uo-ya8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,7 +30,7 @@
                                 <constraint firstAttribute="height" constant="16" id="Zph-RH-YHl"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.4039215686" green="1" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psW-Wn-bHX">

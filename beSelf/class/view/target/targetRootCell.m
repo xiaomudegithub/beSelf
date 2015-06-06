@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet yLabel *title;
 @property (weak, nonatomic) IBOutlet UIView *shuLine;
 @property (weak, nonatomic) IBOutlet UIView *hengLine;
+@property (weak, nonatomic) IBOutlet UILabel *finishLabel;
 @end
 @implementation targetRootCell
 
@@ -55,6 +56,12 @@
     self.shuLine.backgroundColor = targetColor;
     self.hengLine.backgroundColor = targetColor;
     
+    if (tmpObj.color) {
+        self.finishLabel.hidden = NO;
+    }else{
+        self.finishLabel.hidden = YES;
+    }
+    
 
     self.contentView.layer.borderColor = targetColor.CGColor;
     self.contentView.layer.borderWidth = 0.33;
@@ -67,5 +74,16 @@
     [super layoutSubviews];
    
     
+}
+- (UILabel *)finishLabel{
+
+    _finishLabel.text = @"已完成";
+    _finishLabel.textAlignment = NSTextAlignmentCenter;
+    _finishLabel.textColor = yWhite;
+    _finishLabel.layer.cornerRadius = 15;
+    _finishLabel.layer.masksToBounds = YES;
+    _finishLabel.backgroundColor = targetColor;
+    _finishLabel.hidden = YES;
+    return _finishLabel;
 }
 @end

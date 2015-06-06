@@ -13,36 +13,25 @@
 @property (nonatomic,copy)NSString *cellString;
 //cellHeight
 @property(nonatomic,assign)CGFloat cellHeight;
-
 //title
 @property (nonatomic,copy)NSString *title;
-
 //subTitle
 @property (nonatomic,copy)NSString *subTitle;
-
 //value
 @property (nonatomic,copy)NSString *value;
-
 //subValue
 @property (nonatomic,copy)NSString *subValue;
-
 //time
 @property (nonatomic,copy)NSString *time;
-
 //subTime
 @property (nonatomic,copy)NSString *subTime;
-
 //money
 @property (nonatomic,copy)NSString *money;
-
 //subMoney
 @property (nonatomic,copy)NSString *subMoney;
-
-/**
- *  标识
- */
+//标识
 @property(nonatomic,assign)NSInteger tag;
-
 //color
-@property (strong, nonatomic) UIColor *color;
+@property (strong, nonatomic)UIColor *color;
+
 @end

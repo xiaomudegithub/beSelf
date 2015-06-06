@@ -27,14 +27,20 @@
 @property (nonatomic, strong)growUpResult *result;
 //从数据库中读取的目标对象
 @property (nonatomic, strong)targetResult *tResult;
+//targetStep
+@property (strong, nonatomic) targetStep *stepResult;
 //空页面
 @property (strong, nonatomic) YEmptyView *emptyView;
-
+//haveFinished targetIndex
+@property (nonatomic, assign)NSInteger finishedTargetIndex;
 
 @end
 
 @implementation YGrowUpController
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -53,6 +59,9 @@
     [self.view addSubview:self.seg];
     [self.view addSubview:self.contentView];
     [self getData];
+    
+    //添加监听者
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(haveFinishTarget:) name:@"finishTarget" object:nil];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -128,13 +137,13 @@
         controller.growLastObj = tmpObj;
         controller.growUpId = indexPath.section;
         controller.delegate = self;
-//        controller.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }else{
         //查看目标进度
         targetProgressController *controller = [[targetProgressController alloc]init];
         controller.targetIndex = indexPath.section;
-//        controller.hidesBottomBarWhenPushed = YES;
+        controller.mainColor = growColor;
+        controller.canChange = NO;
         [self.navigationController pushViewController:controller animated:YES];
         
     }
@@ -176,6 +185,7 @@
         
     }else{
         self.tResult = [yCache readerTargetResult];
+ 
         if (self.tResult.targetArray.count>0) {
             [self.emptyView removeFromSuperview];
             [self setTagetData];
@@ -231,11 +241,17 @@
         [self.sectionArray addObject:sectionObj];
         
         targetModal *target = self.tResult.targetArray[i];
+        targetParam *param = [[targetParam alloc]init];
+        param.targetId = i+1;
+        targetStep *steps = [yCache readerTargetStepWithParam:param];
         
         TableObject *obj = [[TableObject alloc]init];
         obj.cellHeight = yCellHeight;
         obj.cellString = @"growUpTodayThingsCell";
         obj.title =  target.targetTitle;
+        if (steps.finishStep == 5) {
+            obj.color = growColor;
+        }
         [tempArray addObject:obj];
         
         [dic setObject:tempArray forKey:@"titleSectionView"];
@@ -256,6 +272,11 @@
 #pragma mark--5,响应成长记录控制器代理，刷新数据
 - (void)didSaveGrowUpRecord{
     [self getData];
+}
+#pragma mark--6,respone to the notification of the target
+- (void)haveFinishTarget:(NSNotification *)noti{
+    self.finishedTargetIndex = (NSInteger)noti.userInfo[@"targetIndex"];
+    
 }
 #pragma  mark--初始化控件
 - (YEmptyView *)emptyView{

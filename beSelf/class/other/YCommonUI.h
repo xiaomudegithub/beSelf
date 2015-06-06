@@ -127,12 +127,13 @@
 #define yImage [[imageTool alloc]init]
 #define yAnimation [[animationTool alloc]init]
 //=======================颜色宏====================
-#define growColor UIColorWithRGB(87, 186, 249)
-#define targetColor UIColorWithRGB(255,149,0)
-#define timeColor UIColorWithRGB(90,212,39)
-#define moneyColor UIColorWithRGB(255, 219,76)
+#define growColor UIColorWithRGB(125,164,220)
+#define targetColor UIColorWithRGB(192,80,77)
+#define timeColor UIColorWithRGB(138,176,72)
+#define moneyColor UIColorWithRGB(46, 111,100)
 #define bgColor UIColorWithRGB(255,255,255)
 #define yWhite [UIColor whiteColor];
+#define yGreenColor UIColorWithRGB(61,134,49)
 //========================label==================
 #define labelHeigh_14 14
 #define labelHeigh_16 16
@@ -157,4 +158,11 @@
 #define DURATION 0.25
 //=======================view=====================
 #define viewHeight_50 50
+//=======================imageview=====================
+#define imageW_25 25
+#define imageH_25 25
+//=======================label=====================
+#define labelWidth_60 60
+#define labelHeight_30 30
+
 #endif

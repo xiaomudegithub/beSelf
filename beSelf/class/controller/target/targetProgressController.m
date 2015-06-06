@@ -7,9 +7,9 @@
 //
 
 #import "targetProgressController.h"
-#import "targetProgressCell.h"
 
-@interface targetProgressController ()<GroupTableViewDelegate>
+
+@interface targetProgressController ()<GroupTableViewDelegate,targetProgressCellDelegate>
 //table
 @property (strong, nonatomic) GroupTableView *myTable;
 //tableData
@@ -25,7 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"目标进度";
     [self getData];
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,14 +43,17 @@
     if (!_myTable) {
         _myTable = [[GroupTableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _myTable.group_delegate = self;
+        _myTable.cellDelegateObject = self;
+        _myTable.tableData = self.tableData;
+        _myTable.userInteractionEnabled =self.canChange;
+        _myTable.scrollEnabled = NO;
     }
     return _myTable;
 }
 //emptyView
 - (YEmptyView *)emptyView{
     if (!_emptyView) {
-        _emptyView = [[YEmptyView alloc]init];
-        _emptyView.frame = self.view.frame;
+        _emptyView = [[YEmptyView alloc]initWithFrame:CGRectMake(0, 0, yUIScreenWidth, yUIScreenHeight-margin_64-viewHeight_50)];
         TableObject *obj = [[TableObject alloc]init];
         obj.title = @"目标尚未分解,无法查看进度";
         _emptyView.object = obj;
@@ -73,9 +78,10 @@
 }
 #pragma mark==============3，数据渲染
 - (void)getData{
-    if (self.result) {
-        [self.view addSubview:self.myTable];
+    if (self.result.firstStep) {
         [self setData];
+        [self.view addSubview:self.myTable];
+        //self.myTable.tableData = self.tableData;
     }else{
         [self.view addSubview:self.emptyView];
     }
@@ -86,31 +92,23 @@
     for (NSInteger i=0; i<5; i++) {
         switch (i) {
             case 0:
-                [self creatObjWithTitle:self.result.firstStep];
+                [self creatObjWithTitle:self.result.firstStep andIsFinished:self.result.finishStep];
                 break;
             case 1:
-                 [self creatObjWithTitle:self.result.secordStep];
+                 [self creatObjWithTitle:self.result.secordStep andIsFinished:self.result.finishStep];
                 break;
             case 2:
-                 [self creatObjWithTitle:self.result.thirdStep];
+                 [self creatObjWithTitle:self.result.thirdStep andIsFinished:self.result.finishStep];
                 break;
             case 3:
-                 [self creatObjWithTitle:self.result.forthStep];
+                 [self creatObjWithTitle:self.result.forthStep andIsFinished:self.result.finishStep];
                 break;
             case 4:
-                 [self creatObjWithTitle:self.result.fifthStep];
+                 [self creatObjWithTitle:self.result.fifthStep andIsFinished:self.result.finishStep];
                 break;
             default:
                 break;
         }
-    }
- 
-  
-  
-    
-    //刷新数据
-    if (self.tableData.count>0) {
-        self.myTable.tableData = self.tableData;
     }
  
 }
@@ -122,14 +120,31 @@
     return cellHeight_60;
 }
 
-- (void)creatObjWithTitle:(NSString *)title{
+- (void)creatObjWithTitle:(NSString *)title andIsFinished:(NSInteger)finishStep{
     if (title.length>0) {
         TableObject *obj = [[TableObject alloc]init];
-        obj.title = nil;
+        obj.title = title;
         obj.cellString = @"targetProgressCell";
         obj.cellHeight = cellHeight_60;
+        obj.tag = finishStep;
+        obj.color = self.mainColor;
         [self.tableData addObject:obj];
     }
 
+}
+
+- (void)didFinishStepWithIndex:(NSInteger)stepIndex{
+    if (stepIndex == 5) {
+        NSNumber *stepNum = [NSNumber numberWithInteger:self.targetIndex];
+        //发送通知
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"finishTarget" object:nil userInfo:@{@"targetIndex":stepNum}];
+
+    }
+    //缓存
+    self.result.finishStep = stepIndex;
+    [yCache updateTargetStep:self.result];
+    //刷新表
+    [self.myTable removeFromSuperview];
+    [self getData];
 }
 @end

@@ -11,6 +11,8 @@
 @interface targetStep : NSObject
 //targetId
 @property (nonatomic, assign)NSInteger targetId;
+//isFinished
+@property (nonatomic, assign)NSInteger finishStep;
 //1
 @property (nonatomic, copy)NSString *firstStep;
 //2

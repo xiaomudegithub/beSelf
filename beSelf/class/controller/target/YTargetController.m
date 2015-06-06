@@ -9,6 +9,7 @@
 #import "YTargetController.h"
 #import "YTargetWriteController.h"
 #import "YTargetCheckController.h"
+#import "targetProgressController.h"
 
 
 @interface YTargetController ()<GroupTableViewDelegate,YTargetWriteControllerDelegate>
@@ -96,16 +97,30 @@
     return tmpObj.cellHeight;
 }
 - (void)tabledidSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //获取cell对应的对象
-    NSDictionary *tempDic =  self.tableData[indexPath.section];
-    NSArray *tempArray =  tempDic.allValues[0];
-    TableObject *cellObj = tempArray[0];
     
-    //跳转到分解目标界面
-    YTargetCheckController *controller= [[YTargetCheckController alloc]init];
-    controller.title = cellObj.title;
-    controller.targetId = indexPath.section;
-    [self.navigationController pushViewController:controller animated:YES];
+    targetParam *param = [[targetParam alloc]init];
+    param.targetId = indexPath.section+1;
+    targetStep *step = [yCache readerTargetStepWithParam:param];
+    
+    if (step.firstStep) {
+        //查看目标进度
+        targetProgressController *controller = [[targetProgressController alloc]init];
+        controller.targetIndex = indexPath.section;
+        controller.canChange = YES;
+        [self.navigationController pushViewController:controller animated:YES];
+    }else{
+        //获取cell对应的对象
+        NSDictionary *tempDic =  self.tableData[indexPath.section];
+        NSArray *tempArray =  tempDic.allValues[0];
+        TableObject *cellObj = tempArray[0];
+        
+        //跳转到分解目标界面
+        YTargetCheckController *controller= [[YTargetCheckController alloc]init];
+        controller.title = cellObj.title;
+        controller.targetId = indexPath.section;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    
 }
 #pragma mark--1,获取数据
 - (void)getData{
@@ -132,7 +147,12 @@
     self.tableData = [NSMutableArray array];
     self.sectionData = [NSMutableArray array];
   
-    for (targetModal *target in  self.result.targetArray) {
+    for (NSInteger i = 0 ;i<self.result.targetArray.count;i++) {
+        targetModal *target =  self.result.targetArray[i];
+        targetParam *param = [[targetParam alloc]init];
+        param.targetId = i+1;
+        targetStep *steps = [yCache readerTargetStepWithParam:param];
+        
         NSMutableDictionary *tempDic = [NSMutableDictionary dictionary];
         NSMutableArray *tempArray = [NSMutableArray array];
   
@@ -141,12 +161,16 @@
         sectionObj.titleString = target.startTime;
         [self.sectionData addObject:sectionObj];
         
+        
         TableObject *object = [[TableObject alloc]init];
         object.cellString = @"targetRootCell";
         object.cellHeight = 120;
         object.title = target.targetTitle;
         object.money = target.targetMoney;
         object.subMoney = target.moneyUse;
+        if (steps.finishStep == 5) {
+            object.color = targetColor;
+        }
         NSInteger days = [timeTool daysWithStartDay:target.startTime andEndDay:target.endTime andFormat:@"YYYY/MM/dd"];
         object.time = [NSString stringWithFormat:@"%ld",(long)days];
         NSInteger leftDays = [timeTool daysWithStartDay:[timeTool getCurrentTimeWithFormat:@"YYYY/MM /dd"] andEndDay:target.endTime andFormat:@"YYYY/MM/dd"];

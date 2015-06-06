@@ -55,13 +55,13 @@
     TableObject *tmpObj = tmpArr[indexPath.row];
     //targetTitle
     self.targetTitleLab.text = tmpObj.title;
-    self.targetTitleLab.textColor = timeColor;
+    //self.targetTitleLab.textColor = timeColor;
     //timeStart
     self.timeStartLab.text = tmpObj.time;
-    self.timeStartLab.textColor = timeColor;
+    //self.timeStartLab.textColor = timeColor;
     //timeEnd
     self.timeEndLab.text = tmpObj.subTime;
-    self.timeEndLab.textColor = timeColor;
+    //self.timeEndLab.textColor = timeColor;
     //timeValueBtn
     [self.timeValueBtn setTitle:tmpObj.value forState:UIControlStateNormal];
     [self.timeValueBtn setBackgroundColor:timeColor];

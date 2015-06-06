@@ -11,4 +11,8 @@
 @interface targetProgressController : UIViewController
 //target index
 @property (nonatomic, assign)NSInteger targetIndex;
+//mainColor
+@property (strong, nonatomic)UIColor *mainColor;
+//bool
+@property (nonatomic, assign)BOOL canChange;
 @end

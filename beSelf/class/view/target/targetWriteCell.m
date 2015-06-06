@@ -21,6 +21,9 @@
 
         self = [[[NSBundle mainBundle]loadNibNamed:reuseIdentifier owner:nil options:nil]lastObject];
         self.backgroundColor = bgColor;
+        self.textFieldCell.layer.borderWidth = 0.5;
+        self.textFieldCell.layer.borderColor = targetColor.CGColor;
+        self.textFieldCell.layer.cornerRadius = 5;
     }
     return self;
 }

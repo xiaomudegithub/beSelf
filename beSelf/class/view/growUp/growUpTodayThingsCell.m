@@ -10,7 +10,8 @@
 
 @interface growUpTodayThingsCell()
 @property (weak, nonatomic) IBOutlet yLabel *title;
-
+//finishedIcon
+@property (strong, nonatomic) UILabel *finishLabel;
 @end
 
 @implementation growUpTodayThingsCell
@@ -44,6 +45,25 @@
     
     TableObject *tmpObj = tmpArr[indexPath.row];
     self.title.text = tmpObj.title;
+    if (tmpObj.color) {
+        self.backgroundColor = tmpObj.color;
+        self.alpha = 0.33;
+        self.finishLabel.textColor = tmpObj.color;
+        [self.contentView addSubview:self.finishLabel];
+    }
+}
 
+- (UILabel *)finishLabel{
+    if (!_finishLabel) {
+        CGFloat X = (self.frame.size.height - labelHeight_30)*0.5;
+        _finishLabel = [[UILabel alloc]initWithFrame:CGRectMake(yUIScreenWidth-yViewTopInset-labelWidth_60, X, labelWidth_60, labelHeight_30)];
+        _finishLabel.text = @"已完成";
+        _finishLabel.textAlignment = NSTextAlignmentCenter;
+        _finishLabel.backgroundColor = yWhite;
+        _finishLabel.layer.cornerRadius = 15;
+        _finishLabel.layer.masksToBounds = YES;
+        
+    }
+    return _finishLabel;
 }
 @end

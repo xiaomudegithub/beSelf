@@ -48,7 +48,11 @@
     self.titleTextField.delegate = self;
     
     //timeLabel
-    self.timeLab.text = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
+    if(self.growLastObj.object.time.length>0){
+        self.timeLab.text = self.growLastObj.object.time;
+    }else{
+        self.timeLab.text = [timeTool getCurrentTimeWithFormat:@"YYYY/MM/dd"];
+    }
     self.timeLab.textColor = growColor;
     
     //line
@@ -99,7 +103,7 @@
     //3.1存储数据
     if (self.growLastObj) {
         growUpParam *param = [[growUpParam alloc]init];
-        param.growId = self.growUpId;
+        param.growId = self.growUpId+1;
         param.growObj = self.growLastObj;
         [yCache updateGrowUpRecord:param];
     }else{

@@ -42,6 +42,7 @@
 #import "YDatePickerView.h"
 #import "rootHeader.h"
 #import "YEmptyView.h"
+#import "targetProgressCell.h"
 //----yUI
 #import "yLabel.h"
 #import "YBarButtonitem.h"

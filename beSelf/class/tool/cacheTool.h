@@ -32,4 +32,6 @@
 #pragma mark===================修改
 #pragma mark--修改成长记录
 - (void)updateGrowUpRecord:(growUpParam *)param;
+#pragma mark--修改目标步骤
+- (void)updateTargetStep:(targetStep *)step;
 @end
