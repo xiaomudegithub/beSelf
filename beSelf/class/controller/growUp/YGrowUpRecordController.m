@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 木. All rights reserved.
 //
 
-#import "growUpRecordController.h"
+#import "YGrowUpRecordController.h"
 
-@interface growUpRecordController ()<UITextFieldDelegate,UITextViewDelegate>
+@interface YGrowUpRecordController ()<UITextFieldDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet yLabel *timeLab;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
@@ -18,7 +18,7 @@
 @property (strong, nonatomic) UIButton *saveBtn;
 @end
 
-@implementation growUpRecordController
+@implementation YGrowUpRecordController
 #pragma mark==============1,生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];

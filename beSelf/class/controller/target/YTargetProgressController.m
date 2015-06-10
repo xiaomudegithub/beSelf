@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 木. All rights reserved.
 //
 
-#import "targetProgressController.h"
+#import "YTargetProgressController.h"
 
 
-@interface targetProgressController ()<GroupTableViewDelegate,targetProgressCellDelegate>
+@interface YTargetProgressController ()<GroupTableViewDelegate,targetProgressCellDelegate>
 //table
 @property (strong, nonatomic) GroupTableView *myTable;
 //tableData
@@ -20,7 +20,7 @@
 @property (strong, nonatomic) YEmptyView *emptyView;
 @end
 
-@implementation targetProgressController
+@implementation YTargetProgressController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -140,11 +140,13 @@
         [[NSNotificationCenter defaultCenter]postNotificationName:@"finishTarget" object:nil userInfo:@{@"targetIndex":stepNum}];
 
     }
-    //缓存
-    self.result.finishStep = stepIndex;
-    [yCache updateTargetStep:self.result];
-    //刷新表
-    [self.myTable removeFromSuperview];
-    [self getData];
+    if (self.result.finishStep<stepIndex) {
+        //缓存
+        self.result.finishStep = stepIndex;
+        [yCache updateTargetStep:self.result];
+        //刷新表
+        [self.myTable removeFromSuperview];
+        [self getData];
+    }
 }
 @end

@@ -9,7 +9,7 @@
 #import "YTargetController.h"
 #import "YTargetWriteController.h"
 #import "YTargetCheckController.h"
-#import "targetProgressController.h"
+#import "YTargetProgressController.h"
 
 
 @interface YTargetController ()<GroupTableViewDelegate,YTargetWriteControllerDelegate>
@@ -104,7 +104,7 @@
     
     if (step.firstStep) {
         //查看目标进度
-        targetProgressController *controller = [[targetProgressController alloc]init];
+        YTargetProgressController *controller = [[YTargetProgressController alloc]init];
         controller.targetIndex = indexPath.section;
         controller.canChange = YES;
         [self.navigationController pushViewController:controller animated:YES];

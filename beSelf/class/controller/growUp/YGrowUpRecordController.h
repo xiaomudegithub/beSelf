@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-@class growUpRecordController;
+@class YGrowUpRecordController;
 @protocol growUpRecordControllerDelegate <NSObject>
 
 - (void)didSaveGrowUpRecord;
 
 @end
 
-@interface growUpRecordController : UIViewController
+@interface YGrowUpRecordController : UIViewController
 
 @property(nonatomic, weak)id<growUpRecordControllerDelegate> delegate;
 //上个页面传过来的数据

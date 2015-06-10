@@ -8,8 +8,8 @@
 
 #import "YGrowUpController.h"
 #import "growUpRootObject.h"
-#import "growUpRecordController.h"
-#import "targetProgressController.h"
+#import "YGrowUpRecordController.h"
+#import "YTargetProgressController.h"
 
 
 @interface YGrowUpController ()<GroupTableViewDelegate,growUpRecordControllerDelegate>
@@ -133,14 +133,14 @@
     if (self.seg.selectedSegmentIndex==0) {
         //查看目标
         growUpRootObject *tmpObj = tmpArr[indexPath.row];
-        growUpRecordController *controller = [[growUpRecordController alloc]init];
+        YGrowUpRecordController *controller = [[YGrowUpRecordController alloc]init];
         controller.growLastObj = tmpObj;
         controller.growUpId = indexPath.section;
         controller.delegate = self;
         [self.navigationController pushViewController:controller animated:YES];
     }else{
         //查看目标进度
-        targetProgressController *controller = [[targetProgressController alloc]init];
+        YTargetProgressController *controller = [[YTargetProgressController alloc]init];
         controller.targetIndex = indexPath.section;
         controller.mainColor = growColor;
         controller.canChange = NO;
@@ -264,7 +264,7 @@
 
 #pragma mark--4,点击左边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
-    growUpRecordController *controller = [[growUpRecordController alloc]initWithNibName:@"growUpRecordController" bundle:nil];
+    YGrowUpRecordController *controller = [[YGrowUpRecordController alloc]initWithNibName:@"growUpRecordController" bundle:nil];
     controller.delegate = self;
 //    controller.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:controller animated:YES];

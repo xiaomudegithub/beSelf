@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface targetProgressController : UIViewController
+@interface YTargetProgressController : UIViewController
 //target index
 @property (nonatomic, assign)NSInteger targetIndex;
 //mainColor

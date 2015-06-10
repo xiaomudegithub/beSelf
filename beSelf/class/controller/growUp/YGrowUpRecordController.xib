@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="growUpRecordController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YGrowUpRecordController">
             <connections>
                 <outlet property="contentTextView" destination="I0A-Pb-Jlz" id="l63-by-yfy"/>
                 <outlet property="lineView" destination="v6G-48-5nR" id="1uk-97-dBa"/>

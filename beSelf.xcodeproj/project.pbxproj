@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B98E2371ADE918A00E4B8DB /* YTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E1E71ADE918900E4B8DB /* YTabbarController.m */; };
-		0B98E2381ADE918A00E4B8DB /* growUpRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E1EA1ADE918A00E4B8DB /* growUpRecordController.m */; };
-		0B98E2391ADE918A00E4B8DB /* growUpRecordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B98E1EB1ADE918A00E4B8DB /* growUpRecordController.xib */; };
+		0B98E2381ADE918A00E4B8DB /* YGrowUpRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E1EA1ADE918A00E4B8DB /* YGrowUpRecordController.m */; };
+		0B98E2391ADE918A00E4B8DB /* YGrowUpRecordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B98E1EB1ADE918A00E4B8DB /* YGrowUpRecordController.xib */; };
 		0B98E23A1ADE918A00E4B8DB /* YGrowUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E1ED1ADE918A00E4B8DB /* YGrowUpController.m */; };
 		0B98E23B1ADE918A00E4B8DB /* YGrowUpController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B98E1EE1ADE918A00E4B8DB /* YGrowUpController.xib */; };
 		0B98E23C1ADE918A00E4B8DB /* YMoneyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98E1F11ADE918A00E4B8DB /* YMoneyController.m */; };
@@ -97,8 +97,8 @@
 		BF8E853C1B0C5F1D00C6C882 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8E85371B0C5F1D00C6C882 /* FMResultSet.m */; };
 		BFD4468B1B0D76F600918EAC /* YDatePickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD446891B0D76F600918EAC /* YDatePickViewController.m */; };
 		BFD4468C1B0D76F600918EAC /* YDatePickViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4468A1B0D76F600918EAC /* YDatePickViewController.xib */; };
-		BFF07FEA1B15D2470097E576 /* targetProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF07FE81B15D2470097E576 /* targetProgressController.m */; };
-		BFF07FEB1B15D2470097E576 /* targetProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF07FE91B15D2470097E576 /* targetProgressController.xib */; };
+		BFF07FEA1B15D2470097E576 /* YTargetProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF07FE81B15D2470097E576 /* YTargetProgressController.m */; };
+		BFF07FEB1B15D2470097E576 /* YTargetProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF07FE91B15D2470097E576 /* YTargetProgressController.xib */; };
 		BFF8EF621AF5B3EE0053980A /* YBarButtonitem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */; };
 		BFFD6A171B0457C3003904C1 /* YEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFD6A161B0457C3003904C1 /* YEmptyView.m */; };
 		BFFD6A191B0457E4003904C1 /* YEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFD6A181B0457E4003904C1 /* YEmptyView.xib */; };
@@ -118,9 +118,9 @@
 /* Begin PBXFileReference section */
 		0B98E1E61ADE918900E4B8DB /* YTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTabbarController.h; sourceTree = "<group>"; };
 		0B98E1E71ADE918900E4B8DB /* YTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTabbarController.m; sourceTree = "<group>"; };
-		0B98E1E91ADE918A00E4B8DB /* growUpRecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = growUpRecordController.h; sourceTree = "<group>"; };
-		0B98E1EA1ADE918A00E4B8DB /* growUpRecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = growUpRecordController.m; sourceTree = "<group>"; };
-		0B98E1EB1ADE918A00E4B8DB /* growUpRecordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = growUpRecordController.xib; sourceTree = "<group>"; };
+		0B98E1E91ADE918A00E4B8DB /* YGrowUpRecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGrowUpRecordController.h; sourceTree = "<group>"; };
+		0B98E1EA1ADE918A00E4B8DB /* YGrowUpRecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGrowUpRecordController.m; sourceTree = "<group>"; };
+		0B98E1EB1ADE918A00E4B8DB /* YGrowUpRecordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGrowUpRecordController.xib; sourceTree = "<group>"; };
 		0B98E1EC1ADE918A00E4B8DB /* YGrowUpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGrowUpController.h; sourceTree = "<group>"; };
 		0B98E1ED1ADE918A00E4B8DB /* YGrowUpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGrowUpController.m; sourceTree = "<group>"; };
 		0B98E1EE1ADE918A00E4B8DB /* YGrowUpController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGrowUpController.xib; sourceTree = "<group>"; };
@@ -280,9 +280,9 @@
 		BFD446881B0D76F600918EAC /* YDatePickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDatePickViewController.h; sourceTree = "<group>"; };
 		BFD446891B0D76F600918EAC /* YDatePickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDatePickViewController.m; sourceTree = "<group>"; };
 		BFD4468A1B0D76F600918EAC /* YDatePickViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YDatePickViewController.xib; sourceTree = "<group>"; };
-		BFF07FE71B15D2470097E576 /* targetProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetProgressController.h; sourceTree = "<group>"; };
-		BFF07FE81B15D2470097E576 /* targetProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = targetProgressController.m; sourceTree = "<group>"; };
-		BFF07FE91B15D2470097E576 /* targetProgressController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = targetProgressController.xib; sourceTree = "<group>"; };
+		BFF07FE71B15D2470097E576 /* YTargetProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTargetProgressController.h; sourceTree = "<group>"; };
+		BFF07FE81B15D2470097E576 /* YTargetProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTargetProgressController.m; sourceTree = "<group>"; };
+		BFF07FE91B15D2470097E576 /* YTargetProgressController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTargetProgressController.xib; sourceTree = "<group>"; };
 		BFF8EF601AF5B3EE0053980A /* YBarButtonitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBarButtonitem.h; sourceTree = "<group>"; };
 		BFF8EF611AF5B3EE0053980A /* YBarButtonitem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBarButtonitem.m; sourceTree = "<group>"; };
 		BFFD6A151B0457C3003904C1 /* YEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YEmptyView.h; sourceTree = "<group>"; };
@@ -355,9 +355,9 @@
 		0B98E1E81ADE918A00E4B8DB /* growUp */ = {
 			isa = PBXGroup;
 			children = (
-				0B98E1E91ADE918A00E4B8DB /* growUpRecordController.h */,
-				0B98E1EA1ADE918A00E4B8DB /* growUpRecordController.m */,
-				0B98E1EB1ADE918A00E4B8DB /* growUpRecordController.xib */,
+				0B98E1E91ADE918A00E4B8DB /* YGrowUpRecordController.h */,
+				0B98E1EA1ADE918A00E4B8DB /* YGrowUpRecordController.m */,
+				0B98E1EB1ADE918A00E4B8DB /* YGrowUpRecordController.xib */,
 				0B98E1EC1ADE918A00E4B8DB /* YGrowUpController.h */,
 				0B98E1ED1ADE918A00E4B8DB /* YGrowUpController.m */,
 				0B98E1EE1ADE918A00E4B8DB /* YGrowUpController.xib */,
@@ -383,9 +383,9 @@
 		0B98E1F31ADE918A00E4B8DB /* target */ = {
 			isa = PBXGroup;
 			children = (
-				BFF07FE71B15D2470097E576 /* targetProgressController.h */,
-				BFF07FE81B15D2470097E576 /* targetProgressController.m */,
-				BFF07FE91B15D2470097E576 /* targetProgressController.xib */,
+				BFF07FE71B15D2470097E576 /* YTargetProgressController.h */,
+				BFF07FE81B15D2470097E576 /* YTargetProgressController.m */,
+				BFF07FE91B15D2470097E576 /* YTargetProgressController.xib */,
 				0B98E1F41ADE918A00E4B8DB /* YTargetController.h */,
 				0B98E1F51ADE918A00E4B8DB /* YTargetController.m */,
 				0B98E1F61ADE918A00E4B8DB /* YTargetController.xib */,
@@ -830,12 +830,12 @@
 				0BF0320C1AD4BA3100DB1142 /* Main.storyboard in Resources */,
 				BF7B9E6B1AF7CA340089906A /* YTargetCheckController.xib in Resources */,
 				0BF7D25A1AE5DC1D0051B9AD /* moneyRecordCell.xib in Resources */,
-				BFF07FEB1B15D2470097E576 /* targetProgressController.xib in Resources */,
+				BFF07FEB1B15D2470097E576 /* YTargetProgressController.xib in Resources */,
 				0BDD00211AE0BD2500119989 /* YTargetWriteController.xib in Resources */,
 				0BDD00261AE0BDD600119989 /* targetWriteCell.xib in Resources */,
 				0B98E23B1ADE918A00E4B8DB /* YGrowUpController.xib in Resources */,
 				0BF032111AD4BA3100DB1142 /* LaunchScreen.xib in Resources */,
-				0B98E2391ADE918A00E4B8DB /* growUpRecordController.xib in Resources */,
+				0B98E2391ADE918A00E4B8DB /* YGrowUpRecordController.xib in Resources */,
 				0BF7EFA21AE76B25000D124A /* YTotalTimeViewController.xib in Resources */,
 				0B98E2591ADE918A00E4B8DB /* timeRootCell.xib in Resources */,
 				0BF7D2551AE5DA490051B9AD /* growUpTodayThingsCell.xib in Resources */,
@@ -889,7 +889,7 @@
 				0BF7D1E11AE24BAA0051B9AD /* YDatePickerView.m in Sources */,
 				BF563B9B1AF3DE8800DB6A02 /* lineView.m in Sources */,
 				0B98E24F1ADE918A00E4B8DB /* rootHeader.m in Sources */,
-				0B98E2381ADE918A00E4B8DB /* growUpRecordController.m in Sources */,
+				0B98E2381ADE918A00E4B8DB /* YGrowUpRecordController.m in Sources */,
 				0BDD00201AE0BD2500119989 /* YTargetWriteController.m in Sources */,
 				0B98E2971ADFDCB500E4B8DB /* MJMethod.m in Sources */,
 				BF7B9E6E1AF7D0760089906A /* imageTool.m in Sources */,
@@ -908,7 +908,7 @@
 				BF8D4BF81B159A4E00964F46 /* targetProgressCell.m in Sources */,
 				0B98E2561ADE918A00E4B8DB /* targetRootCell.m in Sources */,
 				0B98E2781ADE939D00E4B8DB /* MBProgressHUD.m in Sources */,
-				BFF07FEA1B15D2470097E576 /* targetProgressController.m in Sources */,
+				BFF07FEA1B15D2470097E576 /* YTargetProgressController.m in Sources */,
 				0BF7D2651AE664330051B9AD /* moneyResult.m in Sources */,
 				0B98E2581ADE918A00E4B8DB /* timeRootCell.m in Sources */,
 				0B98E2961ADFDCB500E4B8DB /* MJMember.m in Sources */,
@@ -1055,6 +1055,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = beSelf/class/other/beSelf.pch;
@@ -1062,6 +1063,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1071,6 +1073,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = beSelf/class/other/beSelf.pch;
@@ -1078,6 +1081,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
