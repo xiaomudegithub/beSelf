@@ -264,7 +264,7 @@
 
 #pragma mark--4,点击左边按钮，输入内容
 - (void)rightBarButtonItemDidTap:(id)sender{
-    YGrowUpRecordController *controller = [[YGrowUpRecordController alloc]initWithNibName:@"growUpRecordController" bundle:nil];
+    YGrowUpRecordController *controller = [[YGrowUpRecordController alloc]init];
     controller.delegate = self;
 //    controller.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:controller animated:YES];
