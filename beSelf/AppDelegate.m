@@ -24,6 +24,7 @@
     self.window.rootViewController = [[YTabbarController alloc]init];
     //3，显示窗口
     [self.window makeKeyAndVisible];
+    //4.git测试
     
     return YES;
 }
